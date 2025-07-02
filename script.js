@@ -119,6 +119,156 @@ function initHeroImageEffect() {
 // Initialize hero image effect when DOM is loaded
 document.addEventListener('DOMContentLoaded', initHeroImageEffect);
 
+// Hero Image Cycling with Steps
+function initHeroImageCycling() {
+    const heroImage = document.getElementById('heroImage');
+    const stepOverlay = document.getElementById('stepOverlay');
+    
+    if (!heroImage || !stepOverlay) return;
+    
+    const heroImages = [
+        {
+            src: './images/hero/1.photo click.png',
+            step: 'Step 1: Photo & Click Strategy',
+            description: 'Professional dental photography that converts visitors into patients'
+        },
+        {
+            src: './images/hero/3.plan.png',
+            step: 'Step 2: Strategic Planning',
+            description: 'Comprehensive digital marketing plan tailored for your practice'
+        },
+        {
+            src: './images/hero/4.plan.png',
+            step: 'Step 3: Execution',
+            description: 'Implementing and launching your marketing campaigns effectively'
+        },
+        {
+            src: './images/hero/6.patient.png',
+            step: 'Step 4: Patient Acquisition',
+            description: 'Real patients, real appointments, real growth for your practice'
+        }
+    ];
+    
+    let currentImageIndex = 0;
+    
+    function switchHeroImage() {
+        // Slide out current image and step to the right
+        heroImage.style.opacity = '0';
+        heroImage.style.transform = 'translateX(100%)';
+        stepOverlay.style.opacity = '0';
+        stepOverlay.style.transform = 'translateX(100%)';
+        
+        setTimeout(() => {
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            const currentItem = heroImages[currentImageIndex];
+            
+            // Update image and step
+            heroImage.src = currentItem.src;
+            stepOverlay.textContent = currentItem.step;
+            
+            // Position image and step completely off-screen to the left
+            heroImage.style.transform = 'translateX(-100%)';
+            stepOverlay.style.transform = 'translateX(-100%)';
+            heroImage.style.opacity = '1';
+            stepOverlay.style.opacity = '1';
+            
+            // Slide in from left to center position
+            setTimeout(() => {
+                heroImage.style.transform = 'translateX(0)';
+                stepOverlay.style.transform = 'translateX(0)';
+            }, 50);
+            
+        }, 400);
+    }
+    
+    // Add slower, smoother transition CSS
+    heroImage.style.transition = 'opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    stepOverlay.style.transition = 'opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    
+    // Initialize first image with slide-in animation from left
+    function initializeFirstImage() {
+        // Position image and overlay off-screen to the left
+        heroImage.style.transform = 'translateX(-100%)';
+        stepOverlay.style.transform = 'translateX(-100%)';
+        heroImage.style.opacity = '1';
+        stepOverlay.style.opacity = '1';
+        
+        // Slide in from left after a brief delay
+        setTimeout(() => {
+            heroImage.style.transform = 'translateX(0)';
+            stepOverlay.style.transform = 'translateX(0)';
+        }, 500);
+    }
+    
+    // Initialize first image animation
+    initializeFirstImage();
+    
+    // Switch image every 4 seconds for slower, more sophisticated cycling
+    setInterval(switchHeroImage, 4000);
+}
+
+// Initialize hero image cycling when DOM is loaded
+document.addEventListener('DOMContentLoaded', initHeroImageCycling);
+
+// Create Ripple Effect Function
+function createRipple(event, element) {
+    const ripple = document.createElement('div');
+    const rect = element.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = event.clientX - rect.left - size / 2;
+    const y = event.clientY - rect.top - size / 2;
+    
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    ripple.style.position = 'absolute';
+    ripple.style.borderRadius = '50%';
+    ripple.style.background = 'rgba(255, 107, 53, 0.4)';
+    ripple.style.transform = 'scale(0)';
+    ripple.style.animation = 'ripple-effect 0.8s ease-out';
+    ripple.style.pointerEvents = 'none';
+    ripple.style.zIndex = '10';
+    
+    // Make sure parent container has relative positioning
+    if (element.parentElement) {
+        element.parentElement.style.position = 'relative';
+        element.parentElement.style.overflow = 'hidden';
+        element.parentElement.appendChild(ripple);
+    }
+    
+    // Add scale effect to the image
+    element.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+        element.style.transform = 'scale(1)';
+    }, 150);
+    
+    // Remove ripple after animation
+    setTimeout(() => {
+        if (ripple.parentNode) {
+            ripple.parentNode.removeChild(ripple);
+        }
+    }, 800);
+}
+
+// Add CSS for ripple effect
+if (!document.getElementById('ripple-effect-style')) {
+    const style = document.createElement('style');
+    style.id = 'ripple-effect-style';
+    style.textContent = `
+        @keyframes ripple-effect {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
 // Hero Video Background Cycling
 function initVideoBackground() {
     const heroVideo = document.getElementById('heroVideo');
