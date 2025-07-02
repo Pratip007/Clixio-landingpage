@@ -280,26 +280,38 @@
         }
 
         .classic-frame {
-            border: 2px solid #000;
-            border-radius: 8px;
-            background: #fff;
+            border: 3px solid transparent;
+            border-radius: 16px;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #ff6b35, #ffd700, #ff6b35, #ffd700) border-box;
             box-shadow: 
-                inset 0 0 0 4px #fff,
-                0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 8px;
+                0 8px 32px rgba(0, 0, 0, 0.15),
+                0 4px 16px rgba(0, 0, 0, 0.1),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.9);
+            padding: 12px;
             position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .classic-frame:hover {
+            transform: scale(1.02);
+            box-shadow: 
+                0 12px 48px rgba(0, 0, 0, 0.2),
+                0 6px 24px rgba(0, 0, 0, 0.15),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.95);
         }
 
         .classic-frame::before {
             content: '';
             position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            background: #000;
-            border-radius: 10px;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b35, #ffd700, #ff6b35, #ffd700);
+            border-radius: 18px;
             z-index: -1;
+            opacity: 0.8;
         }
 
         .slide-in-right {
@@ -447,10 +459,10 @@
 
         <!-- Sophisticated Hero Content -->
         <div class="relative z-10 container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 py-24">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center min-h-[70vh]">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center min-h-[70vh]">
                 
                 <!-- Left Side Content -->
-                <div class="text-left space-y-8">
+                <div class="text-left space-y-8 md:col-span-2">
                     <!-- Elegant Main Headline -->
                     <div class="animate-fadeInUp" style="animation: sophisticated-pulse 6s ease-in-out infinite;">
                         <h1 class="luxury-text text-3xl md:text-5xl lg:text-7xl leading-tight tracking-wide" style="font-family: 'Cormorant Garamond', serif; font-weight: 600; margin-bottom: 1rem;">
@@ -497,18 +509,18 @@
                 </div>
 
                 <!-- Middle Animation -->
-                <div class="hidden md:flex justify-center items-center animate-fadeInUp animation-delay-750">
+                <div class="hidden md:flex justify-center items-center animate-fadeInUp animation-delay-750 md:col-span-1">
                     <div class="relative hero-animation">
                         <dotlottie-player src="https://lottie.host/b9c32b59-e49f-43bf-b0b0-7db6f6ee87f9/DnxcLMAaiQ.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
                     </div>
                 </div>
 
                 <!-- Right Side Photo Click Image -->
-                <div class="flex justify-center lg:justify-end">
+                <div class="flex justify-center lg:justify-end md:col-span-2">
                     <div class="slide-in-right" style="animation-delay: 1.25s; animation-fill-mode: both;">
                         <!-- Classic frame -->
                         <div class="classic-frame">
-                            <img src="./images/hero/1.photo click.png" alt="Clixio Professional Dental Photography" class="w-full max-w-sm rounded-lg">
+                            <img src="./images/hero/1.photo click.png" alt="Clixio Professional Dental Photography" class="w-full max-w-md rounded-lg">
                         </div>
                     </div>
                 </div>
