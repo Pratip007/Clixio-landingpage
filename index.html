@@ -26,372 +26,77 @@
         }
     </script>
     <style>
-        .animation-delay-1000 {
-            animation-delay: 1s;
-        }
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
-        .animation-delay-3000 {
-            animation-delay: 3s;
-        }
-        
-        /* Custom gradient text animation */
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .gradient-animate {
-            background-size: 200% 200%;
-            animation: gradient-shift 4s ease infinite;
-        }
-
-        /* Modern fade in up animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translate3d(0, 40px, 0);
-            }
-            to {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        .animate-fadeInUp {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        /* Staggered animation delays */
-        .animation-delay-1000.animate-fadeInUp {
-            animation-delay: 0.2s;
-            opacity: 0;
-        }
-        .animation-delay-2000.animate-fadeInUp {
-            animation-delay: 0.4s;
-            opacity: 0;
-        }
-        .animation-delay-3000.animate-fadeInUp {
-            animation-delay: 0.6s;
-            opacity: 0;
-        }
-
-        /* Hover scale animation */
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-
-        /* Floating elements animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Glass morphism effect */
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Gradient border animation */
-        @keyframes gradient-border {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .animate-gradient-border {
-            background: linear-gradient(45deg, #FF6B35, #2196F3, #4CAF50, #FF6B35);
-            background-size: 300% 300%;
-            animation: gradient-border 4s ease infinite;
-        }
-
-        /* Typing Animation Styles */
-        .typing-container {
-            position: relative;
-            display: inline-block;
-            padding-top: 2rem;
-            line-height: 1.2;
-            word-break: break-word;
-        }
-
-        .typing-text {
-            display: inline-block;
-            overflow: hidden;
-            border-right: 3px solid transparent;
-            font-family: 'Montserrat', 'Arial', sans-serif;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
         .typing-cursor {
             display: inline-block;
-            background: #FFFFFF;
-            width: 2px;
-            height: 1.1em;
-            animation: cursor-blink 1s infinite;
-            margin-left: 3px;
-            border-radius: 1px;
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            color: #FF6B35;
+            animation: blink 1s infinite;
+            font-weight: normal;
         }
-
-        @keyframes cursor-blink {
+        
+        @keyframes blink {
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0; }
         }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        /* Light glowing white text */
-        .typing-text {
-            color: #FFFFFF;
-            text-shadow: 
-                0 0 8px rgba(255, 255, 255, 0.4),
-                0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Orange highlight for key words */
-        .orange-text {
-            color: #FF6B35;
-            text-shadow: 
-                0 0 8px rgba(255, 107, 53, 0.4),
-                0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Smooth pulse animation for completed text */
-        @keyframes smooth-pulse {
-            0%, 100% { 
-                transform: scale(1);
-            }
-            50% { 
-                transform: scale(1.01);
-            }
-        }
-
-        /* Import sophisticated fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
-
-        /* Click Effect Animation */
-        .click-ripple {
-            position: relative;
+        
+        /* Partner Showcase Scrollbar */
+        .partner-scroll-container {
+            width: 100%;
             overflow: hidden;
-        }
-
-        .click-ripple::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.3) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .click-ripple:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        /* Image hover effects */
-        #hero-image-container:hover img {
-            transform: scale(1.02);
-            filter: brightness(1.1);
-        }
-
-        /* Click pulse animation */
-        @keyframes click-pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
-            }
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
-            }
-        }
-
-        /* Active click state */
-        #hero-image-container:active .click-ripple {
-            animation: click-pulse 0.6s ease-out;
-        }
-
-        /* Sophisticated animations */
-        @keyframes elegant-float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
-        }
-
-        @keyframes luxury-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.1); }
-            50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.2); }
-        }
-
-        @keyframes sophisticated-pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.02); opacity: 0.9; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* White text effects */
-        .luxury-text {
-            color: white;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(255, 255, 255, 0.1);
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-        }
-
-        /* Animation transparency effects */
-        .hero-animation {
-            animation: float-gentle 6s ease-in-out infinite;
-        }
-
-        @keyframes float-gentle {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Classic frame and slide-in animation */
-        @keyframes slideInFromRight {
-            0% {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-
-
-        .slide-in-top {
-            animation: slideInFromTop 1s ease-out forwards;
-        }
-
-        @keyframes slideInFromTop {
-            0% {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .hero-image-container {
             position: relative;
-            transition: all 0.5s ease-in-out;
-            overflow: hidden;
+            background: linear-gradient(90deg, #F8F9FA 0%, rgba(248,249,250,0) 15%, rgba(248,249,250,0) 85%, #F8F9FA 100%);
+        }
+        
+        .partner-scroll-content {
+            display: flex;
+            animation: scroll-partners 30s linear infinite;
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+        
+        .partner-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+            background: white;
+            border: 2px solid #f1f5f9;
             border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            min-width: 200px;
+            font-family: 'Inter', sans-serif;
         }
-
-        .hero-image-container img {
-            position: relative;
-            z-index: 1;
-            width: 100%;
+        
+        .partner-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #FF6B35;
+            background: linear-gradient(135deg, #fff 0%, #fef7f5 100%);
         }
-
-        .step-overlay {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.6);
-            color: black;
-            padding: 8px 12px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 800;
-            backdrop-filter: blur(12px);
-            border: 2px solid rgba(0, 0, 0, 0.2);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            max-width: 300px;
-            line-height: 1.2;
-            transform: translateX(0);
-            transition: opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            z-index: 10;
-            text-align: center;
+        
+        .partner-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #2C3E50;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
         }
-
-        /* Premium button styling */
-        .premium-btn {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 25%, #ff6b35 50%, #e85d04 75%, #ff6b35 100%);
-            background-size: 300% 300%;
-            animation: gradient-shift 3s ease infinite;
-            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
+        
+        @keyframes scroll-partners {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
-
-        .premium-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+        
+        /* Pause animation on hover */
+        .partner-scroll-container:hover .partner-scroll-content {
+            animation-play-state: paused;
         }
-
-        .premium-btn:hover::before {
-            left: 100%;
-        }
-
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Sophisticated border animation */
-        .elegant-border {
-            position: relative;
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            backdrop-filter: blur(20px);
-            border: 1px solid transparent;
-            background-clip: padding-box;
-        }
-
-        .elegant-border::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            padding: 2px;
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.5), transparent, rgba(255, 107, 53, 0.5), transparent, rgba(255, 215, 0, 0.5));
-            border-radius: inherit;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            animation: border-glow 4s linear infinite;
-        }
-
-        @keyframes border-glow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-
-
-
     </style>
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body class="font-inter text-dark">
     <!-- Header -->
@@ -441,109 +146,180 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="home" style="overflow-x: hidden;">
-        <!-- Video Background -->
-        <div class="absolute inset-0 w-full h-full">
-            <video id="heroVideo" autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
-                <source src="./videos/2.mp4" type="video/mp4">
-                <source src="./videos/1.mp4" type="video/mp4">
-                <source src="./videos/3.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            
-            <!-- Modern Animated Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-br from-black/90 via-primary/5 to-black/90"></div>
-            
-            <!-- Sophisticated Floating Elements -->
-            <div class="absolute inset-0 overflow-hidden">
-                <!-- Golden luxury orbs -->
-                <div class="absolute top-20 left-10 w-24 h-24 bg-gradient-to-br from-yellow-400/30 to-orange-400/20 rounded-full blur-2xl" style="animation: elegant-float 8s ease-in-out infinite, luxury-glow 4s ease-in-out infinite alternate;"></div>
-                <div class="absolute top-40 right-20 w-20 h-20 bg-gradient-to-br from-orange-400/25 to-red-400/15 rounded-full blur-xl" style="animation: elegant-float 10s ease-in-out infinite reverse, luxury-glow 5s ease-in-out infinite alternate-reverse;"></div>
-                <div class="absolute bottom-32 left-20 w-16 h-16 bg-gradient-to-br from-yellow-300/20 to-amber-400/15 rounded-full blur-lg" style="animation: elegant-float 12s ease-in-out infinite, luxury-glow 6s ease-in-out infinite;"></div>
-                <div class="absolute bottom-20 right-32 w-28 h-28 bg-gradient-to-br from-amber-400/25 to-orange-500/15 rounded-full blur-2xl" style="animation: elegant-float 9s ease-in-out infinite reverse, luxury-glow 4.5s ease-in-out infinite alternate;"></div>
+    <section class="pt-20 lg:pt-24 pb-4 lg:pb-6 bg-gradient-to-br from-orange-50 via-white to-blue-50 overflow-hidden relative" id="home">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style="background-size: cover; background-position: center;"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/70 to-white/60"></div>
+        <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Hero Text -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                        <i class="fas fa-tooth mr-2"></i>
+                        #1 Dental Marketing Agency
+                    </div>
+                    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-dark mb-6 leading-tight">
+                        We Are <span class="text-primary" id="typing-text">Dental Marketing Pro</span><span class="typing-cursor">|</span>.<br>
+                        <span class="text-3xl lg:text-4xl xl:text-5xl block mt-8 lg:mt-10">
+                            We Don't Just Generate Leads.We Bring You Real,<br>
+                            <span class="text-primary">Ready to Book Patients.</span>
+                        </span>
+                    </h1>
+                    <p class="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed">
+                        We specialize in proven dental marketing strategies that fill your appointment book with high-quality patients. Get more leads, boost revenue, and dominate your local market.
+                    </p>
                     
-                <!-- Elegant geometric shapes -->
-                <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-yellow-400/60 rounded-full" style="animation: sophisticated-pulse 3s ease-in-out infinite;"></div>
-                <div class="absolute top-3/4 right-1/4 w-1 h-1 bg-orange-400/80 rounded-full" style="animation: sophisticated-pulse 4s ease-in-out infinite reverse;"></div>
-                <div class="absolute top-1/2 left-10 w-1.5 h-1.5 bg-amber-400/70 rounded-full" style="animation: sophisticated-pulse 5s ease-in-out infinite;"></div>
+                    <!-- Features -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-center lg:justify-start">
+                            <i class="fas fa-check-circle text-primary text-xl mr-3"></i>
+                            <span class="text-dark font-medium">450% Average ROI</span>
                         </div>
+                        <div class="flex items-center justify-center lg:justify-start">
+                            <i class="fas fa-check-circle text-primary text-xl mr-3"></i>
+                            <span class="text-dark font-medium">500+ Successful Practices</span>
                         </div>
-
-        <!-- Sophisticated Hero Content -->
-        <div class="relative z-10 container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 py-24">
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center min-h-[70vh]">
-                
-                <!-- Left Side Content -->
-                <div class="text-left space-y-8 md:col-span-2">
-                    <!-- Elegant Main Headline -->
-                    <div class="animate-fadeInUp" style="animation: sophisticated-pulse 6s ease-in-out infinite;">
-                        <h1 class="luxury-text text-3xl md:text-5xl lg:text-7xl leading-tight tracking-wide" style="font-family: 'Cormorant Garamond', serif; font-weight: 600; margin-bottom: 1rem;">
-                            We Are Dental Marketing Pro
-                        </h1>
-                        <!-- Elegant underline decoration -->
-                        <div class="w-32 h-1 bg-gradient-to-r from-yellow-400 via-yellow-400 to-transparent opacity-60" style="animation: luxury-glow 3s ease-in-out infinite;"></div>
+                        <div class="flex items-center justify-center lg:justify-start">
+                            <i class="fas fa-check-circle text-primary text-xl mr-3"></i>
+                            <span class="text-dark font-medium">30-Day Results Guarantee</span>
                         </div>
-
-                    <!-- Sophisticated Typing Animation -->
-                    <div class="animate-fadeInUp animation-delay-500">
-                        <p id="typing-text" class="text-lg md:text-2xl font-light leading-relaxed luxury-text" style="font-family: 'Montserrat', sans-serif; font-weight: 300; letter-spacing: 0.5px;">
-                            <span class="typing-cursor" style="color: #ffd700; text-shadow: 0 0 20px #ffd700; filter: drop-shadow(0 0 10px #ffd700);">|</span>
-                        </p>
                     </div>
 
-                    <!-- Sophisticated CTA Buttons -->
-                    <div class="space-y-6 animate-fadeInUp animation-delay-1500" id="cta-buttons">
-                        <div class="flex flex-col gap-4 items-start">
-                            <!-- Premium primary button -->
-                            <button class="premium-btn relative text-white px-8 py-3 rounded-full font-semibold text-base transform hover:-translate-y-2 hover:scale-105 transition-all duration-500" style="font-family: 'Montserrat', sans-serif; letter-spacing: 1px;">
-                                <div class="relative flex items-center justify-center">
-                                    <span>Get Started</span>
-                                </div>
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button class="bg-primary text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-primary-dark transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                            Get Free Marketing Audit
                         </button>
-                            
-                            <!-- Sophisticated secondary button -->
-                            <button class="group relative bg-transparent border-2 border-white/40 text-white px-8 py-3 rounded-full font-semibold text-base hover:bg-white hover:text-gray-900 transition-all duration-500 hover:scale-105 hover:-translate-y-1" style="font-family: 'Montserrat', sans-serif; letter-spacing: 1px; backdrop-filter: blur(20px);">
-                                <div class="flex items-center justify-center">
-                                    <span>View Services</span>
-                                </div>
-                                <!-- Elegant hover effect -->
-                                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <button class="border-2 border-primary text-primary px-6 py-3 rounded-full font-semibold text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Success Stories
                         </button>
+                    </div>
                 </div>
 
-                        <!-- Subtle trust indicator -->
-                        <div class="mt-6 opacity-80">
-                            <p class="text-white/70 text-sm font-light tracking-widest" style="font-family: 'Montserrat', sans-serif; letter-spacing: 2px;">
-                                TRUSTED BY 500+ PREMIUM PRACTICES
-                            </p>
+                <!-- Hero Image -->
+                <div class="relative">
+                    <!-- Main Hero Card -->
+                    <div class="bg-white rounded-3xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500" style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);">
+                        <div class="relative overflow-hidden rounded-2xl mb-4">
+                            <img src="./images/dental-marketing-dashboard.jpg" alt="Dental Marketing Dashboard" class="w-full h-64 lg:h-80 object-cover transition-transform duration-700 hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                            <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                <i class="fas fa-chart-line mr-1"></i>
+                                Live Results
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl hover:from-primary/20 hover:to-primary/10 transition-all duration-300">
+                                <div class="text-2xl lg:text-3xl font-bold text-primary animate-pulse">+350%</div>
+                                <div class="text-sm text-gray-600 font-medium">Patient Growth</div>
+                            </div>
+                            <div class="text-center p-4 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl hover:from-secondary/20 hover:to-secondary/10 transition-all duration-300">
+                                <div class="text-2xl lg:text-3xl font-bold text-secondary animate-pulse">$2.4M</div>
+                                <div class="text-sm text-gray-600 font-medium">Revenue Generated</div>
                             </div>
                         </div>
                     </div>
                     
-                <!-- Middle Animation -->
-                <div class="hidden md:flex justify-center items-center animate-fadeInUp animation-delay-750 md:col-span-1">
-                    <div class="relative hero-animation">
-                        <dotlottie-player src="https://lottie.host/0aac7d01-457d-4dd2-990a-26374a746141/GXxJJwBTsQ.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
-                    </div>
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                        <i class="fas fa-tooth text-white text-2xl"></i>
                     </div>
                     
-                <!-- Right Side Hero Images -->
-                <div class="flex justify-center lg:justify-end md:col-span-2">
-                    <div class="slide-in-top hero-image-container relative" style="animation-delay: 1.25s; animation-fill-mode: both;" id="heroImageContainer">
-                        <!-- Step overlay -->
-                        <div class="step-overlay" id="stepOverlay">
-                            Step 1: Photo & Click Strategy
-                        </div>
-                        <!-- Professional Photography -->
-                        <img src="./images/hero/1.photo click.png" alt="Clixio Professional Dental Photography" class="w-full max-w-md rounded-2xl cursor-pointer" id="heroImage" onclick="createRipple(event, this)">
+                    <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-secondary to-blue-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                        <i class="fas fa-star text-white text-xl"></i>
                     </div>
+                    
+                    <!-- Background Decoration -->
+                    <div class="absolute inset-0 -z-10">
+                        <div class="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+                        <div class="absolute bottom-10 right-10 w-24 h-24 bg-secondary/10 rounded-full blur-2xl animate-pulse"></div>
+                    </div>
+                </div>
             </div>
         </div>
-                    
-                    
+    </section>
+
+    <!-- Partner Showcase Scrollbar -->
+    <section class="pt-4 pb-8 bg-light-gray overflow-hidden">
+        <div class="relative">
+            <div class="flex items-center justify-center mb-4">
+                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
+                    <i class="fas fa-handshake mr-2"></i>
+                    Trusted by leading platforms and partners
+                </div>
+            </div>
+            <div class="partner-scroll-container">
+                <div class="partner-scroll-content">
+                    <!-- First set of partners -->
+                    <div class="partner-item">
+                        <i class="fab fa-google text-2xl text-blue-600"></i>
+                        <span class="partner-name">Google Partners</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-meta text-2xl text-blue-500"></i>
+                        <span class="partner-name">Meta Business</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-facebook text-2xl text-blue-600"></i>
+                        <span class="partner-name">Facebook Ads</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-microsoft text-2xl text-blue-500"></i>
+                        <span class="partner-name">Microsoft Ads</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-hubspot text-2xl text-orange-500"></i>
+                        <span class="partner-name">HubSpot</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fas fa-chart-line text-2xl text-green-500"></i>
+                        <span class="partner-name">Analytics Pro</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-wordpress text-2xl text-blue-600"></i>
+                        <span class="partner-name">WordPress</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fas fa-mail-bulk text-2xl text-red-500"></i>
+                        <span class="partner-name">MailChimp</span>
                     </div>
                     
-
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="partner-item">
+                        <i class="fab fa-google text-2xl text-blue-600"></i>
+                        <span class="partner-name">Google Partners</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-meta text-2xl text-blue-500"></i>
+                        <span class="partner-name">Meta Business</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-facebook text-2xl text-blue-600"></i>
+                        <span class="partner-name">Facebook Ads</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-microsoft text-2xl text-blue-500"></i>
+                        <span class="partner-name">Microsoft Ads</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-hubspot text-2xl text-orange-500"></i>
+                        <span class="partner-name">HubSpot</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fas fa-chart-line text-2xl text-green-500"></i>
+                        <span class="partner-name">Analytics Pro</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fab fa-wordpress text-2xl text-blue-600"></i>
+                        <span class="partner-name">WordPress</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fas fa-mail-bulk text-2xl text-red-500"></i>
+                        <span class="partner-name">MailChimp</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -630,8 +406,8 @@
 
     <!-- Stats Section -->
     <section class="py-2 md:py-10 lg:py-14 bg-dark text-white relative overflow-hidden" id="results">
-        <div class="absolute inset-0 bg-cover bg-center opacity-70" style="background-image: url('./images/dental-office-modern.jpg');"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-dark via-primary/20 to-secondary/20"></div>
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('./images/dental-office-modern.jpg');"></div>
+        <div class="absolute inset-0 bg-black/20"></div>
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 relative z-10 py-4 md:py-10 lg:py-14">
             <div class="text-center mb-6 md:mb-12 lg:mb-16">
                 <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">Results That Speak for Themselves</h2>

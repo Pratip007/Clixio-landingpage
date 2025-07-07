@@ -5,58 +5,40 @@ console.log('Clixio Dental Marketing Website loaded successfully!');
 function initTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     const cursorElement = document.querySelector('.typing-cursor');
-    const fullText = "We Are Dental Marketing Pro. We Don't Just Generate Leads. We Bring You Real, Ready to Book Patients.";
+    const textToType = "Dental Marketing Pro";
     
-    if (!typingElement) return;
+    if (!typingElement || !cursorElement) return;
     
     let currentText = '';
     let currentIndex = 0;
-    const typingSpeed = 80; // milliseconds per character
-    const pauseBetweenSentences = 800; // pause at periods
+    const typingSpeed = 100; // milliseconds per character
+    
+    // Initially hide the text and show cursor
+    typingElement.innerHTML = '';
+    cursorElement.style.display = 'inline';
     
     function typeNextCharacter() {
-        if (currentIndex < fullText.length) {
-            const nextChar = fullText[currentIndex];
+        if (currentIndex < textToType.length) {
+            const nextChar = textToType[currentIndex];
             currentText += nextChar;
-            typingElement.innerHTML = formatTextWithOrange(currentText);
+            typingElement.innerHTML = currentText;
             currentIndex++;
             
-            // Add pause after periods for dramatic effect
-            let nextDelay = typingSpeed;
-            if (nextChar === '.') {
-                nextDelay = pauseBetweenSentences;
-            }
-            
-            setTimeout(typeNextCharacter, nextDelay);
+            setTimeout(typeNextCharacter, typingSpeed);
         } else {
-            // Animation complete - remove cursor and add pulse effect
+            // Animation complete - hide cursor after a brief pause
             setTimeout(() => {
                 if (cursorElement) {
                     cursorElement.style.display = 'none';
                 }
-                typingElement.style.animation = 'smooth-pulse 3s ease-in-out infinite';
             }, 1000);
         }
-    }
-    
-    // Function to highlight key words in orange
-    function formatTextWithOrange(text) {
-        const orangeWords = ['Dental Marketing Pro', 'Real', 'Ready to Book Patients'];
-        let formattedText = text;
-        
-        orangeWords.forEach(word => {
-            if (text.includes(word)) {
-                formattedText = formattedText.replace(word, `<span class="orange-text">${word}</span>`);
-            }
-        });
-        
-        return formattedText;
     }
     
     // Start typing animation after a brief delay
     setTimeout(() => {
         typeNextCharacter();
-    }, 500);
+    }, 800);
 }
 
 // Initialize typing animation when DOM is loaded
@@ -152,51 +134,41 @@ function initHeroImageCycling() {
     let currentImageIndex = 0;
     
     function switchHeroImage() {
-        // Slide out current image and step to the right
+        // Blink effect: fade out current image and step
         heroImage.style.opacity = '0';
-        heroImage.style.transform = 'translateX(100%)';
         stepOverlay.style.opacity = '0';
-        stepOverlay.style.transform = 'translateX(100%)';
         
         setTimeout(() => {
             currentImageIndex = (currentImageIndex + 1) % heroImages.length;
             const currentItem = heroImages[currentImageIndex];
             
-            // Update image and step
+            // Update image and step while invisible
             heroImage.src = currentItem.src;
             stepOverlay.textContent = currentItem.step;
             
-            // Position image and step completely off-screen to the left
-            heroImage.style.transform = 'translateX(-100%)';
-            stepOverlay.style.transform = 'translateX(-100%)';
-            heroImage.style.opacity = '1';
-            stepOverlay.style.opacity = '1';
-            
-            // Slide in from left to center position
+            // Blink effect: fade back in
             setTimeout(() => {
-                heroImage.style.transform = 'translateX(0)';
-                stepOverlay.style.transform = 'translateX(0)';
-            }, 50);
+                heroImage.style.opacity = '1';
+                stepOverlay.style.opacity = '1';
+            }, 100);
             
-        }, 400);
+        }, 200);
     }
     
-    // Add slower, smoother transition CSS
-    heroImage.style.transition = 'opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-    stepOverlay.style.transition = 'opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    // Add blink transition CSS
+    heroImage.style.transition = 'opacity 0.3s ease-in-out';
+    stepOverlay.style.transition = 'opacity 0.3s ease-in-out';
     
-    // Initialize first image with slide-in animation from left
+    // Initialize first image with blink effect
     function initializeFirstImage() {
-        // Position image and overlay off-screen to the left
-        heroImage.style.transform = 'translateX(-100%)';
-        stepOverlay.style.transform = 'translateX(-100%)';
-        heroImage.style.opacity = '1';
-        stepOverlay.style.opacity = '1';
+        // Start with image invisible
+        heroImage.style.opacity = '0';
+        stepOverlay.style.opacity = '0';
         
-        // Slide in from left after a brief delay
+        // Blink in after a brief delay
         setTimeout(() => {
-            heroImage.style.transform = 'translateX(0)';
-            stepOverlay.style.transform = 'translateX(0)';
+            heroImage.style.opacity = '1';
+            stepOverlay.style.opacity = '1';
         }, 500);
     }
     
