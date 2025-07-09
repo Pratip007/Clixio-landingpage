@@ -67,6 +67,75 @@ function initTypingAnimation() {
 // Initialize typing animation when DOM is loaded
 document.addEventListener('DOMContentLoaded', initTypingAnimation);
 
+// Typing Animation for Marketing Pro Section
+function initMarketingProAnimation() {
+    const animatedElement = document.getElementById('animated-title');
+    const cursorElement = document.querySelector('.typing-cursor-2');
+    const titles = [
+        "Dental Marketing Pro",
+        "Dental Marketing Professionals", 
+        "Dental Marketing Specialist"
+    ];
+    
+    if (!animatedElement || !cursorElement) return;
+    
+    let currentText = '';
+    let currentIndex = 0;
+    let currentTitleIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 120; // milliseconds per character
+    const deletingSpeed = 60; // faster deleting
+    const pauseTime = 2500; // pause between titles
+    
+    // Initially show first title
+    animatedElement.innerHTML = titles[0];
+    cursorElement.style.display = 'inline';
+    
+    function typeTitle() {
+        const currentFullTitle = titles[currentTitleIndex];
+        
+        if (!isDeleting) {
+            // Typing mode
+            if (currentIndex < currentFullTitle.length) {
+                currentText = currentFullTitle.substring(0, currentIndex + 1);
+                animatedElement.innerHTML = currentText;
+                currentIndex++;
+                setTimeout(typeTitle, typingSpeed);
+            } else {
+                // Finished typing, pause then start deleting
+                setTimeout(() => {
+                    isDeleting = true;
+                    typeTitle();
+                }, pauseTime);
+            }
+        } else {
+            // Deleting mode
+            if (currentIndex > 0) {
+                currentText = currentFullTitle.substring(0, currentIndex - 1);
+                animatedElement.innerHTML = currentText;
+                currentIndex--;
+                setTimeout(typeTitle, deletingSpeed);
+            } else {
+                // Finished deleting, move to next title
+                isDeleting = false;
+                currentTitleIndex = (currentTitleIndex + 1) % titles.length;
+                setTimeout(typeTitle, typingSpeed);
+            }
+        }
+    }
+    
+    // Start animation after a delay to let the page load
+    setTimeout(() => {
+        // Reset and start cycling
+        currentIndex = 0;
+        currentTitleIndex = 0;
+        typeTitle();
+    }, 1500);
+}
+
+// Initialize marketing pro animation when DOM is loaded
+document.addEventListener('DOMContentLoaded', initMarketingProAnimation);
+
 // Hero Image Click Effect
 function initHeroImageEffect() {
     const imageContainer = document.getElementById('hero-image-container');
