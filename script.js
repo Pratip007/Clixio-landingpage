@@ -5,39 +5,62 @@ console.log('Clixio Dental Marketing Website loaded successfully!');
 function initTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     const cursorElement = document.querySelector('.typing-cursor');
-    const textToType = "Dental Marketing Pro";
+    const textOptions = [
+        "Dental Marketing Pro",
+        "Dental Marketing Professionals", 
+        "Dental Marketing Specialist"
+    ];
     
     if (!typingElement || !cursorElement) return;
     
     let currentText = '';
     let currentIndex = 0;
+    let currentTextIndex = 0;
+    let isDeleting = false;
     const typingSpeed = 100; // milliseconds per character
+    const deletingSpeed = 50; // faster deleting
+    const pauseTime = 2000; // pause between words
     
     // Initially hide the text and show cursor
     typingElement.innerHTML = '';
     cursorElement.style.display = 'inline';
     
-    function typeNextCharacter() {
-        if (currentIndex < textToType.length) {
-            const nextChar = textToType[currentIndex];
-            currentText += nextChar;
-            typingElement.innerHTML = currentText;
-            currentIndex++;
-            
-            setTimeout(typeNextCharacter, typingSpeed);
+    function typeText() {
+        const currentFullText = textOptions[currentTextIndex];
+        
+        if (!isDeleting) {
+            // Typing mode
+            if (currentIndex < currentFullText.length) {
+                currentText = currentFullText.substring(0, currentIndex + 1);
+                typingElement.innerHTML = currentText;
+                currentIndex++;
+                setTimeout(typeText, typingSpeed);
+            } else {
+                // Finished typing, pause then start deleting
+                setTimeout(() => {
+                    isDeleting = true;
+                    typeText();
+                }, pauseTime);
+            }
         } else {
-            // Animation complete - hide cursor after a brief pause
-            setTimeout(() => {
-                if (cursorElement) {
-                    cursorElement.style.display = 'none';
-                }
-            }, 1000);
+            // Deleting mode
+            if (currentIndex > 0) {
+                currentText = currentFullText.substring(0, currentIndex - 1);
+                typingElement.innerHTML = currentText;
+                currentIndex--;
+                setTimeout(typeText, deletingSpeed);
+            } else {
+                // Finished deleting, move to next text
+                isDeleting = false;
+                currentTextIndex = (currentTextIndex + 1) % textOptions.length;
+                setTimeout(typeText, typingSpeed);
+            }
         }
     }
     
     // Start typing animation after a brief delay
     setTimeout(() => {
-        typeNextCharacter();
+        typeText();
     }, 800);
 }
 
