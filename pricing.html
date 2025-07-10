@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Clixio Dental Marketing Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#FF6B35',
+                        'primary-dark': '#E55722',
+                        'secondary': '#2196F3',
+                        'dark': '#2C3E50',
+                        'light-gray': '#F8F9FA'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #FF6B35 0%, #F97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        @supports not (background-clip: text) {
+            .gradient-text {
+                color: #FF6B35;
+            }
+        }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #FF6B35 0%, #F97316 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-inter text-dark">
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-white shadow-lg z-50 transition-all duration-300 border-b border-gray-100">
+        <nav class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-tooth text-xl lg:text-2xl text-primary"></i>
+                    <h2 class="text-xl lg:text-2xl xl:text-3xl font-bold text-primary">Clixio</h2>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <ul class="hidden lg:flex items-center space-x-8">
+                    <li><a href="index.html" class="text-dark hover:text-primary font-medium transition-colors">Home</a></li>
+                    <li><a href="about.html" class="text-dark hover:text-primary font-medium transition-colors">About</a></li>
+                    <li><a href="pricing.html" class="text-primary font-medium">Pricing</a></li>
+                    <li><a href="index.html#services" class="text-dark hover:text-primary font-medium transition-colors">Services</a></li>
+                    <li><a href="index.html#testimonials" class="text-dark hover:text-primary font-medium transition-colors">Reviews</a></li>
+                    <li><a href="index.html#contact" class="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-dark transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-md">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <div class="w-6 h-6 flex flex-col justify-center items-center space-y-1">
+                        <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="menu-line-1"></span>
+                        <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="menu-line-2"></span>
+                        <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="menu-line-3"></span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="lg:hidden hidden bg-white border-t border-gray-200 shadow-xl" id="mobile-menu">
+                <div class="py-4 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">Home</a>
+                    <a href="about.html" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">About</a>
+                    <a href="pricing.html" class="block px-4 py-3 text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">Pricing</a>
+                    <a href="index.html#services" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">Services</a>
+                    <a href="index.html#testimonials" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">Reviews</a>
+                    <div class="px-4 pt-2">
+                        <a href="index.html#contact" class="block bg-primary text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-primary-dark transition-all duration-300 hover:shadow-lg shadow-md">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-12 lg:pt-24 bg-gradient-to-br from-orange-50 via-white to-blue-50 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+            <div class="absolute bottom-0 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-pulse"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    <i class="fas fa-tags mr-2"></i>
+                    Transparent Pricing
+                </div>
+                <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-dark mb-6 leading-tight">
+                    <span class="gradient-text">Flexible Pricing</span> for Every Practice
+                </h1>
+                <p class="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed">
+                    Explore our average rates for various services. Keep in mind, these are just starting points - our team will tailor each estimate to fit your goals and budget.
+                </p>
+                
+                <!-- Trial Banner -->
+                <div class="bg-gradient-to-r from-primary to-orange-500 text-white rounded-2xl p-6 mb-8 inline-block">
+                    <div class="flex items-center justify-center space-x-4">
+                        <i class="fas fa-gift text-2xl"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">30 Day FREE Trial</h3>
+                            <p class="text-sm opacity-90">Start your journey risk-free</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Features Section -->
+    <section class="py-12 lg:py-16 bg-white">
+        <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calculator text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Average Rates</h3>
+                    <p class="text-gray-600">Explore our average rates for various services. Keep in mind, these are just starting points.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-credit-card text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Flexible Billing</h3>
+                    <p class="text-gray-600">Our billing is as dynamic as our solutions. We offer fixed project fees and monthly retainers.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-sync-alt text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Full-Cycle Approach</h3>
+                    <p class="text-gray-600">We synergize Google ads, SEO, Social media and Website design for comprehensive results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans Section -->
+    <section class="py-12 lg:py-16 bg-light-gray">
+        <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-6">Choose Your Growth Plan</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    What sets us apart? Our full-cycle approach, where we synergize Google ads, SEO, Social media and Website design. Ensuring we set a clear and collaborative roadmap from the get-go.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="pricing-card bg-white rounded-2xl p-8 shadow-lg relative">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Starter</h3>
+                        <p class="text-gray-600 mb-6">Perfect for new practices</p>
+                        <div class="text-4xl font-bold text-primary mb-2">₹25,000</div>
+                        <div class="text-gray-500">per month</div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Basic SEO Optimization</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Google My Business Setup</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Social Media Management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Monthly Performance Report</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Email Support</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-gray-100 text-dark py-3 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="pricing-card bg-white rounded-2xl p-8 shadow-xl relative border-2 border-primary">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Professional</h3>
+                        <p class="text-gray-600 mb-6">Ideal for growing practices</p>
+                        <div class="text-4xl font-bold text-primary mb-2">₹45,000</div>
+                        <div class="text-gray-500">per month</div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Everything in Starter</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Google Ads Management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Advanced SEO Strategy</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Content Marketing</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Reputation Management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Dedicated Account Manager</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Weekly Performance Calls</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-primary text-white py-3 rounded-full font-semibold hover:bg-primary-dark transition-all duration-300 hover:shadow-lg">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card bg-white rounded-2xl p-8 shadow-lg relative">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Enterprise</h3>
+                        <p class="text-gray-600 mb-6">For established practices</p>
+                        <div class="text-4xl font-bold text-primary mb-2">₹75,000</div>
+                        <div class="text-gray-500">per month</div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Everything in Professional</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Custom Website Design</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Multi-Location SEO</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Advanced Analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Video Marketing</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Priority Support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            <span>Custom Strategy Sessions</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-gray-100 text-dark py-3 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Breakdown Section -->
+    <section class="py-12 lg:py-16 bg-white">
+        <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-6">Service Breakdown</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Understanding what goes into our pricing helps you make informed decisions about your marketing investment.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- SEO Services -->
+                <div class="bg-light-gray rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark mb-2">SEO Services</h3>
+                    <p class="text-gray-600 text-sm mb-4">Local SEO, technical optimization, content strategy</p>
+                    <div class="text-2xl font-bold text-primary">₹15,000</div>
+                    <div class="text-xs text-gray-500">starting price</div>
+                </div>
+
+                <!-- PPC Advertising -->
+                <div class="bg-light-gray rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-bullseye text-secondary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark mb-2">PPC Advertising</h3>
+                    <p class="text-gray-600 text-sm mb-4">Google Ads, Facebook Ads, campaign management</p>
+                    <div class="text-2xl font-bold text-secondary">₹20,000</div>
+                    <div class="text-xs text-gray-500">starting price</div>
+                </div>
+
+                <!-- Website Design -->
+                <div class="bg-light-gray rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-globe text-green-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark mb-2">Website Design</h3>
+                    <p class="text-gray-600 text-sm mb-4">Custom design, mobile optimization, SEO-ready</p>
+                    <div class="text-2xl font-bold text-green-500">₹35,000</div>
+                    <div class="text-xs text-gray-500">one-time fee</div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="bg-light-gray rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-share-alt text-purple-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark mb-2">Social Media</h3>
+                    <p class="text-gray-600 text-sm mb-4">Content creation, community management, ads</p>
+                    <div class="text-2xl font-bold text-purple-500">₹12,000</div>
+                    <div class="text-xs text-gray-500">starting price</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-12 lg:py-16 bg-light-gray">
+        <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-6">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Get answers to common questions about our pricing and services.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-lg font-bold text-dark mb-3">Do you offer custom pricing?</h3>
+                    <p class="text-gray-600">Yes, we tailor each estimate to fit your specific goals and budget. Our team will work with you to create a custom plan that meets your practice's unique needs.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-lg font-bold text-dark mb-3">What's included in the 30-day free trial?</h3>
+                    <p class="text-gray-600">Our free trial includes a comprehensive marketing audit, strategy session, and initial setup of your chosen services. No commitment required.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-lg font-bold text-dark mb-3">Can I cancel anytime?</h3>
+                    <p class="text-gray-600">Absolutely! We offer flexible billing with no long-term contracts. You can cancel your service at any time with 30 days notice.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-lg font-bold text-dark mb-3">How do you measure ROI?</h3>
+                    <p class="text-gray-600">We provide detailed monthly reports showing patient acquisition costs, conversion rates, and revenue growth. You'll see exactly how your marketing investment translates to practice growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 lg:py-16 bg-gradient-to-r from-gray-900 to-black text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('./images/dental-clinic-interior.jpg');"></div>
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl lg:text-5xl font-bold mb-6">Let's Collaborate on What Matters to You</h2>
+                <p class="text-lg lg:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                    Ready to start your dental marketing journey? Get your free audit and discover how we can help grow your practice.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        Get Your Free Audit
+                    </button>
+                    <button class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300">
+                        Schedule a Call
+                    </button>
+                </div>
+
+                <div class="mt-8 flex items-center justify-center text-white/80">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span class="text-sm">100% Risk-Free - Cancel Anytime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white py-10 lg:py-14 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+            <div class="absolute bottom-0 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-pulse"></div>
+        </div>
+        <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fas fa-tooth text-2xl text-primary"></i>
+                        <h3 class="text-2xl font-bold text-primary">Clixio</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        The premier dental marketing agency helping practices grow through proven digital marketing strategies and exceptional results.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary-dark transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary-dark transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary-dark transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-primary-dark transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Dental SEO</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">PPC Advertising</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Website Design</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Social Media Marketing</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Reputation Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Case Studies</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact Info</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary mr-3"></i>
+                            <span class="text-gray-300">+91 (891) 030-0840</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-300">hello@clixio.com</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                            <span class="text-gray-300">Brigade IRV, Whitefield<br>Bengaluru, Karnataka 560066<br>India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2024 Clixio. All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
