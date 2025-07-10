@@ -57,11 +57,11 @@
             display: flex;
             animation: scroll-partners 30s linear infinite;
             gap: 1rem;
-            padding: 0.75rem 1rem;
             background: transparent;
-            border-top: 2px solid rgba(255, 107, 53, 0.15);
-            border-bottom: 2px solid rgba(255, 107, 53, 0.15);
             min-width: 200%;
+            /* Ensure no border or box-shadow */
+            border: none !important;
+            box-shadow: none !important;
         }
         
         .partner-item {
@@ -415,7 +415,7 @@
                             We Bring You Real, <span class="text-primary bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">Ready to Book Patients</span>
                         </div>
                         <!-- Add some stats badges -->
-                        <div class="flex flex-wrap gap-3 mt-6 justify-center lg:justify-start">
+                        <div class="flex flex-wrap gap-3 mt-6 justify-center lg:justify-start hidden md:flex">
                             <div class="bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary/20 transition-all duration-300">
                                 <i class="fas fa-star mr-2"></i>65+ Practices
                             </div>
@@ -461,7 +461,7 @@
     </section>
 
     <!-- Partner Showcase Scrollbar -->
-    <section class="py-4 bg-gradient-to-br from-white via-gray-50/50 to-white relative overflow-hidden">
+    <section class="py-0 bg-gradient-to-br from-white via-gray-50/50 to-white relative overflow-hidden" style="border-top: 2px solid rgba(255, 107, 53, 0.15); border-bottom: 2px solid rgba(255, 107, 53, 0.15);">
         <!-- Clean Professional Background -->
         <div class="absolute inset-0">
             <!-- Subtle gradient overlay -->
@@ -472,14 +472,13 @@
         </div>
         
         <div class="relative z-10">
-            <!-- Compact Header -->
-            <div class="text-center mb-4">
-                <div class="inline-flex items-center bg-gradient-to-r from-primary/15 to-orange-500/10 backdrop-blur-sm text-primary px-6 py-2 rounded-xl text-sm font-bold border border-primary/30 shadow-sm">
-                    <div class="w-1.5 h-1.5 bg-primary rounded-full mr-2 animate-pulse"></div>
-                    Trusted Technology Partners
-                </div>
-            </div>
             <div class="partner-scroll-container">
+                <!-- Sticky Header -->
+                <div class="sticky top-0 z-20 bg-[#FFF3E6]/95 backdrop-blur-md">
+                    <div class="text-center py-3">
+                        <span class="font-bold text-black text-base">Trusted Partners</span>
+                    </div>
+                </div>
                 <div class="partner-scroll-content">
                     <!-- First set of partners -->
                     <div class="partner-item">
