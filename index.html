@@ -50,7 +50,7 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            background: rgba(255, 107, 53, 0.08);
+            background: #FFF3E6;
         }
         
         .partner-scroll-content {
@@ -58,9 +58,9 @@
             animation: scroll-partners 30s linear infinite;
             gap: 1rem;
             padding: 0.75rem 1rem;
-            background: rgba(255, 107, 53, 0.1);
-            border-top: 2px solid rgba(255, 107, 53, 0.3);
-            border-bottom: 2px solid rgba(255, 107, 53, 0.3);
+            background: transparent;
+            border-top: 2px solid rgba(255, 107, 53, 0.15);
+            border-bottom: 2px solid rgba(255, 107, 53, 0.15);
             min-width: 200%;
         }
         
@@ -239,6 +239,12 @@
         
         .group:hover .service-card-icon {
             transform: rotate(360deg) !important;
+        }
+
+        @media (max-width: 640px) {
+            .partner-scroll-content {
+                animation-duration: 10s !important;
+            }
         }
     </style>
 </head>
