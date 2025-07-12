@@ -17,6 +17,8 @@ function initTypingAnimation() {
     let currentIndex = 0;
     let currentTextIndex = 0;
     let isDeleting = false;
+    let isVisible = true;
+    let animationTimeout = null;
     const typingSpeed = 100; // milliseconds per character
     const deletingSpeed = 50; // faster deleting
     const pauseTime = 2000; // pause between words
@@ -26,6 +28,8 @@ function initTypingAnimation() {
     cursorElement.style.display = 'inline';
     
     function typeText() {
+        if (!isVisible) return; // Stop animation if not visible
+        
         const currentFullText = textOptions[currentTextIndex];
         
         if (!isDeleting) {
@@ -34,10 +38,10 @@ function initTypingAnimation() {
                 currentText = currentFullText.substring(0, currentIndex + 1);
                 typingElement.innerHTML = currentText;
                 currentIndex++;
-                setTimeout(typeText, typingSpeed);
+                animationTimeout = setTimeout(typeText, typingSpeed);
             } else {
                 // Finished typing, pause then start deleting
-                setTimeout(() => {
+                animationTimeout = setTimeout(() => {
                     isDeleting = true;
                     typeText();
                 }, pauseTime);
@@ -48,15 +52,36 @@ function initTypingAnimation() {
                 currentText = currentFullText.substring(0, currentIndex - 1);
                 typingElement.innerHTML = currentText;
                 currentIndex--;
-                setTimeout(typeText, deletingSpeed);
+                animationTimeout = setTimeout(typeText, deletingSpeed);
             } else {
                 // Finished deleting, move to next text
                 isDeleting = false;
                 currentTextIndex = (currentTextIndex + 1) % textOptions.length;
-                setTimeout(typeText, typingSpeed);
+                animationTimeout = setTimeout(typeText, typingSpeed);
             }
         }
     }
+    
+    // Intersection Observer to pause/resume animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                isVisible = true;
+                if (!animationTimeout) {
+                    typeText(); // Resume animation
+                }
+            } else {
+                isVisible = false;
+                if (animationTimeout) {
+                    clearTimeout(animationTimeout);
+                    animationTimeout = null;
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    // Observe the typing element
+    observer.observe(typingElement);
     
     // Start typing animation after a brief delay
     setTimeout(() => {
@@ -83,6 +108,8 @@ function initMarketingProAnimation() {
     let currentIndex = 0;
     let currentTitleIndex = 0;
     let isDeleting = false;
+    let isVisible = true;
+    let animationTimeout = null;
     const typingSpeed = 120; // milliseconds per character
     const deletingSpeed = 60; // faster deleting
     const pauseTime = 2500; // pause between titles
@@ -92,6 +119,8 @@ function initMarketingProAnimation() {
     cursorElement.style.display = 'inline';
     
     function typeTitle() {
+        if (!isVisible) return; // Stop animation if not visible
+        
         const currentFullTitle = titles[currentTitleIndex];
         
         if (!isDeleting) {
@@ -100,10 +129,10 @@ function initMarketingProAnimation() {
                 currentText = currentFullTitle.substring(0, currentIndex + 1);
                 animatedElement.innerHTML = currentText;
                 currentIndex++;
-                setTimeout(typeTitle, typingSpeed);
+                animationTimeout = setTimeout(typeTitle, typingSpeed);
             } else {
                 // Finished typing, pause then start deleting
-                setTimeout(() => {
+                animationTimeout = setTimeout(() => {
                     isDeleting = true;
                     typeTitle();
                 }, pauseTime);
@@ -114,15 +143,36 @@ function initMarketingProAnimation() {
                 currentText = currentFullTitle.substring(0, currentIndex - 1);
                 animatedElement.innerHTML = currentText;
                 currentIndex--;
-                setTimeout(typeTitle, deletingSpeed);
+                animationTimeout = setTimeout(typeTitle, deletingSpeed);
             } else {
                 // Finished deleting, move to next title
                 isDeleting = false;
                 currentTitleIndex = (currentTitleIndex + 1) % titles.length;
-                setTimeout(typeTitle, typingSpeed);
+                animationTimeout = setTimeout(typeTitle, typingSpeed);
             }
         }
     }
+    
+    // Intersection Observer to pause/resume animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                isVisible = true;
+                if (!animationTimeout) {
+                    typeTitle(); // Resume animation
+                }
+            } else {
+                isVisible = false;
+                if (animationTimeout) {
+                    clearTimeout(animationTimeout);
+                    animationTimeout = null;
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    // Observe the animated element
+    observer.observe(animatedElement);
     
     // Start animation after a delay to let the page load
     setTimeout(() => {
