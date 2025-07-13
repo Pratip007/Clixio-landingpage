@@ -438,24 +438,39 @@ function initVideoBackground() {
     }
 }
 
-// Initialize video background when DOM is loaded
-document.addEventListener('DOMContentLoaded', initVideoBackground);
+// Initialize critical functions when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu(); // Initialize mobile menu first
+    initVideoBackground();
+});
 
-// DOM Elements
-const mobileMenuBtn = document.querySelector('#mobile-menu-btn');
-const mobileMenu = document.querySelector('#mobile-menu');
-const header = document.querySelector('header');
+// Mobile Menu Initialization Function
+function initMobileMenu() {
+    // DOM Elements
+    const mobileMenuBtn = document.querySelector('#mobile-menu-btn');
+    const mobileMenu = document.querySelector('#mobile-menu');
+    const header = document.querySelector('header');
 
-// Mobile Menu Toggle with Enhanced Animation
-if (mobileMenuBtn && mobileMenu) {
-    let isMenuOpen = false;
-    
-    mobileMenuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMobileMenu();
-    });
+    // Mobile Menu Toggle with Enhanced Animation
+    if (mobileMenuBtn && mobileMenu) {
+        let isMenuOpen = false;
+        
+        // Mark this button as handled to prevent other event listeners
+        mobileMenuBtn.setAttribute('data-menu-button', 'true');
+        
+        // Remove any existing event listeners
+        const newMobileMenuBtn = mobileMenuBtn.cloneNode(true);
+        mobileMenuBtn.parentNode.replaceChild(newMobileMenuBtn, mobileMenuBtn);
+        
+        newMobileMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            toggleMobileMenu();
+            return false; // Extra prevention
+        }, true); // Use capture phase
 
-    function toggleMobileMenu() {
+        function toggleMobileMenu() {
         isMenuOpen = !isMenuOpen;
         
         if (isMenuOpen) {
@@ -527,27 +542,28 @@ if (mobileMenuBtn && mobileMenu) {
         });
     });
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (isMenuOpen && !mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-            toggleMobileMenu();
-        }
-    });
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !newMobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
 
-    // Close mobile menu on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && isMenuOpen) {
-            toggleMobileMenu();
-        }
-    });
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                toggleMobileMenu();
+            }
+        });
 
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 1024 && isMenuOpen) {
-            // Close mobile menu on desktop
-            toggleMobileMenu();
-        }
-    });
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && isMenuOpen) {
+                // Close mobile menu on desktop
+                toggleMobileMenu();
+            }
+        });
+    }
 }
 
 // Header Scroll Effect with Mobile Optimization
@@ -597,6 +613,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 function addTouchSupport() {
     // Add touch feedback to buttons
     document.querySelectorAll('button, .btn, .clickable').forEach(element => {
+        // Skip mobile menu button
+        if (element.getAttribute('data-menu-button') === 'true' || 
+            element.id === 'mobile-menu-btn') {
+            return;
+        }
+        
         element.addEventListener('touchstart', function() {
             this.style.transform = 'scale(0.98)';
             this.style.transition = 'transform 0.1s ease';
@@ -691,6 +713,12 @@ const observer = new IntersectionObserver((entries) => {
 
 // Enhanced Button Interactions with Mobile Support
 document.querySelectorAll('button').forEach(button => {
+    // Skip mobile menu button
+    if (button.getAttribute('data-menu-button') === 'true' || 
+        button.id === 'mobile-menu-btn') {
+        return;
+    }
+    
     button.addEventListener('click', function(e) {
         // Skip ripple effect on mobile for better performance
         if (window.innerWidth >= 768) {
@@ -803,75 +831,35 @@ document.querySelectorAll('.group').forEach(card => {
     });
 });
 
-// Notification System
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    const bgColor = type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500';
-    
-    notification.className = `fixed top-4 right-4 ${bgColor} text-white px-6 py-4 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300`;
-    notification.innerHTML = `
-        <div class="flex items-center">
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'} mr-3"></i>
-            <span>${message}</span>
-            <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.classList.remove('translate-x-full');
-    }, 100);
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.classList.add('translate-x-full');
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 5000);
-}
+
 
 // Service Button Click Tracking
 document.querySelectorAll('button').forEach(btn => {
+    // Skip mobile menu button
+    if (btn.getAttribute('data-menu-button') === 'true' || 
+        btn.id === 'mobile-menu-btn') {
+        return;
+    }
+    
     if (btn.textContent.includes('Learn More')) {
         btn.addEventListener('click', (e) => {
             const serviceCard = e.target.closest('.bg-white');
             const serviceName = serviceCard?.querySelector('h3')?.textContent || 'Service';
             console.log(`Service clicked: ${serviceName}`);
-            
-            // Show interest notification
-            showNotification(`Interested in ${serviceName}? Let's discuss your needs!`, 'info');
-            
-            // Scroll to contact section
-            const contactSection = document.querySelector('#contact');
-            if (contactSection) {
-                const headerHeight = header?.offsetHeight || 80;
-                const targetPosition = contactSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
         });
     }
 });
 
-// CTA Button Enhancements
-document.querySelectorAll('button').forEach(btn => {
-    if (btn.textContent.includes('Get Free') || btn.textContent.includes('Schedule')) {
-        btn.addEventListener('click', () => {
-            showNotification('Thank you for your interest! We\'ll contact you within 24 hours.', 'success');
-        });
-    }
-});
+
 
 // Observe elements for scroll animations
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize mobile menu FIRST before any other button handlers
+    initMobileMenu();
+    
+    // Initialize contact modal
+    initContactModal();
+    
     // Observe stat numbers
     const statNumbers = document.querySelectorAll('.stat-number');
     statNumbers.forEach(stat => observer.observe(stat));
@@ -911,6 +899,14 @@ window.addEventListener('load', () => {
 
 // Add loading state for buttons
 document.querySelectorAll('button').forEach(button => {
+    // Skip mobile menu button and other excluded buttons
+    if (button.id === 'mobile-menu-btn' || 
+        button.classList.contains('mobile-menu') ||
+        button.id === 'closeModal' || 
+        button.classList.contains('close')) {
+        return;
+    }
+    
     button.addEventListener('click', function() {
         if (this.textContent.includes('Get Free') || this.textContent.includes('Schedule')) {
             const originalText = this.textContent;
@@ -934,5 +930,137 @@ window.addEventListener('scroll', () => {
         heroSection.style.transform = `translateY(${rate}px)`;
     }
 });
+
+// Contact Modal Functionality
+function initContactModal() {
+    const modal = document.getElementById('contactModal');
+    const closeBtn = document.getElementById('closeModal');
+    
+    // Function to open modal
+    function openModal() {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    // Function to close modal
+    function closeModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    // Close button event
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // Close modal when clicking outside
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
+    
+    // Make all CTA buttons open the modal
+    const ctaButtons = document.querySelectorAll('button, a');
+    ctaButtons.forEach(button => {
+        const text = button.textContent.toLowerCase();
+        const href = button.getAttribute('href') || '';
+        const ariaLabel = button.getAttribute('aria-label') || '';
+        
+        // Skip mobile menu button and other excluded buttons
+        if (button.getAttribute('data-menu-button') === 'true' ||
+            button.id === 'mobile-menu-btn' || 
+            button.classList.contains('mobile-menu') ||
+            button.id === 'closeModal' || 
+            button.classList.contains('close') ||
+            ariaLabel.includes('toggle') ||
+            ariaLabel.includes('menu')) {
+            return;
+        }
+        
+        // Check if it's a CTA button
+        if (text.includes('get free') || 
+            text.includes('schedule') || 
+            text.includes('audit') || 
+            text.includes('start') ||
+            text.includes('contact') ||
+            text.includes('learn more') ||
+            text.includes('get started') ||
+            text.includes('book') ||
+            text.includes('call') ||
+            text.includes('free') ||
+            text.includes('watch') ||
+            text.includes('download') ||
+            text.includes('subscribe') ||
+            button.classList.contains('btn-base') ||
+            button.classList.contains('bg-primary') ||
+            button.classList.contains('bg-gradient-to-r') ||
+            (button.classList.contains('bg-white') && text.includes('primary'))) {
+            
+            button.addEventListener('click', (e) => {
+                // Don't open modal for navigation links
+                if (button.tagName === 'A' && href && 
+                    (href.startsWith('#') || 
+                     href.includes('.html') ||
+                     href.startsWith('mailto:') ||
+                     href.startsWith('tel:') ||
+                     href.startsWith('https://wa.me/') ||
+                     href.startsWith('https://') ||
+                     href.startsWith('http://'))) {
+                    return;
+                }
+                
+                e.preventDefault();
+                openModal();
+            });
+        }
+    });
+    
+    // Also add click handlers to specific button types
+    const specificCTAs = document.querySelectorAll('.bg-primary, .bg-gradient-to-r, .btn-base, .btn-secondary, .btn-success, .btn-info');
+    specificCTAs.forEach(button => {
+        const ariaLabel = button.getAttribute('aria-label') || '';
+        
+        // Skip mobile menu button and other excluded buttons
+        if (button.getAttribute('data-menu-button') === 'true' ||
+            button.id === 'mobile-menu-btn' || 
+            button.classList.contains('mobile-menu') ||
+            button.id === 'closeModal' || 
+            button.classList.contains('close') ||
+            ariaLabel.includes('toggle') ||
+            ariaLabel.includes('menu')) {
+            return;
+        }
+        
+        if (!button.hasAttribute('data-modal-handler')) {
+            button.setAttribute('data-modal-handler', 'true');
+            button.addEventListener('click', (e) => {
+                const href = button.getAttribute('href') || '';
+                
+                // Don't open modal for external links
+                if (button.tagName === 'A' && href && 
+                    (href.startsWith('mailto:') ||
+                     href.startsWith('tel:') ||
+                     href.startsWith('https://wa.me/') ||
+                     href.startsWith('https://') ||
+                     href.startsWith('http://'))) {
+                    return;
+                }
+                
+                e.preventDefault();
+                openModal();
+            });
+        }
+    });
+}
 
 console.log('Enhanced Clixio features loaded with Tailwind CSS!');
