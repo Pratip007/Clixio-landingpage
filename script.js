@@ -582,32 +582,9 @@ function handleScroll() {
     }
 }
 
-// Throttled scroll handler for better performance
-let scrollTimeout;
-window.addEventListener('scroll', () => {
-    if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-    }
-    scrollTimeout = setTimeout(handleScroll, 10);
-});
+// Scroll handler removed
 
-// Smooth Scrolling for Navigation Links with Mobile Optimization
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerHeight = header?.offsetHeight || (window.innerWidth < 768 ? 64 : 80);
-            const targetPosition = target.offsetTop - headerHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+// Smooth scrolling for navigation links removed
 
 // Touch-friendly interactions
 function addTouchSupport() {
@@ -751,33 +728,7 @@ document.querySelectorAll('button').forEach(button => {
     });
 });
 
-// Mobile-specific optimizations
-function initMobileOptimizations() {
-    const isMobile = window.innerWidth < 768;
-    
-    if (isMobile) {
-        // Disable animations on mobile for better performance
-        document.querySelectorAll('.animate-float, .float-image').forEach(el => {
-            el.style.animation = 'none';
-        });
-        
-        // Reduce parallax effects on mobile
-        document.querySelectorAll('.parallax-bg').forEach(el => {
-            el.style.backgroundAttachment = 'scroll';
-        });
-        
-        // Add mobile-specific classes
-        document.body.classList.add('mobile-device');
-    }
-}
-
-// Initialize mobile optimizations
-initMobileOptimizations();
-
-// Re-run on orientation change
-window.addEventListener('orientationchange', () => {
-    setTimeout(initMobileOptimizations, 100);
-});
+// Mobile optimizations removed
 
 // Add ripple animation CSS
 const rippleStyle = document.createElement('style');
@@ -921,15 +872,7 @@ document.querySelectorAll('button').forEach(button => {
     });
 });
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroSection = document.querySelector('#home');
-    if (heroSection) {
-        const rate = scrolled * -0.3;
-        heroSection.style.transform = `translateY(${rate}px)`;
-    }
-});
+// Parallax effect removed
 
 // Contact Modal Functionality
 function initContactModal() {

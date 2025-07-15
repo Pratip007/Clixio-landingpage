@@ -45,72 +45,7 @@
             51%, 100% { opacity: 0; }
         }
         
-        /* Partner Showcase Scrollbar */
-        .partner-scroll-container {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: white;
-        }
-        
-        .partner-scroll-content {
-            display: flex;
-            animation: scroll-partners 30s linear infinite;
-            gap: 1rem;
-            background: transparent;
-            min-width: 200%;
-            /* Ensure no border or box-shadow */
-            border: none !important;
-            box-shadow: none !important;
-        }
-        
-        .partner-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            flex-shrink: 0;
-            min-width: 160px;
-            font-family: 'Inter', sans-serif;
-            height: 3rem;
-            transition: all 0.2s ease;
-        }
-        
-        .partner-item:hover {
-            transform: scale(1.05);
-        }
-        
-        .partner-item i {
-            font-size: 1.25rem;
-        }
-        
-        .partner-name {
-            font-weight: 500;
-            color: #374151;
-            font-size: 0.875rem;
-            letter-spacing: -0.015em;
-        }
-        
-        .partner-name {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #2C3E50;
-            white-space: nowrap;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        @keyframes scroll-partners {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-        
-        /* Pause animation on hover */
-        .partner-scroll-container:hover .partner-scroll-content {
-            animation-play-state: paused;
-        }
+        /* Partner Showcase - Scroll animation removed */
         
         /* Service Section Logo Animations */
         .service-logo {
