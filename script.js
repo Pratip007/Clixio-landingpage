@@ -98,8 +98,8 @@ function initMarketingProAnimation() {
     const cursorElement = document.querySelector('.typing-cursor-2');
     const titles = [
         "Dental Marketing Pro",
-        "Dental Marketer", 
-        "Performance Marketer"
+        "Dental Marketers", 
+        "Performance Marketers"
     ];
     
     if (!animatedElement || !cursorElement) return;
