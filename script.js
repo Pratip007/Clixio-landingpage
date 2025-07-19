@@ -6,9 +6,9 @@ function initTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     const cursorElement = document.querySelector('.typing-cursor');
     const textOptions = [
-        "Dental Marketing Pro",
-        "Dental Marketing Professionals", 
-        "Dental Marketing Specialist"
+        "Performance Marketing Pros",
+        "Dental PPC Specialists", 
+        "Dental SEO Experts"
     ];
     
     if (!typingElement || !cursorElement) return;
@@ -97,9 +97,9 @@ function initMarketingProAnimation() {
     const animatedElement = document.getElementById('animated-title');
     const cursorElement = document.querySelector('.typing-cursor-2');
     const titles = [
-        "Dental Marketing Pro",
-        "Dental Marketers", 
-        "Performance Marketers"
+        "Performance Marketing Pros",
+        "Dental PPC Specialists", 
+        "Dental SEO Experts"
     ];
     
     if (!animatedElement || !cursorElement) return;
