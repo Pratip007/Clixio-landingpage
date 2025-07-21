@@ -6,7 +6,7 @@ function initTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     const cursorElement = document.querySelector('.typing-cursor');
     const textOptions = [
-        "Performance Marketing Pros",
+        "Performance Marketing pro",
         "Dental PPC Specialists", 
         "Dental SEO Experts"
     ];
@@ -97,7 +97,7 @@ function initMarketingProAnimation() {
     const animatedElement = document.getElementById('animated-title');
     const cursorElement = document.querySelector('.typing-cursor-2');
     const titles = [
-        "Dental Marketing Pros",
+        "Dental Marketing pro",
         "Dental PPC Experts", 
         "Dental SEO Experts"
     ];
