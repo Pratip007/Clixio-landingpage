@@ -390,6 +390,9 @@ a:focus {
         max-height: calc(100vh - 2rem) !important;
         overflow-y: auto !important;
     }
+    section {
+        margin-bottom: 3.5rem !important; /* 56px for even more space between sections */
+    }
 }
 
 /* Tablet styles (641px to 768px) */
@@ -1094,3 +1097,9 @@ a:focus {
 }
 
 /* ====== END LAPTOP SCREEN SIDE PADDING ====== */ 
+
+@media (max-width: 640px) {
+  section {
+    margin-bottom: 3.5rem !important;
+  }
+} 
