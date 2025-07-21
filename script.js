@@ -804,7 +804,7 @@ document.querySelectorAll('button').forEach(btn => {
 
 
 // Observe elements for scroll animations
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     // Initialize mobile menu FIRST before any other button handlers
     initMobileMenu();
     
@@ -833,6 +833,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!el.classList.contains('observed')) {
                 observer.observe(el);
                 el.classList.add('observed');
+            }
+        });
+    });
+
+    // Open contact modal for footer links with class 'open-contact-modal'
+    document.querySelectorAll('.open-contact-modal').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var modal = document.getElementById('contactModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
             }
         });
     });
