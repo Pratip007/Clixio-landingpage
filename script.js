@@ -882,8 +882,8 @@ document.addEventListener('DOMContentLoaded', function() {
                      href.startsWith('https://') ||
                      href.startsWith('http://'))
                 ) {
-                    // If it's a nav link to #contact, open modal and prevent default
-                    if (href === '#contact' || text.includes('get started')) {
+                    // If it's a nav link to #contact, index.html#contact, or text includes 'get started', open modal and prevent default
+                    if (href === '#contact' || href === 'index.html#contact' || text.includes('get started')) {
                         e.preventDefault();
                         var modal = document.getElementById('contactModal');
                         if (modal) {
