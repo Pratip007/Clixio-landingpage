@@ -878,24 +878,25 @@ document.querySelectorAll('button').forEach(button => {
 function initContactModal() {
     const modal = document.getElementById('contactModal');
     const closeBtn = document.getElementById('closeModal');
-    
+    const freeTrialBtn = document.getElementById('freeTrialBtn');
+
     // Function to open modal
     function openModal() {
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
-    
+
     // Function to close modal
     function closeModal() {
         modal.classList.add('hidden');
         document.body.style.overflow = ''; // Restore scrolling
     }
-    
+
     // Close button event
     if (closeBtn) {
         closeBtn.addEventListener('click', closeModal);
     }
-    
+
     // Close modal when clicking outside
     if (modal) {
         modal.addEventListener('click', (e) => {
@@ -904,106 +905,21 @@ function initContactModal() {
             }
         });
     }
-    
+
     // Close modal with Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
             closeModal();
         }
     });
-    
-    // Make all CTA buttons open the modal
-    const ctaButtons = document.querySelectorAll('button, a');
-    ctaButtons.forEach(button => {
-        const text = button.textContent.toLowerCase();
-        const href = button.getAttribute('href') || '';
-        const ariaLabel = button.getAttribute('aria-label') || '';
-        
-        // Skip mobile menu button and other excluded buttons
-        if (button.getAttribute('data-menu-button') === 'true' ||
-            button.id === 'mobile-menu-btn' || 
-            button.classList.contains('mobile-menu') ||
-            button.id === 'closeModal' || 
-            button.classList.contains('close') ||
-            ariaLabel.includes('toggle') ||
-            ariaLabel.includes('menu')) {
-            return;
-        }
-        
-        // Check if it's a CTA button
-        if (text.includes('get free') || 
-            text.includes('schedule') || 
-            text.includes('audit') || 
-            text.includes('start') ||
-            text.includes('contact') ||
-            text.includes('learn more') ||
-            text.includes('get started') ||
-            text.includes('book') ||
-            text.includes('call') ||
-            text.includes('free') ||
-            text.includes('watch') ||
-            text.includes('download') ||
-            text.includes('subscribe') ||
-            button.classList.contains('btn-base') ||
-            button.classList.contains('bg-primary') ||
-            button.classList.contains('bg-gradient-to-r') ||
-            (button.classList.contains('bg-white') && text.includes('primary'))) {
-            
-            button.addEventListener('click', (e) => {
-                // Don't open modal for navigation links
-                if (button.tagName === 'A' && href && 
-                    (href.startsWith('#') || 
-                     href.includes('.html') ||
-                     href.startsWith('mailto:') ||
-                     href.startsWith('tel:') ||
-                     href.startsWith('https://wa.me/') ||
-                     href.startsWith('https://') ||
-                     href.startsWith('http://'))) {
-                    return;
-                }
-                
-                e.preventDefault();
-                openModal();
-            });
-        }
-    });
-    
-    // Also add click handlers to specific button types
-    const specificCTAs = document.querySelectorAll('.bg-primary, .bg-gradient-to-r, .btn-base, .btn-secondary, .btn-success, .btn-info');
-    specificCTAs.forEach(button => {
-        const ariaLabel = button.getAttribute('aria-label') || '';
-        
-        // Skip mobile menu button and other excluded buttons
-        if (button.getAttribute('data-menu-button') === 'true' ||
-            button.id === 'mobile-menu-btn' || 
-            button.classList.contains('mobile-menu') ||
-            button.id === 'closeModal' || 
-            button.classList.contains('close') ||
-            ariaLabel.includes('toggle') ||
-            ariaLabel.includes('menu')) {
-            return;
-        }
-        
-        if (!button.hasAttribute('data-modal-handler')) {
-            button.setAttribute('data-modal-handler', 'true');
-            button.addEventListener('click', (e) => {
-                const href = button.getAttribute('href') || '';
-                
-                // Don't open modal for external links
-                if (button.tagName === 'A' && href && 
-                    (href.startsWith('mailto:') ||
-                     href.startsWith('tel:') ||
-                     href.startsWith('https://wa.me/') ||
-                     href.startsWith('https://') ||
-                     href.startsWith('http://'))) {
-                    return;
-                }
-                
-                e.preventDefault();
-                openModal();
-            });
-        }
-    });
+
+    // Only the 30-Day Free Trial button opens the modal
+    if (freeTrialBtn) {
+        freeTrialBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    }
 }
 
 console.log('Enhanced Clixio features loaded with Tailwind CSS!');
