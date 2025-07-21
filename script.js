@@ -848,6 +848,60 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Make all CTA buttons open the contact modal
+    document.querySelectorAll('button, a').forEach(function(btn) {
+        var text = (btn.textContent || '').toLowerCase();
+        if (
+            btn.classList.contains('btn-primary') ||
+            btn.classList.contains('btn-secondary') ||
+            btn.classList.contains('bg-primary') ||
+            btn.classList.contains('bg-white') ||
+            text.includes('free') ||
+            text.includes('audit') ||
+            text.includes('contact') ||
+            text.includes('get started') ||
+            text.includes('book') ||
+            text.includes('call') ||
+            text.includes('watch') ||
+            text.includes('download') ||
+            text.includes('Careers') ||
+            text.includes('Contact') ||
+            text.includes('subscribe')
+        ) {
+            btn.addEventListener('click', function(e) {
+                var href = btn.getAttribute('href') || '';
+                // Only prevent default if it's not an anchor or external link
+                if (
+                    btn.tagName === 'A' && href &&
+                    (href.startsWith('#') ||
+                     href.includes('.html') ||
+                     href.startsWith('mailto:') ||
+                     href.startsWith('tel:') ||
+                     href.startsWith('https://wa.me/') ||
+                     href.startsWith('https://') ||
+                     href.startsWith('http://'))
+                ) {
+                    // If it's a nav link to #contact, open modal and prevent default
+                    if (href === '#contact' || text.includes('get started')) {
+                        e.preventDefault();
+                        var modal = document.getElementById('contactModal');
+                        if (modal) {
+                            modal.classList.remove('hidden');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
+                    return;
+                }
+                e.preventDefault();
+                var modal = document.getElementById('contactModal');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        }
+    });
 });
 
 // Performance Monitoring
