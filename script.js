@@ -97,7 +97,7 @@ function initMarketingProAnimation() {
     const animatedElement = document.getElementById('animated-title');
     const cursorElement = document.querySelector('.typing-cursor-2');
     const titles = [
-        "Dental Marketing pro",
+        "Dental Marketing Pro",
         "Dental PPC Experts", 
         "Dental SEO Experts"
     ];
