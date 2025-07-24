@@ -32,99 +32,99 @@
             animation: blink 1s infinite;
             font-weight: normal;
         }
-        
+
         .typing-cursor-2 {
             display: inline-block;
             color: #FF6B35;
             animation: blink 1s infinite;
             font-weight: normal;
         }
-        
+
         @keyframes blink {
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0; }
         }
-        
+
         /* Partner Showcase - Scroll animation removed */
-        
+
         /* Service Section Logo Animations */
         .service-logo {
             transition: all 0.3s ease;
             animation: float 3s ease-in-out infinite;
         }
-        
+
         .service-logo:hover {
             transform: scale(1.2) rotate(5deg);
             color: #FF6B35 !important;
         }
-        
+
         /* Different animations for each service */
         .service-card:nth-child(1) .service-logo {
             animation: pulse-search 2s ease-in-out infinite;
         }
-        
+
         .service-card:nth-child(2) .service-logo {
             animation: bounce-click 2.5s ease-in-out infinite;
         }
-        
+
         .service-card:nth-child(3) .service-logo {
             animation: rotate-globe 4s linear infinite;
         }
-        
+
         .service-card:nth-child(4) .service-logo {
             animation: shake-share 3s ease-in-out infinite;
         }
-        
+
         .service-card:nth-child(5) .service-logo {
             animation: twinkle-star 2s ease-in-out infinite;
         }
-        
+
         .service-card:nth-child(6) .service-logo {
             animation: chart-grow 3s ease-in-out infinite;
         }
-        
+
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-8px); }
         }
-        
+
         @keyframes pulse-search {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
         }
-        
+
         @keyframes bounce-click {
             0%, 100% { transform: translateY(0px); }
             25% { transform: translateY(-5px); }
             75% { transform: translateY(-2px); }
         }
-        
+
         @keyframes rotate-globe {
             0% { transform: rotateY(0deg); }
             100% { transform: rotateY(360deg); }
         }
-        
+
         @keyframes shake-share {
             0%, 100% { transform: translateX(0px); }
             25% { transform: translateX(-3px); }
             75% { transform: translateX(3px); }
         }
-        
+
         @keyframes twinkle-star {
             0%, 100% { transform: scale(1) rotate(0deg); }
             50% { transform: scale(1.15) rotate(180deg); }
         }
-        
+
         @keyframes chart-grow {
             0%, 100% { transform: scaleY(1); }
             50% { transform: scaleY(1.1); }
         }
-        
+
         /* Pause animations when card is hovered */
         .service-card:hover .service-logo {
             animation-play-state: paused;
         }
-        
+
         /* Marketing Pro Section Enhancements */
         .marketing-pro-card {
             background: rgba(255, 255, 255, 0.6);
@@ -132,13 +132,13 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
-        
+
         .marketing-pro-card:hover {
             background: rgba(255, 255, 255, 0.8);
             transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
         }
-        
+
         /* Animation delay classes */
         .animation-delay-1000 {
             animation-delay: 1s;
@@ -149,7 +149,7 @@
         .animation-delay-3000 {
             animation-delay: 3s;
         }
-        
+
         /* Gradient text fallback */
         .gradient-text {
             background: linear-gradient(135deg, #FF6B35 0%, #F97316 100%);
@@ -158,20 +158,20 @@
             background-clip: text;
             color: transparent;
         }
-        
+
         /* Fallback for browsers that don't support background-clip */
         @supports not (background-clip: text) {
             .gradient-text {
                 color: #FF6B35;
             }
         }
-        
+
         /* Service card icon rotation on hover */
         .service-card-icon {
             transition: all 0.3s ease;
             display: inline-block;
         }
-        
+
         .group:hover .service-card-icon {
             transform: rotate(360deg) !important;
         }
@@ -249,7 +249,7 @@
                                     <p class="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed">
                         We specialize in battle-tested dental marketing strategies that drive guaranteed daily new patient bookings and outrank your competitors. Get more traffic, grow revenue, and dominate your local market.
                     </p>
-                    
+
                     <!-- Features -->
                     <div class="space-y-4 mb-8">
                         <div class="flex items-start justify-center lg:justify-start">
@@ -264,7 +264,7 @@
                             <i class="fas fa-check-circle text-primary text-xl mr-3"></i>
                             <span class="text-dark font-medium">No contract , no upfront fees</span>
                         </div>
-                        
+
                     </div>
 
                 <!-- CTA Buttons -->
@@ -302,16 +302,16 @@
                             </div>
                         </div>
                 </div>
-                
+
                 <!-- Floating Elements -->
                 <div class="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center shadow-lg animate-bounce">
                     <i class="fas fa-tooth text-white text-2xl"></i>
                 </div>
-                
+
                 <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-secondary to-blue-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                     <i class="fas fa-star text-white text-xl"></i>
                 </div>
-                
+
                 <!-- Background Decoration -->
                 <div class="absolute inset-0 -z-10">
                     <div class="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
@@ -323,7 +323,7 @@
     </section>
 
     <!-- New Marketing Pro Section -->
-    <section class="pt-8 lg:pt-10 mt-8 pb-8 lg:pb-10 bg-gradient-to-r from-gray-900 to-black text-white relative overflow-hidden p-0 pt-16 pb-16 sm:pt-0 sm:pb-0">
+    <section class="pt-8 lg:pt-10 mt-8 pb-6 lg:pb-10 bg-gradient-to-r from-gray-900 to-black text-white relative overflow-hidden p-0 pt-16 pb-16 sm:pt-0 sm:pb-0">
         <!-- Background Image with Dark Overlay -->
         <div class="absolute inset-0 bg-cover bg-center opacity-30 blur-sm" style="background-image: url('./images/hero-dental-office.jpg');"></div>
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 relative z-10">
@@ -331,21 +331,21 @@
                 <!-- Main Title -->
                 <div class="flex justify-center w-full">
                     <div class="w-full max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl overflow-x-auto scrollbar-none">
-                        <h2 class="text-center sm:text-left whitespace-nowrap text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 lg:mb-3 leading-tight">
+                        <h2 class="text-center sm:text-left whitespace-nowrap text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-0 sm:mb-3 leading-tight">
                             <div class="flex flex-col sm:flex-row items-center sm:items-start">
                                 <span class="mr-2">
                                     <span class="lg:hidden">We Are</span>
                                     <span class="hidden lg:inline">&nbsp &nbsp We Are</span>
                                 </span>
                                 <div class="text-left sm:text-left">
-                                    <span id="animated-title" class="text-white text-primary pl-4 sm:pl-0"></span><span class="typing-cursor-2">|</span>
+                                    <span id="animated-title" class="text-white text-primary ml-4 sm:pl-0 border-b-2 border-white inline-block"></span><span class="typing-cursor-2">|</span>
                                 </div>
                             </div>
                         </h2>
                     </div>
                 </div>
                 <!-- Quote Section -->
-                <div class="relative max-w-4xl mx-auto">
+                <div class="relative max-w-4xl mx-auto -mt-1 sm:mt-0">
                     <!-- Quote Text with Icons -->
                     <div class="flex flex-col items-start justify-start">
                         <!-- Mobile: 4 lines, Desktop: 2 lines -->
@@ -357,20 +357,20 @@
                             <span class="italic text-white font-medium text-lg sm:text-2xl lg:text-3xl"> Bring You Real, <span class="text-white">Ready to Book Patients &nbsp</span></span>
                             <i class="fa-solid fa-quote-right text-2xl sm:text-4xl lg:text-5xl text-gray-500"></i>
                         </div>
-                        
-                        <!-- Mobile: 4 lines -->
-                        <div class="sm:hidden flex flex-col p-4 items-start">
-                            <div class="inline-flex items-center p-2">
+
+                         <!-- Mobile: 4 lines -->
+                         <div class="sm:hidden flex flex-col p-4 items-start">
+                            <div class="inline-flex items-center">
                                 <i class="fa-solid fa-quote-left text-2xl text-gray-400"></i>
                                 <span class="italic text-white font-medium text-lg pl-2"> We Don't Just Generate </span>
                             </div>
-                            <div class="inline-flex items-center justify-center w-full">
+                            <div class="inline-flex items-center justify-center w-full -mt-1">
                                 <span class="italic text-white font-medium text-lg text-center"> Leads.</span>
                             </div>
                             <div class="inline-flex items-center">
                                 <span class="italic text-white font-medium text-lg "> We Bring You Real, Ready to &nbsp</span>
                             </div>
-                            
+
                             <div class="inline-flex items-center justify-center w-full">
                                 <span class="italic text-white font-medium text-lg text-center"> Book Patients &nbsp</span>
                                 <i class="fa-solid fa-quote-right text-2xl text-gray-400"></i>
@@ -396,7 +396,7 @@
                     <p class="text-lg text-gray-600 mb-8 leading-relaxed">
                         With 10+ years in dental marketing, we've helped practices grow patient flow and increase revenue using proven digital strategies designed to deliver measurable, lasting results.
                     </p>
-                    
+
                     <div class="space-y-6 mb-8">
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
@@ -407,7 +407,7 @@
                                 <p class="text-gray-600">Specialized knowledge in dental marketing with proven track record.</p>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
                                 <i class="fas fa-chart-line text-secondary text-xl"></i>
@@ -417,7 +417,7 @@
                                 <p class="text-gray-600">Data-driven strategies that deliver real, trackable growth.</p>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
                                 <i class="fas fa-handshake text-green-500 text-xl"></i>
@@ -448,7 +448,7 @@
                             <img src="./images/Why Choose Clixio/Measurable Results.jpg" alt="Dental Reception" class="w-full h-48 object-cover rounded-2xl transition-all duration-300 hover:scale-105" style="box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);" loading="lazy">
                         </div>
                     </div>
-                    
+
                     <!-- Floating Stats Card -->
                     <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 border" style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);">
                         <div class="flex items-center space-x-4">
@@ -464,19 +464,20 @@
                 </div>
             </div>
         </div>
+    </section>
 
-   
+
 
     <!-- Stats Section -->
-    <section class="py-2 pt-6  md:py-10 lg:py-14 bg-dark text-white relative overflow-hidden p-0 pt-20 pb-12 sm:pt-0 sm:pb-0" id="results">
+    <section class="py-2 pt-6  md:py-10 lg:py-14 bg-dark text-white relative overflow-hidden p-0 pt-20 pb-20 sm:pt-0 sm:pb-0" id="results">
         <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('./images/dental-office-modern.jpg');"></div>
         <div class="absolute inset-0 bg-black/20"></div>
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 relative z-10 py-4 md:py-10 lg:py-14">
             <div class="text-center mb-6 md:mb-12 lg:mb-16">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 mt-5 md:mb-4">Results That Speak for Themselves</h2>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">Results That Speak for Themselves</h2>
                 <p class="text-base md:text-lg text-gray-300 max-w-2xl mx-auto px-4">Our proven strategies deliver measurable results that grow your practice and increase revenue.</p>
             </div>
-            
+
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
                 <div class="text-center bg-white/95 backdrop-blur-lg rounded-2xl p-3 md:p-6 hover:bg-white hover:scale-105 transition-all duration-500 border border-gray-200" style="box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 30px rgba(255, 107, 53, 0.1);">
                     <div class="w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4 shadow-lg">
@@ -486,7 +487,7 @@
                     <div class="text-dark font-semibold text-xs md:text-base">New Patients/Month</div>
                     <div class="text-xs text-gray-600 mt-1 md:mt-2 hidden md:block">Guaranteed monthly bookings</div>
                 </div>
-                
+
                 <div class="text-center bg-white/95 backdrop-blur-lg rounded-2xl p-3 md:p-6 hover:bg-white hover:scale-105 transition-all duration-500 border border-gray-200" style="box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 30px rgba(255, 107, 53, 0.1);">
                     <div class="w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4 shadow-lg">
                         <i class="fas fa-clinic-medical text-sm md:text-2xl text-white"></i>
@@ -495,7 +496,7 @@
                     <div class="text-dark font-semibold text-xs md:text-base">Successful Practices</div>
                     <div class="text-xs text-gray-600 mt-1 md:mt-2 hidden md:block">Dental practices transformed</div>
                 </div>
-                
+
                 <div class="text-center bg-white/95 backdrop-blur-lg rounded-2xl p-3 md:p-6 hover:bg-white hover:scale-105 transition-all duration-500 border border-gray-200" style="box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 30px rgba(255, 107, 53, 0.1);">
                     <div class="w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4 shadow-lg">
                         <i class="fas fa-chart-line text-sm md:text-2xl text-white"></i>
@@ -504,7 +505,7 @@
                     <div class="text-dark font-semibold text-xs md:text-base">Patient Growth</div>
                     <div class="text-xs text-gray-600 mt-1 md:mt-2 hidden md:block">Average increase in appointments</div>
                 </div>
-                
+
                 <div class="text-center bg-white/95 backdrop-blur-lg rounded-2xl p-3 md:p-6 hover:bg-white hover:scale-105 transition-all duration-500 border border-gray-200" style="box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 30px rgba(255, 107, 53, 0.1);">
                     <div class="w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4 shadow-lg">
                         <i class="fas fa-dollar-sign text-sm md:text-2xl text-white"></i>
@@ -517,7 +518,7 @@
         </div>
     </section>
 
-    
+
 
     <!-- Services Section -->
     <section class="py-6 pt-12 lg:py-14 bg-light-gray p-0 pt-20 pb-20 sm:pt-0 sm:pb-0" id="services">
@@ -733,7 +734,7 @@
     </section>
 
     <!-- How It Works Section -->
-    <section class="py-4  pt-4 lg:py-12 pb-10 lg:pb-40 bg-gradient-to-br from-gray-50 to-white p-0 pt-20 pb-20 sm:pt-0 sm:pb-0">
+    <section class="py-4  pt-10 lg:py-12 pb-10 lg:pb-40 bg-gradient-to-br from-gray-50 to-white p-0 pt-20 pb-20 sm:pt-0 sm:pb-0">
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
             <!-- Compact Header -->
             <div class="text-center mb-10">
@@ -762,7 +763,7 @@
                         <!-- Glow effect -->
                         <div class="absolute top-0 h-2 bg-gradient-to-r from-primary/50 via-secondary/50 via-green-500/50 to-purple-500/50 rounded-full blur-sm"></div>
                     </div>
-                    
+
                     <!-- Enhanced Steps Container -->
                     <div class="relative flex justify-between items-center">
                         <!-- Step 1 -->
@@ -777,7 +778,7 @@
                                 <!-- Pulse Ring -->
                                 <div class="absolute inset-0 rounded-full border-4 border-primary/30 animate-ping"></div>
                             </div>
-                            
+
                             <!-- Step Content -->
                             <div class="absolute top-24 left-1/2 transform -translate-x-1/2 text-center w-48">
                                 <div class="bg-white rounded-2xl p-4 shadow-xl border border-gray-100 group-hover:shadow-2xl transition-all duration-300">
@@ -800,7 +801,7 @@
                                 <!-- Pulse Ring -->
                                 <div class="absolute inset-0 rounded-full border-4 border-secondary/30 animate-ping animation-delay-200"></div>
                             </div>
-                            
+
                             <!-- Step Content -->
                             <div class="absolute top-24 left-1/2 transform -translate-x-1/2 text-center w-48">
                                 <div class="bg-white rounded-2xl p-4 shadow-xl border border-gray-100 group-hover:shadow-2xl transition-all duration-300">
@@ -823,7 +824,7 @@
                                 <!-- Pulse Ring -->
                                 <div class="absolute inset-0 rounded-full border-4 border-green-500/30 animate-ping animation-delay-400"></div>
                             </div>
-                            
+
                             <!-- Step Content -->
                             <div class="absolute top-24 left-1/2 transform -translate-x-1/2 text-center w-48">
                                 <div class="bg-white rounded-2xl p-4 shadow-xl border border-gray-100 group-hover:shadow-2xl transition-all duration-300">
@@ -846,7 +847,7 @@
                                 <!-- Pulse Ring -->
                                 <div class="absolute inset-0 rounded-full border-4 border-purple-500/30 animate-ping animation-delay-600"></div>
                             </div>
-                            
+
                             <!-- Step Content -->
                             <div class="absolute top-24 left-1/2 transform -translate-x-1/2 text-center w-48">
                                 <div class="bg-white rounded-2xl p-4 shadow-xl border border-gray-100 group-hover:shadow-2xl transition-all duration-300">
@@ -930,7 +931,7 @@
     </section>
 
     <!-- Portfolio Gallery Section -->
-    <section class="py-6 lg:py-14 bg-gradient-to-br from-gray-50 to-white p-0 pt-4 pb-20 sm:pt-0 sm:pb-0">
+    <section class="py-6 lg:py-14 bg-gradient-to-br from-gray-50 to-white p-0 pt-20 pb-20 sm:pt-0 sm:pb-0">
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
             <div class="text-center mb-16">
                 <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
@@ -1034,7 +1035,7 @@
                 </div>
             </div>
 
-            
+
         </div>
     </section>
 
@@ -1046,7 +1047,7 @@
             <div class="absolute bottom-0 right-0 w-80 h-80 bg-secondary/10 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 animate-pulse"></div>
             <div class="absolute top-1/2 left-1/2 w-60 h-60 bg-green-500/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
         </div>
-        
+
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32 relative z-10">
             <!-- Compact Header -->
             <div class="text-center mb-8 md:mb-12">
@@ -1329,7 +1330,7 @@
                 <p class="text-lg lg:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                     Join hands with proven dental marketing experts trusted by practices that have successfully transformed new patient acquisition and dominated their local markets.
                 </p>
-                
+
                 <!-- Features -->
                 <div class="grid md:grid-cols-3 gap-6 mb-10">
                     <div class="flex items-center justify-center">
@@ -1464,7 +1465,7 @@
             <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl z-10">
                 <i class="fas fa-times"></i>
             </button>
-            
+
             <!-- Modal Content -->
             <div class="p-8 text-center">
                 <!-- Header -->
@@ -1475,25 +1476,25 @@
                     <h2 class="text-2xl lg:text-3xl font-bold text-dark mb-3">Ready to Transform Your Practice?</h2>
                     <p class="text-gray-600 leading-relaxed">Get your free marketing audit and discover how we can help grow your dental practice. Choose your preferred way to connect with us.</p>
                 </div>
-                
+
                 <!-- Contact Buttons -->
                 <div class="space-y-3">
                     <a href="mailto:dentalmarketingpro1@gmail.com" class="flex items-center justify-center w-full bg-orange-400 text-white px-4 py-3 rounded-full font-semibold hover:bg-orange-500 transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
                         <i class="fas fa-envelope mr-2 text-base group-hover:scale-110 transition-transform"></i>
                         <span class="text-base">Send Email</span>
                     </a>
-                    
+
                     <a href="tel:+918910300840" class="flex items-center justify-center w-full bg-blue-500 text-white px-4 py-3 rounded-full font-semibold hover:bg-blue-600 transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
                         <i class="fas fa-phone mr-2 text-base group-hover:scale-110 transition-transform"></i>
                         <span class="text-base">Call Now</span>
                     </a>
-                    
+
                     <a href="https://wa.me/918910300840" target="_blank" class="flex items-center justify-center w-full bg-green-500 text-white px-4 py-3 rounded-full font-semibold hover:bg-green-600 transition-all duration-300 hover:shadow-md hover:-translate-y-1 group">
                         <i class="fab fa-whatsapp mr-2 text-base group-hover:scale-110 transition-transform"></i>
                         <span class="text-base">WhatsApp</span>
                     </a>
                 </div>
-                
+
                 <!-- Footer Note -->
                 <div class="mt-6 pt-6 border-t border-gray-200">
                     <p class="text-sm text-gray-500">
@@ -1505,27 +1506,5 @@
         </div>
     </div>
 
-    <!-- Bottom Popup -->
-    <div id="bottom-popup" style="display:none;" class="fixed bottom-1 left-1 right-1 sm:bottom-2 sm:right-2 sm:left-auto z-50 w-auto sm:w-full max-w-xs sm:max-w-xs pointer-events-none">
-      <div class="relative bg-blue-100 shadow-lg rounded-lg border border-primary/30 flex flex-col items-center sm:items-start gap-0.5 px-1 py-1 sm:px-4 sm:py-3 pointer-events-auto animate-slideInRight">
-        <button id="close-popup-btn" class="absolute top-0.5 right-1 text-gray-400 hover:text-primary text-sm sm:text-lg font-bold focus:outline-none p-0 m-0 leading-none" aria-label="Close popup">&times;</button>
-        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary/10 text-primary text-xs mb-0.5 sm:mb-0"><i class="fas fa-handshake"></i></span>
-        <span class="font-bold text-primary text-xs sm:text-base text-center w-full">DSO Owner?</span>
-        <span class="font-semibold text-dark text-xs text-center w-full">Partner With Us.</span>
-        <span class="text-xs text-gray-700 text-center w-full">Outsource your marketing to a trusted marketing team.</span>
-        <span class="text-xs text-gray-500 text-center w-full">SEO • Google Ads • Social Media • Website Design</span>
-        <span class="text-xs text-green-600 font-semibold text-center w-full">✅ Scalable ✅ Affordable ✅ US-Focused</span>
-        <button class="bg-primary text-white text-xs font-semibold w-full mt-0.5 px-2 py-0.5 sm:px-4 sm:py-1.5 rounded-full shadow hover:bg-primary-dark transition-all duration-200 focus:outline-none">Let's Talk</button>
-      </div>
-      <style>
-        @keyframes slideInRight {
-          from { opacity: 0; transform: translateX(100px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        .animate-slideInRight { animation: slideInRight 1.5s cubic-bezier(0.4,0,0.2,1); }
-      </style>
-    </div>
-
     <script src="script.js"></script>
 </body>
-</html>
