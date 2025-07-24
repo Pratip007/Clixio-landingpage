@@ -1507,25 +1507,40 @@
     </div>
 
     <!-- Marketing Popup Modal -->
-    <div id="marketing-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden">
-      <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full mx-4 p-6 sm:p-8 flex flex-col lg:flex-row items-center text-center lg:text-left border border-white/20 backdrop-blur-sm" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 20&quot;><path d=&quot;M0,10 Q25,5 50,10 T100,10&quot; stroke=&quot;%23fed7aa&quot; stroke-width=&quot;1&quot; fill=&quot;none&quot; opacity=&quot;0.6&quot;/><path d=&quot;M0,15 Q30,12 60,15 T100,15&quot; stroke=&quot;%23fed7aa&quot; stroke-width=&quot;1&quot; fill=&quot;none&quot; opacity=&quot;0.4&quot;/><path d=&quot;M0,5 Q20,8 40,5 T100,5&quot; stroke=&quot;%23fed7aa&quot; stroke-width=&quot;1&quot; fill=&quot;none&quot; opacity=&quot;0.8&quot;/></svg>'), repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(254, 215, 170, 0.2) 15px, rgba(254, 215, 170, 0.2) 16px); background-size: 100px 20px, 30px 30px;">
-        <button id="close-marketing-modal" class="absolute top-0 right-0 w-10 h-10 bg-white border border-gray-300 text-gray-600 hover:text-gray-800 hover:bg-gray-50 text-xl font-normal focus:outline-none transition-all duration-200 flex items-center justify-center rounded-tr-3xl shadow-sm" aria-label="Close popup">&times;</button>
+    <div id="marketing-modal" class="fixed inset-0 z-50 flex items-center justify-center md:items-center md:justify-center items-end justify-center bg-black/40 backdrop-blur-sm hidden">
+      <div class="relative bg-white rounded-3xl md:rounded-3xl rounded-t-2xl rounded-b-none shadow-2xl max-w-2xl w-full mx-4 md:mx-4 mx-2 px-12 md:px-12 px-4 py-6 md:py-6 py-3 text-center border border-gray-200 backdrop-blur-sm md:mb-0 mb-0" style="background-image: radial-gradient(circle, rgba(156, 163, 175, 0.15) 2px, transparent 2px); background-size: 25px 25px; background-color: #f2f2f2;">
+        <button id="close-marketing-modal" class="absolute top-4 right-4 w-8 h-8 bg-white/80 border border-gray-300 text-gray-600 hover:text-gray-800 hover:bg-white text-xl font-normal focus:outline-none transition-all duration-200 flex items-center justify-center rounded-full shadow-sm" aria-label="Close popup">&times;</button>
+        
         <!-- Lottie Icon -->
-        <div class="mb-6 lg:mb-0 lg:mr-8 flex-shrink-0 flex justify-center items-center">
-          <iframe src="https://lottie.host/embed/46507004-e70b-4dd7-a5bb-53837844bbf2/ajgsgEXkC3.lottie" class="w-[80px] h-[80px] lg:w-[120px] lg:h-[120px]" style="border:none; background:transparent;" allowfullscreen></iframe>
-        </div>
-        <div class="flex-1 flex flex-col justify-center items-center lg:items-start space-y-3">
-          <div class="space-y-1">
-            <h2 class="text-2xl md:text-3xl font-black text-primary leading-tight">Dental Marketer- DSO Owner?</h2>
-            <h3 class="text-xl md:text-2xl font-bold text-gray-800 leading-tight">Partner With Us.</h3>
+        <div class="mb-6 md:mb-6 mb-4 flex justify-center items-center">
+          <div class="relative">
+            <!-- Outer circle -->
+            <div class="w-[160px] h-[160px] md:w-[160px] md:h-[160px] w-[120px] h-[120px] bg-gray-50 rounded-full flex items-center justify-center shadow-sm">
+              <!-- Inner circle -->
+              <div class="w-[140px] h-[140px] md:w-[140px] md:h-[140px] w-[100px] h-[100px] bg-gray-100 rounded-full flex items-center justify-center shadow-sm">
+                <iframe src="https://lottie.host/embed/0b550971-1213-47f2-a1a9-5a9fd5526a4d/9am4Lxd9lJ.lottie" class="w-[120px] h-[120px] md:w-[120px] md:h-[120px] w-[80px] h-[80px]" style="border:none; background:transparent;" allowfullscreen></iframe>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-700 text-base md:text-lg font-medium leading-relaxed max-w-md">Outsource your marketing to a trusted marketing team.</p>
-          <div class="text-sm md:text-base text-gray-600 font-medium">SEO • Google Ads • Social Media • Website Design</div>
-          <div class="text-green-600 font-bold text-sm md:text-base flex items-center justify-center lg:justify-start gap-2">✅ Scalable ✅ Affordable ✅ US-Focused</div>
-          <button class="bg-gradient-to-r from-primary via-orange-500 to-red-500 text-white font-bold px-8 py-3 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 focus:outline-none w-full lg:w-auto text-base flex items-center justify-center gap-2 mt-4">
-            <i class="fas fa-paper-plane text-white text-lg"></i>
-            Let's Talk
-          </button>
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-4 md:space-y-4 space-y-3 font-inter">
+          <div class="space-y-2 md:space-y-2 space-y-1">
+            <h2 class="text-xl md:text-3xl font-normal text-primary leading-tight">Dental Marketer- DSO Owner?</h2>
+            <h3 class="text-lg md:text-2xl font-bold text-gray-800 leading-tight">Partner With Us.</h3>
+          </div>
+          <p class="text-gray-700 text-sm md:text-lg font-medium leading-relaxed">Outsource your marketing to a trusted marketing team.</p>
+          <div class="text-xs md:text-base text-gray-600 font-medium">SEO • Google Ads • Social Media • Website Design</div>
+          <div class="text-green-600 font-bold text-xs md:text-base flex items-center justify-center gap-2">✅ Scalable ✅ Affordable ✅ US-Focused</div>
+          
+          <!-- CTA Button -->
+          <div class="flex justify-center mt-4 md:mt-6">
+            <button class="bg-gradient-to-r from-primary via-orange-500 to-red-500 text-white font-bold px-6 py-2 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 focus:outline-none w-auto text-sm flex items-center justify-center gap-2">
+              <i class="fas fa-paper-plane text-white text-base"></i>
+              Let's Talk
+            </button>
+          </div>
         </div>
       </div>
     </div>
