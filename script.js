@@ -988,4 +988,21 @@ function initContactModal() {
     }
 }
 
+// Bottom popup close logic
+const closePopupBtn = document.getElementById('close-popup-btn');
+const bottomPopup = document.getElementById('bottom-popup');
+if (closePopupBtn && bottomPopup) {
+  closePopupBtn.addEventListener('click', () => {
+    bottomPopup.style.display = 'none';
+  });
+}
+
+// Show bottom popup after 3 seconds
+setTimeout(() => {
+  const bottomPopup = document.getElementById('bottom-popup');
+  if (bottomPopup) {
+    bottomPopup.style.display = 'block';
+  }
+}, 3000);
+
 console.log('Enhanced Clixio features loaded with Tailwind CSS!');

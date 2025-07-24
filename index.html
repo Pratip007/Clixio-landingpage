@@ -464,7 +464,6 @@
                 </div>
             </div>
         </div>
-    </section>
 
    
 
@@ -1504,6 +1503,27 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Bottom Popup -->
+    <div id="bottom-popup" style="display:none;" class="fixed bottom-1 left-1 right-1 sm:bottom-2 sm:right-2 sm:left-auto z-50 w-auto sm:w-full max-w-xs sm:max-w-xs pointer-events-none">
+      <div class="relative bg-blue-100 shadow-lg rounded-lg border border-primary/30 flex flex-col items-center sm:items-start gap-0.5 px-1 py-1 sm:px-4 sm:py-3 pointer-events-auto animate-slideInRight">
+        <button id="close-popup-btn" class="absolute top-0.5 right-1 text-gray-400 hover:text-primary text-sm sm:text-lg font-bold focus:outline-none p-0 m-0 leading-none" aria-label="Close popup">&times;</button>
+        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary/10 text-primary text-xs mb-0.5 sm:mb-0"><i class="fas fa-handshake"></i></span>
+        <span class="font-bold text-primary text-xs sm:text-base text-center w-full">DSO Owner?</span>
+        <span class="font-semibold text-dark text-xs text-center w-full">Partner With Us.</span>
+        <span class="text-xs text-gray-700 text-center w-full">Outsource your marketing to a trusted marketing team.</span>
+        <span class="text-xs text-gray-500 text-center w-full">SEO • Google Ads • Social Media • Website Design</span>
+        <span class="text-xs text-green-600 font-semibold text-center w-full">✅ Scalable ✅ Affordable ✅ US-Focused</span>
+        <button class="bg-primary text-white text-xs font-semibold w-full mt-0.5 px-2 py-0.5 sm:px-4 sm:py-1.5 rounded-full shadow hover:bg-primary-dark transition-all duration-200 focus:outline-none">Let's Talk</button>
+      </div>
+      <style>
+        @keyframes slideInRight {
+          from { opacity: 0; transform: translateX(100px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-slideInRight { animation: slideInRight 1.5s cubic-bezier(0.4,0,0.2,1); }
+      </style>
     </div>
 
     <script src="script.js"></script>
