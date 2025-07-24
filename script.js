@@ -988,4 +988,19 @@ function initContactModal() {
     }
 }
 
+// Show marketing popup on page load
+window.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('marketing-modal');
+  const lottie = modal ? modal.querySelector('iframe') : null;
+  if (lottie) {
+    lottie.addEventListener('load', function() {
+      modal.classList.remove('hidden');
+    });
+  }
+  const closeBtn = document.getElementById('close-marketing-modal');
+  if (closeBtn) closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+});
+
 console.log('Enhanced Clixio features loaded with Tailwind CSS!');
