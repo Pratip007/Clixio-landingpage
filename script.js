@@ -988,18 +988,46 @@ function initContactModal() {
     }
 }
 
-// Show marketing popup on page load
+// Show marketing popup after 3 seconds with slide-in animation
 window.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('marketing-modal');
-  const lottie = modal ? modal.querySelector('iframe') : null;
-  if (lottie) {
-    lottie.addEventListener('load', function() {
+  const closeBtn = document.getElementById('close-marketing-modal');
+  
+  if (modal) {
+    // Show modal after 3 seconds with animation
+    setTimeout(() => {
       modal.classList.remove('hidden');
+      modal.classList.add('slide-in');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }, 3000);
+  }
+  
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('slide-in');
+      document.body.style.overflow = ''; // Restore scrolling
     });
   }
-  const closeBtn = document.getElementById('close-marketing-modal');
-  if (closeBtn) closeBtn.addEventListener('click', () => {
-    modal.classList.add('hidden');
+  
+  // Close modal when clicking outside
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('slide-in');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      modal.classList.add('hidden');
+      modal.classList.remove('slide-in');
+      document.body.style.overflow = '';
+    }
   });
 });
 
