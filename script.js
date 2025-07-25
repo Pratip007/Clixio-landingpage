@@ -988,16 +988,15 @@ function initContactModal() {
     }
 }
 
-// Show marketing popup after 3 seconds with slide-in animation
+// Show marketing popup after 3 seconds without animation
 window.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('marketing-modal');
   const closeBtn = document.getElementById('close-marketing-modal');
   
   if (modal) {
-    // Show modal after 3 seconds with animation
+    // Show modal after 3 seconds without animation
     setTimeout(() => {
       modal.classList.remove('hidden');
-      modal.classList.add('slide-in');
       document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }, 3000);
   }
@@ -1005,7 +1004,6 @@ window.addEventListener('DOMContentLoaded', function() {
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
       modal.classList.add('hidden');
-      modal.classList.remove('slide-in');
       document.body.style.overflow = ''; // Restore scrolling
     });
   }
@@ -1015,7 +1013,6 @@ window.addEventListener('DOMContentLoaded', function() {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.add('hidden');
-        modal.classList.remove('slide-in');
         document.body.style.overflow = '';
       }
     });
@@ -1025,7 +1022,6 @@ window.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
       modal.classList.add('hidden');
-      modal.classList.remove('slide-in');
       document.body.style.overflow = '';
     }
   });
