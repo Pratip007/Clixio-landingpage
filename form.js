@@ -110,7 +110,7 @@ const ApiService = {
     },
 
     // Submit DSO partner enquiry
-    async submitDSOEnquiry(formData) {
+    async submitDSOPartner(formData) {
         return this.makeRequest('/dso/submit', {
             fullName: formData.fullName.trim(),
             email: formData.email.trim()
