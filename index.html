@@ -99,6 +99,13 @@
             75% { transform: translateY(-2px); }
         }
 
+        /* Custom line height for hero heading on large screens */
+        @media (min-width: 1024px) {
+            .hero-heading-lg {
+                line-height: 0.9 !important;
+            }
+        }
+
         @keyframes rotate-globe {
             0% { transform: rotateY(0deg); }
             100% { transform: rotateY(360deg); }
@@ -254,7 +261,7 @@
                     <i class="fas fa-tooth mr-2"></i>
                     #1 Dental Marketing Agency
                 </div>
-                <h1  style="font-size: 36px; font-size: clamp(36px, 5vw, 56px);" class=" font-bold text-dark mb-6 leading-none">
+                <h1  style="font-size: 36px; font-size: clamp(36px, 5vw, 56px);" class=" font-bold text-dark mb-6 leading-tight hero-heading-lg">
                     Dental Marketers Who Truly <br> Understand Your <br> <span class="text-primary">Practice Goals</span>
                 </h1>
                                     <p class="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed">
