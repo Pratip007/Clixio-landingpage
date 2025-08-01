@@ -849,7 +849,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Make all CTA buttons open the contact modal
+    // Make all CTA buttons open the contact modal - COMMENTED OUT
+    /*
     document.querySelectorAll('button, a').forEach(function(btn) {
         var text = (btn.textContent || '').toLowerCase();
         if (
@@ -902,6 +903,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+    */
 });
 
 // Performance Monitoring
