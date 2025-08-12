@@ -57,6 +57,26 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
+        
+        /* Updated animation to step-by-step with pauses */
+        @keyframes stepSlideUp {
+            0%, 20% { transform: translateY(0); }
+            25%, 45% { transform: translateY(-20%); }
+            50%, 70% { transform: translateY(-40%); }
+            75%, 95% { transform: translateY(-60%); }
+            100% { transform: translateY(-80%); }
+        }
+        
+        .feature-container {
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .feature-track {
+            height: 400%;
+            /* Changed to stepped animation with longer duration */
+            animation: stepSlideUp 14s infinite linear;
+        }
     </style>
 </head>
 <body class="font-inter text-dark">
@@ -166,62 +186,86 @@
     </section>
 
     <!-- What to Expect Section -->
-    <section class="py-12 lg:py-16 bg-light-gray">
-        <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
-            <div class="text-center mb-12 lg:mb-16">
-                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                    <i class="fas fa-handshake mr-2"></i>
-                    What to Expect
+    <section class="py-16 px-4 max-w-7xl mx-auto bg-light-gray">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Content -->
+            <div class="space-y-8">
+                <div>
+                    <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                        <i class="fas fa-handshake mr-2"></i>
+                        What to Expect
+                    </div>
+                    <h2 class="text-5xl lg:text-6xl font-bold text-dark mb-6">
+                        Who are <span class="text-primary">we?</span>
+                    </h2>
+                    <h3 class="text-2xl lg:text-3xl font-semibold text-gray-700 mb-4 leading-tight">
+                        Your Trusted Partner For Fast, Agile,<br>
+                        And Scalable Digital Transformation.
+                    </h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        At Clixio, we specialize in dental marketing and digital transformation. We deliver high-quality, result-driven solutions to help your dental practice thrive and grow consistently.
+                    </p>
                 </div>
-                <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-6">Your Invisible Partner in Success</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    We are a tapestry of strategic thinkers, weaving together vibrant perspectives. Quick to deliver, eager to learn, and fuelled by curiosity, we remain your behind-the-scenes ally, ensuring your practice growth every month.
-                </p>
+                
+                <div class="flex gap-4">
+                    <a href="calendly.html" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300">
+                        Know More
+                    </a>
+                    
+                </div>
+                
+                
             </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Long-term Allies -->
-                <div class="bg-white rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-orange-600 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-handshake text-white text-2xl"></i>
+            
+            <!-- Right Animated Features -->
+            <div class="relative">
+                <div class="feature-container">
+                    <div class="feature-track">
+                        <!-- Feature 1 -->
+                        <div class="relative py-8 border-b border-gray-200">
+                            <div class="absolute -left-6 -top-2 text-9xl font-bold text-gray-100 select-none z-0">01</div>
+                            <div class="relative z-10 pl-4">
+                                <h4 class="text-xl font-bold text-dark mb-3">Your Invisible Partner in Success</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">We are a tapestry of strategic thinkers, weaving together vibrant perspectives. Quick to deliver, eager to learn, and fuelled by curiosity, we remain your behind-the-scenes ally, ensuring your practice growth every month.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="relative py-8 border-b border-gray-200">
+                            <div class="absolute -left-6 -top-2 text-9xl font-bold text-gray-100 select-none z-0">02</div>
+                            <div class="relative z-10 pl-4">
+                                <h4 class="text-xl font-bold text-dark mb-3">Long-term Allies</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="relative py-8 border-b border-gray-200">
+                            <div class="absolute -left-6 -top-2 text-9xl font-bold text-gray-100 select-none z-0">03</div>
+                            <div class="relative z-10 pl-4">
+                                <h4 class="text-xl font-bold text-dark mb-3">Collective Journey</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 4 -->
+                        <div class="relative py-8 border-b border-gray-200">
+                            <div class="absolute -left-6 -top-2 text-9xl font-bold text-gray-100 select-none z-0">04</div>
+                            <div class="relative z-10 pl-4">
+                                <h4 class="text-xl font-bold text-dark mb-3">Holistic Excellence</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Duplicate of first section to create seamless loop -->
+                        <div class="relative py-8 border-b border-gray-200">
+                            <div class="absolute -left-6 -top-2 text-9xl font-bold text-gray-100 select-none z-0">01</div>
+                            <div class="relative z-10 pl-4">
+                                <h4 class="text-xl font-bold text-dark mb-3">Your Invisible Partner in Success</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">We are a tapestry of strategic thinkers, weaving together vibrant perspectives. Quick to deliver, eager to learn, and fuelled by curiosity, we remain your behind-the-scenes ally, ensuring your practice growth every month.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">Long-term Allies</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.
-                    </p>
-                </div>
-
-                <!-- Collective Journey -->
-                <div class="bg-white rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-700 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-users text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">Collective Journey</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.
-                    </p>
-                </div>
-
-                <!-- Holistic Excellence -->
-                <div class="bg-white rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-star text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">Holistic Excellence</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.
-                    </p>
-                </div>
-
-                <!-- Continuous Evolution -->
-                <div class="bg-white rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-rocket text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">Continuous Evolution</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.
-                    </p>
                 </div>
             </div>
         </div>
