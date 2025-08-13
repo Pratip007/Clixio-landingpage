@@ -58,15 +58,11 @@
             50% { transform: translateY(-10px); }
         }
         
-        /* Smooth continuous animation */
-        @keyframes stepSlideUp {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
-        }
-        
+        /* Remove animation from CSS - will handle with JS */
         .feature-container {
             height: 300px;
             overflow: hidden;
+            position: relative;
         }
         
         @media (min-width: 768px) {
@@ -82,9 +78,27 @@
         }
         
         .feature-track {
-            height: 2000%;
-            /* Changed to stepped animation with longer duration */
-            animation: stepSlideUp 120s infinite linear;
+            position: absolute;
+            width: 100%;
+            transition: transform 0.5s ease-out;
+        }
+        
+        .feature-item {
+            height: 300px;
+            display: flex;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .feature-item {
+                height: 360px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .feature-item {
+                height: 420px;
+            }
         }
     </style>
 </head>
@@ -228,289 +242,80 @@
             
             <!-- Right Animated Features -->
             <div class="relative mt-12 lg:mt-0">
-                <!-- Section Number -->
-                <div class="hidden lg:block absolute -top-8 -left-8 text-8xl lg:text-12xl font-bold text-gray-100 select-none z-0">
-                    01
-                </div>
+                
 
                 <div class="feature-container">
                     <div class="feature-track">
 
                         <!-- Feature 1 -->
-                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
-                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
-                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">01</div>
-                            </div>
-                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
-                                <div class="mb-2 md:mb-3">
-                                    <i class="fas fa-handshake text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
-                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Long-term Allies</h4>
+                        <div class="feature-item">
+                            <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 w-full">
+                                <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
+                                    <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">01</div>
                                 </div>
-                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
+                                <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
+                                    <div class="mb-2 md:mb-3">
+                                        <i class="fas fa-handshake text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                        <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Long-term Allies</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
+                                </div>
                             </div>
                         </div>
 
                         
                         <!-- Feature 2 -->
-                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
-                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
-                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">02</div>
-                            </div>
-                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
-                                <div class="mb-2 md:mb-3">
-                                    <i class="fas fa-users text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
-                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Collective Journey</h4>
+                        <div class="feature-item">
+                            <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 w-full">
+                                <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
+                                    <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">02</div>
                                 </div>
-                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
+                                <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
+                                    <div class="mb-2 md:mb-3">
+                                        <i class="fas fa-users text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                        <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Collective Journey</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
+                                </div>
                             </div>
                         </div>
 
                         
                         <!-- Feature 3 -->
-                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
-                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
-                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">03</div>
-                            </div>
-                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
-                                <div class="mb-2 md:mb-3">
-                                    <i class="fas fa-star text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
-                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Holistic Excellence</h4>
+                        <div class="feature-item">
+                            <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 w-full">
+                                <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
+                                    <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">03</div>
                                 </div>
-                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
+                                <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
+                                    <div class="mb-2 md:mb-3">
+                                        <i class="fas fa-star text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                        <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Holistic Excellence</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
+                                </div>
                             </div>
                         </div>
 
                         
                         <!-- Feature 4 -->
-                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
-                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
-                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">04</div>
-                            </div>
-                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
-                                <div class="mb-2 md:mb-3">
-                                    <i class="fas fa-rocket text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
-                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Continuous Evolution</h4>
+                        <div class="feature-item">
+                            <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 w-full">
+                                <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
+                                    <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">04</div>
                                 </div>
-                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
+                                <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
+                                    <div class="mb-2 md:mb-3">
+                                        <i class="fas fa-rocket text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                        <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Continuous Evolution</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
+                                </div>
                             </div>
                         </div>
 
                         
-                        <!-- Duplicate features for seamless loop -->
-                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
-                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
-                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">01</div>
-                            </div>
-                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
-                                <div class="mb-2 md:mb-3">
-                                    <i class="fas fa-handshake text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
-                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Long-term Allies</h4>
-                                </div>
-                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
-                            </div>
-                        </div>
-
                         
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">02</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-users text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Collective Journey</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">03</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-star text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Holistic Excellence</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">04</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-rocket text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Continuous Evolution</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Additional duplicates for extra smooth loop -->
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">01</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-handshake text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Long-term Allies</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
-                            </div>
-                        </div>
-
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">02</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-users text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Collective Journey</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">03</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-star text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Holistic Excellence</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">04</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-rocket text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Continuous Evolution</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Third set of duplicates for ultra smooth loop -->
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">01</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-handshake text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Long-term Allies</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
-                            </div>
-                        </div>
-
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">02</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-users text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Collective Journey</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">03</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-star text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Holistic Excellence</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">04</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-rocket text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Continuous Evolution</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Fourth set of duplicates for maximum smooth loop -->
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">01</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-handshake text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Long-term Allies</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
-                            </div>
-                        </div>
-
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">02</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-users text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Collective Journey</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">03</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-star text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Holistic Excellence</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">04</div>
-                            </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-rocket text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Continuous Evolution</h4>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
-                    </div>
-                </div>
 
                     </div>
                 </div>
@@ -724,5 +529,91 @@
 
     <script src="script.js"></script>
     <script src="form.js"></script>
+    
+    <!-- Continuous Scroll Script for Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureContainer = document.querySelector('.feature-container');
+            const featureTrack = document.querySelector('.feature-track');
+            const features = featureTrack.querySelectorAll('.feature-item');
+            
+            if (!featureContainer || !featureTrack || features.length === 0) return;
+            
+            let currentIndex = 0;
+            let isScrolling = false;
+            
+            // Clone the first feature and append it at the end for seamless loop
+            const firstFeatureClone = features[0].cloneNode(true);
+            featureTrack.appendChild(firstFeatureClone);
+            
+            // Calculate the height of each feature
+            function getFeatureHeight() {
+                const containerHeight = featureContainer.offsetHeight;
+                return containerHeight;
+            }
+            
+            // Scroll to the next feature
+            function scrollToNext() {
+                if (isScrolling) return;
+                isScrolling = true;
+                
+                currentIndex++;
+                const featureHeight = getFeatureHeight();
+                const translateY = -currentIndex * featureHeight;
+                
+                featureTrack.style.transform = `translateY(${translateY}px)`;
+                
+                // Check if we've reached the cloned first feature
+                if (currentIndex >= features.length) {
+                    // Wait for the transition to complete
+                    setTimeout(() => {
+                        // Disable transition temporarily
+                        featureTrack.style.transition = 'none';
+                        // Reset to the first feature
+                        currentIndex = 0;
+                        featureTrack.style.transform = 'translateY(0)';
+                        
+                        // Re-enable transition after a frame
+                        requestAnimationFrame(() => {
+                            featureTrack.style.transition = 'transform 0.5s ease-out';
+                            isScrolling = false;
+                        });
+                    }, 500); // Match the transition duration
+                } else {
+                    setTimeout(() => {
+                        isScrolling = false;
+                    }, 500);
+                }
+            }
+            
+            // Auto-scroll interval
+            let scrollInterval = setInterval(scrollToNext, 3000); // Scroll every 3 seconds
+            
+            // Pause on hover
+            featureContainer.addEventListener('mouseenter', () => {
+                clearInterval(scrollInterval);
+            });
+            
+            // Resume on mouse leave
+            featureContainer.addEventListener('mouseleave', () => {
+                scrollInterval = setInterval(scrollToNext, 3000);
+            });
+            
+            // Handle window resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    const featureHeight = getFeatureHeight();
+                    const translateY = -currentIndex * featureHeight;
+                    featureTrack.style.transition = 'none';
+                    featureTrack.style.transform = `translateY(${translateY}px)`;
+                    requestAnimationFrame(() => {
+                        featureTrack.style.transition = 'transform 0.5s ease-out';
+                    });
+                }, 100);
+            });
+        });
+    </script>
 </body>
 </html> 
