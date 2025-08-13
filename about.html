@@ -65,8 +65,20 @@
         }
         
         .feature-container {
-            height: 400px;
+            height: 300px;
             overflow: hidden;
+        }
+        
+        @media (min-width: 768px) {
+            .feature-container {
+                height: 360px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .feature-container {
+                height: 420px;
+            }
         }
         
         .feature-track {
@@ -183,117 +195,123 @@
     </section>
 
     <!-- What to Expect Section -->
-    <section class="py-16 px-4 max-w-7xl mx-auto bg-light-gray">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <section class="py-12 md:py-16 px-4 max-w-7xl mx-auto bg-light-gray">
+        <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <!-- Left Content -->
-            <div class="space-y-8">
+            <div class="space-y-6 md:space-y-8">
                 <div>
-                    <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                        <i class="fas fa-handshake mr-2"></i>
-                        What to Expect
-                    </div>
-                    <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-6">
+                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4 md:mb-6">
+                    <i class="fas fa-handshake mr-2"></i>
+                    What to Expect
+                </div>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-dark mb-4 md:mb-6">
                         Your Invisible Partner in Success
                     </h2>
                     <!-- <h3 class="text-2xl lg:text-3xl font-semibold text-gray-700 mb-4 leading-tight">
                         Your Trusted Partner For Fast, Agile,<br>
                         And Scalable Digital Transformation.
                     </h3> -->
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        We are a tapestry of strategic thinkers, weaving together vibrant perspectives. Quick to deliver, eager to learn, and fuelled by curiosity, we remain your behind-the-scenes ally, ensuring your practice growth every month.
-                    </p>
-                </div>
-                
+                    <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                    We are a tapestry of strategic thinkers, weaving together vibrant perspectives. Quick to deliver, eager to learn, and fuelled by curiosity, we remain your behind-the-scenes ally, ensuring your practice growth every month.
+                </p>
+            </div>
+
                 <div class="flex gap-4">
-                    <a href="calendly.html" class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full font-semibold text-base transition-colors duration-300">
+                    <a href="calendly.html" class="bg-primary hover:bg-primary-dark text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold text-sm md:text-base transition-colors duration-300">
                         Know More
                     </a>
                     
                 </div>
+
                 
-                
-            </div>
+                    </div>
             
             <!-- Right Animated Features -->
-            <div class="relative">
+            <div class="relative mt-12 lg:mt-0">
                 <!-- Section Number -->
-                <div class="absolute -top-8 -left-8 text-12xl font-bold text-gray-100 select-none z-0">
+                <div class="hidden lg:block absolute -top-8 -left-8 text-8xl lg:text-12xl font-bold text-gray-100 select-none z-0">
                     01
                 </div>
-                
+
                 <div class="feature-container">
                     <div class="feature-track">
+
                         <!-- Feature 1 -->
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">01</div>
+                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
+                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
+                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">01</div>
                             </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-handshake text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Long-term Allies</h4>
+                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
+                                <div class="mb-2 md:mb-3">
+                                    <i class="fas fa-handshake text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Long-term Allies</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
+                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
                             </div>
                         </div>
+
                         
                         <!-- Feature 2 -->
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">02</div>
+                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
+                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
+                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">02</div>
                             </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-users text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Collective Journey</h4>
+                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
+                                <div class="mb-2 md:mb-3">
+                                    <i class="fas fa-users text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Collective Journey</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
+                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
                             </div>
                         </div>
+
                         
                         <!-- Feature 3 -->
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">03</div>
+                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
+                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
+                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">03</div>
                             </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-star text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Holistic Excellence</h4>
+                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
+                                <div class="mb-2 md:mb-3">
+                                    <i class="fas fa-star text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Holistic Excellence</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
+                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
                             </div>
                         </div>
+
                         
                         <!-- Feature 4 -->
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">04</div>
+                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
+                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
+                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">04</div>
                             </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-rocket text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Continuous Evolution</h4>
+                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
+                                <div class="mb-2 md:mb-3">
+                                    <i class="fas fa-rocket text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Continuous Evolution</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
+                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
                             </div>
                         </div>
+
                         
                         <!-- Duplicate features for seamless loop -->
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
-                            <div class="w-24 flex items-center justify-center">
-                                <div class="text-8xl font-bold text-gray-200">01</div>
+                        <div class="flex pt-6 md:pt-10 pb-3 md:pb-6 pl-3 md:pl-8 mb-4 md:mb-8 border-t border-gray-200">
+                            <div class="w-12 md:w-20 lg:w-24 flex items-center justify-center">
+                                <div class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-200">01</div>
                             </div>
-                            <div class="flex-1 pl-8">
-                                <div class="mb-3">
-                                    <i class="fas fa-handshake text-primary text-2xl mb-2 block"></i>
-                                    <h4 class="text-xl font-bold text-dark mb-2">Long-term Allies</h4>
+                            <div class="flex-1 pl-3 md:pl-6 lg:pl-8">
+                                <div class="mb-2 md:mb-3">
+                                    <i class="fas fa-handshake text-primary text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                    <h4 class="text-base md:text-xl font-bold text-dark mb-1 md:mb-2">Long-term Allies</h4>
                                 </div>
-                                <p class="text-gray-600 text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
+                                <p class="text-gray-600 text-xs md:text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
                             </div>
                         </div>
+
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">02</div>
                             </div>
@@ -306,7 +324,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">03</div>
                             </div>
@@ -319,7 +337,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">04</div>
                             </div>
@@ -333,7 +351,7 @@
                         </div>
                         
                         <!-- Additional duplicates for extra smooth loop -->
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">01</div>
                             </div>
@@ -345,8 +363,9 @@
                                 <p class="text-gray-600 text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
                             </div>
                         </div>
+
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">02</div>
                             </div>
@@ -359,7 +378,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">03</div>
                             </div>
@@ -372,7 +391,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">04</div>
                             </div>
@@ -386,7 +405,7 @@
                         </div>
                         
                         <!-- Third set of duplicates for ultra smooth loop -->
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">01</div>
                             </div>
@@ -398,8 +417,9 @@
                                 <p class="text-gray-600 text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
                             </div>
                         </div>
+
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">02</div>
                             </div>
@@ -412,7 +432,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">03</div>
                             </div>
@@ -425,7 +445,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">04</div>
                             </div>
@@ -439,7 +459,7 @@
                         </div>
                         
                         <!-- Fourth set of duplicates for maximum smooth loop -->
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">01</div>
                             </div>
@@ -451,8 +471,9 @@
                                 <p class="text-gray-600 text-sm leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
                             </div>
                         </div>
+
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">02</div>
                             </div>
@@ -465,7 +486,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">03</div>
                             </div>
@@ -478,7 +499,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex py-8 border-b border-gray-200 h-48 pl-8">
+                        <div class="flex pt-10 pb-6 pl-8 mb-8 border-t border-gray-200">
                             <div class="w-24 flex items-center justify-center">
                                 <div class="text-8xl font-bold text-gray-200">04</div>
                             </div>
@@ -488,9 +509,9 @@
                                     <h4 class="text-xl font-bold text-dark mb-2">Continuous Evolution</h4>
                                 </div>
                                 <p class="text-gray-600 text-sm leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
-                            </div>
-                        </div>
-                        
+                    </div>
+                </div>
+
                     </div>
                 </div>
             </div>
