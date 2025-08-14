@@ -58,7 +58,7 @@
             50% { transform: translateY(-10px); }
         }
         
-        /* Remove animation from CSS - will handle with JS */
+        /* Seamless infinite scroll animation */
         .feature-container {
             height: 150px;
             overflow: hidden;
@@ -80,7 +80,20 @@
         .feature-track {
             position: absolute;
             width: 100%;
-            transition: transform 0.5s ease-out;
+            animation: infiniteScroll 16s linear infinite;
+        }
+        
+        .feature-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes infiniteScroll {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%);
+            }
         }
         
         .feature-item {
@@ -214,7 +227,7 @@
             <!-- Left Content -->
             <div class="space-y-6 md:space-y-8 pt-2 md:pt-10 lg:pl-8">
                 <div>
-                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4 md:mb-6">
+                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4 md:mb-6 -ml-8">
                     <i class="fas fa-handshake mr-2"></i>
                     What to Expect
                 </div>
@@ -263,7 +276,6 @@
                             </div>
                         </div>
 
-                        
                         <!-- Feature 2 -->
                         <div class="feature-item">
                             <div class="flex pt-2 md:pt-10 pb-1 md:pb-6 pl-1 md:pl-8 w-full">
@@ -280,7 +292,6 @@
                             </div>
                         </div>
 
-                        
                         <!-- Feature 3 -->
                         <div class="feature-item">
                             <div class="flex pt-2 md:pt-10 pb-1 md:pb-6 pl-1 md:pl-8 w-full">
@@ -297,7 +308,6 @@
                             </div>
                         </div>
 
-                        
                         <!-- Feature 4 -->
                         <div class="feature-item">
                             <div class="flex pt-2 md:pt-10 pb-1 md:pb-6 pl-1 md:pl-8 w-full">
@@ -314,8 +324,70 @@
                             </div>
                         </div>
 
-                        
-                        
+                        <!-- Duplicate Features for Seamless Loop -->
+                        <!-- Feature 1 (Duplicate) -->
+                        <div class="feature-item">
+                            <div class="flex pt-2 md:pt-10 pb-1 md:pb-6 pl-1 md:pl-8 w-full">
+                                <div class="w-8 md:w-20 lg:w-24 flex items-center justify-center">
+                                    <div class="text-2xl md:text-6xl lg:text-8xl font-bold text-gray-200">01</div>
+                                </div>
+                                <div class="flex-1 pl-1.5 md:pl-6 lg:pl-8">
+                                    <div class="mb-0 md:mb-3">
+                                        <i class="fas fa-handshake text-primary text-sm md:text-2xl mb-0 md:mb-2 block"></i>
+                                        <h4 class="text-xs md:text-xl font-bold text-dark mb-0 md:mb-2">Long-term Allies</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-xs md:text-sm leading-tight md:leading-relaxed">We're in it for the long haul, not just a one-time project. By building deep, lasting relationships, we gain a true understanding of your needs. More than just a service provider, we become an extension of your team.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2 (Duplicate) -->
+                        <div class="feature-item">
+                            <div class="flex pt-2 md:pt-10 pb-1 md:pb-6 pl-1 md:pl-8 w-full">
+                                <div class="w-8 md:w-20 lg:w-24 flex items-center justify-center">
+                                    <div class="text-2xl md:text-6xl lg:text-8xl font-bold text-gray-200">02</div>
+                                </div>
+                                <div class="flex-1 pl-1.5 md:pl-6 lg:pl-8">
+                                    <div class="mb-0 md:mb-3">
+                                        <i class="fas fa-users text-primary text-sm md:text-2xl mb-0 md:mb-2 block"></i>
+                                        <h4 class="text-xs md:text-xl font-bold text-dark mb-0 md:mb-2">Collective Journey</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-xs md:text-sm leading-tight md:leading-relaxed">We don't believe in silos. By taking a holistic approach, we ensure every aspect of your project is cohesive and resonates with your audience. From strategy to execution, we amplify results.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 (Duplicate) -->
+                        <div class="feature-item">
+                            <div class="flex pt-2 md:pt-10 pb-1 md:pb-6 pl-1 md:pl-8 w-full">
+                                <div class="w-8 md:w-20 lg:w-24 flex items-center justify-center">
+                                    <div class="text-2xl md:text-6xl lg:text-8xl font-bold text-gray-200">03</div>
+                                </div>
+                                <div class="flex-1 pl-1.5 md:pl-6 lg:pl-8">
+                                    <div class="mb-0 md:mb-3">
+                                        <i class="fas fa-star text-primary text-sm md:text-2xl mb-0 md:mb-2 block"></i>
+                                        <h4 class="text-xs md:text-xl font-bold text-dark mb-0 md:mb-2">Holistic Excellence</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-xs md:text-sm leading-tight md:leading-relaxed">By looking at the bigger picture, our holistic approach ensures every aspect of your project is cohesive and resonates with your audience. We amplify results by ensuring all facets work harmoniously.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature 4 (Duplicate) -->
+                        <div class="feature-item">
+                            <div class="flex pt-2 md:pt-10 pb-1 md:pb-6 pl-1 md:pl-8 w-full">
+                                <div class="w-8 md:w-20 lg:w-24 flex items-center justify-center">
+                                    <div class="text-2xl md:text-6xl lg:text-8xl font-bold text-gray-200">04</div>
+                                </div>
+                                <div class="flex-1 pl-1.5 md:pl-6 lg:pl-8">
+                                    <div class="mb-0 md:mb-3">
+                                        <i class="fas fa-rocket text-primary text-sm md:text-2xl mb-0 md:mb-2 block"></i>
+                                        <h4 class="text-xs md:text-xl font-bold text-dark mb-0 md:mb-2">Continuous Evolution</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-xs md:text-sm leading-tight md:leading-relaxed">The digital landscape is ever-evolving, and so are we. Through continuous learning and a commitment to evolution, we ensure our solutions are not only relevant today but are poised to meet the needs of tomorrow.</p>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -530,90 +602,6 @@
     <script src="script.js"></script>
     <script src="form.js"></script>
     
-    <!-- Continuous Scroll Script for Features -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const featureContainer = document.querySelector('.feature-container');
-            const featureTrack = document.querySelector('.feature-track');
-            const features = featureTrack.querySelectorAll('.feature-item');
-            
-            if (!featureContainer || !featureTrack || features.length === 0) return;
-            
-            let currentIndex = 0;
-            let isScrolling = false;
-            
-            // Clone the first feature and append it at the end for seamless loop
-            const firstFeatureClone = features[0].cloneNode(true);
-            featureTrack.appendChild(firstFeatureClone);
-            
-            // Calculate the height of each feature
-            function getFeatureHeight() {
-                const containerHeight = featureContainer.offsetHeight;
-                return containerHeight;
-            }
-            
-            // Scroll to the next feature
-            function scrollToNext() {
-                if (isScrolling) return;
-                isScrolling = true;
-                
-                currentIndex++;
-                const featureHeight = getFeatureHeight();
-                const translateY = -currentIndex * featureHeight;
-                
-                featureTrack.style.transform = `translateY(${translateY}px)`;
-                
-                // Check if we've reached the cloned first feature
-                if (currentIndex >= features.length) {
-                    // Wait for the transition to complete
-                    setTimeout(() => {
-                        // Disable transition temporarily
-                        featureTrack.style.transition = 'none';
-                        // Reset to the first feature
-                        currentIndex = 0;
-                        featureTrack.style.transform = 'translateY(0)';
-                        
-                        // Re-enable transition after a frame
-                        requestAnimationFrame(() => {
-                            featureTrack.style.transition = 'transform 0.5s ease-out';
-                            isScrolling = false;
-                        });
-                    }, 500); // Match the transition duration
-                } else {
-                    setTimeout(() => {
-                        isScrolling = false;
-                    }, 500);
-                }
-            }
-            
-            // Auto-scroll interval
-            let scrollInterval = setInterval(scrollToNext, 3000); // Scroll every 3 seconds
-            
-            // Pause on hover
-            featureContainer.addEventListener('mouseenter', () => {
-                clearInterval(scrollInterval);
-            });
-            
-            // Resume on mouse leave
-            featureContainer.addEventListener('mouseleave', () => {
-                scrollInterval = setInterval(scrollToNext, 3000);
-            });
-            
-            // Handle window resize
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    const featureHeight = getFeatureHeight();
-                    const translateY = -currentIndex * featureHeight;
-                    featureTrack.style.transition = 'none';
-                    featureTrack.style.transform = `translateY(${translateY}px)`;
-                    requestAnimationFrame(() => {
-                        featureTrack.style.transition = 'transform 0.5s ease-out';
-                    });
-                }, 100);
-            });
-        });
-    </script>
+
 </body>
 </html> 
