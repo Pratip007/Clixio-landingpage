@@ -1141,9 +1141,20 @@ function updateNavigationButtons() {
     const nextBtn = document.getElementById('nextBtn');
     
     if (prevBtn && nextBtn) {
-        // Add visual feedback for navigation
-        prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
-        nextBtn.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
+        // Keep arrows always visible - no position changes
+        prevBtn.style.opacity = '1';
+        nextBtn.style.opacity = '1';
+        
+        // Remove any inline styles that might change position
+        prevBtn.style.removeProperty('position');
+        prevBtn.style.removeProperty('left');
+        prevBtn.style.removeProperty('top');
+        prevBtn.style.removeProperty('transform');
+        
+        nextBtn.style.removeProperty('position');
+        nextBtn.style.removeProperty('right');
+        nextBtn.style.removeProperty('top');
+        nextBtn.style.removeProperty('transform');
     }
 }
 
