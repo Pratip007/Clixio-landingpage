@@ -1029,4 +1029,159 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Dropdown functionality for Value Proposition section
+function toggleDropdown(dropdownId) {
+    const dropdownContent = document.getElementById(dropdownId);
+    const iconId = dropdownId.replace('dropdown', 'icon');
+    const icon = document.getElementById(iconId);
+    
+    if (!dropdownContent || !icon) return;
+    
+    // Close all other dropdowns first
+    const allDropdowns = document.querySelectorAll('.dropdown-content');
+    const allIcons = document.querySelectorAll('[id^="icon"]');
+    
+    allDropdowns.forEach((dropdown, index) => {
+        if (dropdown.id !== dropdownId && !dropdown.classList.contains('hidden')) {
+            dropdown.classList.add('hidden');
+            // Reset corresponding icon
+            if (allIcons[index]) {
+                allIcons[index].style.transform = 'rotate(0deg)';
+            }
+        }
+    });
+    
+    // Toggle the clicked dropdown
+    if (dropdownContent.classList.contains('hidden')) {
+        // Open dropdown
+        dropdownContent.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+        
+        // Add smooth animation
+        dropdownContent.style.maxHeight = '0px';
+        dropdownContent.style.opacity = '0';
+        
+        requestAnimationFrame(() => {
+            dropdownContent.style.transition = 'max-height 0.3s ease-out, opacity 0.3s ease-out';
+            dropdownContent.style.maxHeight = dropdownContent.scrollHeight + 'px';
+            dropdownContent.style.opacity = '1';
+        });
+    } else {
+        // Close dropdown
+        dropdownContent.style.transition = 'max-height 0.3s ease-in, opacity 0.3s ease-in';
+        dropdownContent.style.maxHeight = '0px';
+        dropdownContent.style.opacity = '0';
+        icon.style.transform = 'rotate(0deg)';
+        
+        setTimeout(() => {
+            dropdownContent.classList.add('hidden');
+        }, 300);
+    }
+}
+
+// Initialize dropdown functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Add smooth transitions to all dropdown icons
+    const dropdownIcons = document.querySelectorAll('[id^="icon"]');
+    dropdownIcons.forEach(icon => {
+        icon.style.transition = 'transform 0.3s ease';
+    });
+    
+    // Auto-open first dropdown after page load
+    setTimeout(() => {
+        toggleDropdown('dropdown1');
+    }, 1000);
+});
+
+// Process Slider Functionality
+let currentSlide = 0;
+const totalSlides = 6;
+
+function slideProcess(direction) {
+    const slider = document.getElementById('processSlider');
+    const dots = document.querySelectorAll('#dotsContainer button');
+    
+    if (!slider) return;
+    
+    currentSlide += direction;
+    
+    // Handle slide boundaries
+    if (currentSlide < 0) currentSlide = totalSlides - 1;
+    if (currentSlide >= totalSlides) currentSlide = 0;
+    
+    // Calculate transform value
+    const slideWidth = window.innerWidth >= 1024 ? 400 : window.innerWidth;
+    const transformValue = -currentSlide * slideWidth;
+    
+    // Apply transform
+    slider.style.transform = `translateX(${transformValue}px)`;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.classList.remove('bg-gray-300', 'hover:bg-gray-400');
+            dot.classList.add('bg-primary');
+        } else {
+            dot.classList.remove('bg-primary');
+            dot.classList.add('bg-gray-300', 'hover:bg-gray-400');
+        }
+    });
+    
+    // Update navigation buttons
+    updateNavigationButtons();
+}
+
+function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    slideProcess(0); // Use existing function to update display
+}
+
+function updateNavigationButtons() {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    if (prevBtn && nextBtn) {
+        // Add visual feedback for navigation
+        prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
+        nextBtn.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
+    }
+}
+
+// Auto-slide functionality
+let autoSlideInterval;
+
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        slideProcess(1);
+    }, 5000); // Change slide every 5 seconds
+}
+
+function stopAutoSlide() {
+    if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+    }
+}
+
+// Initialize slider functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Start auto-slide
+    startAutoSlide();
+    
+    // Pause auto-slide on hover
+    const sliderContainer = document.querySelector('#processSlider').parentElement;
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        // Recalculate slide position on resize
+        slideProcess(0);
+    });
+    
+    // Initialize first slide
+    updateNavigationButtons();
+});
+
 console.log('Enhanced Clixio features loaded with Tailwind CSS!');

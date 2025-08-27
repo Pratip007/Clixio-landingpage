@@ -173,7 +173,7 @@
                             <i class="fas fa-network-wired text-primary"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold text-dark mb-2">DSOs (Dental Service Organizations)</h3>
+                            <h3 class="text-xl font-semibold text-dark mb-2">DSOs</h3>
                             <p class="text-gray-600">Standardize marketing across multiple locations while maintaining individual practice branding.</p>
                         </div>
                     </div>
@@ -208,7 +208,7 @@
     </section>
 
     <!-- White Label Process -->
-    <section class="py-16 lg:py-20 bg-light-gray" id="process">
+    <section class="py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50" id="process">
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-5xl font-bold text-dark mb-6">
@@ -219,172 +219,356 @@
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Step 1 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg process-step">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">1</span>
+            <!-- Horizontal Process Cards Slider -->
+            <div class="relative max-w-6xl mx-auto">
+                <!-- Navigation Arrows - Positioned in middle, close to cards -->
+                <button class="absolute left-0 top-1/2 -translate-y-1/2 translate-x-1 w-10 h-10 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-primary border border-gray-200 hover:border-primary/30 z-10" id="prevBtn" onclick="slideProcess(-1)">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                
+                <button class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-10 h-10 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-primary border border-gray-200 hover:border-primary/30 z-10" id="nextBtn" onclick="slideProcess(1)">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Slider Container -->
+                <div class="overflow-hidden px-8">
+                    <div class="flex transition-transform duration-500 ease-in-out" id="processSlider">
+                        <!-- Step 1 -->
+                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
+                                <!-- Gradient overlay on hover -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                
+                                <!-- Step indicator -->
+                                <div class="flex items-center mb-6">
+                                    <div class="w-4 h-4 bg-gradient-to-r from-green-400 to-green-600 rounded-full shadow-lg mr-3 relative">
+                                        <div class="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                                    </div>
+                                    <div class="w-8 h-0.5 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+                                </div>
+                                
+                                <!-- Content -->
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                                        Onboarding Call
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">
+                                        Begin with an onboarding call to explore our platform and white label dental marketing services—designed to strengthen online presence and deliver measurable ROI.
+                                    </p>
+                                </div>
+                                
+                                <!-- Bottom accent line -->
+                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Onboarding Call</h3>
+
+                        <!-- Step 2 -->
+                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
+                                <!-- Gradient overlay on hover -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                
+                                <!-- Step indicator -->
+                                <div class="flex items-center mb-6">
+                                    <div class="w-4 h-4 bg-gradient-to-r from-green-400 to-green-600 rounded-full shadow-lg mr-3 relative">
+                                        <div class="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                                    </div>
+                                    <div class="w-8 h-0.5 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+                                </div>
+                                
+                                <!-- Content -->
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                                        Discovery Phase
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">
+                                        Effortlessly customize, implement, and manage white label dental marketing services, perfectly tailored to meet your client's unique needs and goals.
+                                    </p>
+                                </div>
+                                
+                                <!-- Bottom accent line -->
+                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
+                                <!-- Gradient overlay on hover -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                
+                                <!-- Step indicator -->
+                                <div class="flex items-center mb-6">
+                                    <div class="w-4 h-4 bg-gradient-to-r from-green-400 to-green-600 rounded-full shadow-lg mr-3 relative">
+                                        <div class="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                                    </div>
+                                    <div class="w-8 h-0.5 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+                                </div>
+                                
+                                <!-- Content -->
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                                        Setting Your Prices
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">
+                                        Set your markup, and we'll handle the rest- turning your client's vision into reality with speed, precision, and your brand at the forefront.
+                                    </p>
+                                </div>
+                                
+                                <!-- Bottom accent line -->
+                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
+                                <!-- Gradient overlay on hover -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                
+                                <!-- Step indicator -->
+                                <div class="flex items-center mb-6">
+                                    <div class="w-4 h-4 bg-gradient-to-r from-green-400 to-green-600 rounded-full shadow-lg mr-3 relative">
+                                        <div class="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                                    </div>
+                                    <div class="w-8 h-0.5 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+                                </div>
+                                
+                                <!-- Content -->
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                                        Transparent Communication
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">
+                                        Simplify your workflow- clients hear from us via white label emails, and we reach out to you only when necessary.
+                                    </p>
+                                </div>
+                                
+                                <!-- Bottom accent line -->
+                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
+                                <!-- Gradient overlay on hover -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                
+                                <!-- Step indicator -->
+                                <div class="flex items-center mb-6">
+                                    <div class="w-4 h-4 bg-gradient-to-r from-green-400 to-green-600 rounded-full shadow-lg mr-3 relative">
+                                        <div class="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                                    </div>
+                                    <div class="w-8 h-0.5 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+                                </div>
+                                
+                                <!-- Content -->
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                                        Expanded Service Options
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">
+                                        Expand your offerings by exploring additional services that strengthen your portfolio and address your clients' evolving needs.
+                                    </p>
+                                </div>
+                                
+                                <!-- Bottom accent line -->
+                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
+                                <!-- Gradient overlay on hover -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                
+                                <!-- Step indicator -->
+                                <div class="flex items-center mb-6">
+                                    <div class="w-4 h-4 bg-gradient-to-r from-green-400 to-green-600 rounded-full shadow-lg mr-3 relative">
+                                        <div class="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                                    </div>
+                                    <div class="w-8 h-0.5 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+                                </div>
+                                
+                                <!-- Content -->
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                                        Real-Time Reporting
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed text-sm">
+                                        Get real-time insights with our Executive Report, showcasing the measurable impact of our white label digital marketing services.
+                                    </p>
+                                </div>
+                                
+                                <!-- Bottom accent line -->
+                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-600 text-center">
-                        Begin with an onboarding call to explore our platform and white label dental marketing services—designed to strengthen online presence and deliver measurable ROI.
-                    </p>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg process-step">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">2</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Discovery Phase</h3>
-                    </div>
-                    <p class="text-gray-600 text-center">
-                        Effortlessly customize, implement, and manage white label dental marketing services, perfectly tailored to meet your client's unique needs and goals.
-                    </p>
-                </div>
 
-                <!-- Step 3 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg process-step">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">3</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Setting Your Prices</h3>
-                    </div>
-                    <p class="text-gray-600 text-center">
-                        Set your markup, and we'll handle the rest- turning your client's vision into reality with speed, precision, and your brand at the forefront.
-                    </p>
-                </div>
 
-                <!-- Step 4 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg process-step">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">4</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Transparent Communication</h3>
-                    </div>
-                    <p class="text-gray-600 text-center">
-                        Simplify your workflow- clients hear from us via white label emails, and we reach out to you only when necessary.
-                    </p>
-                </div>
-
-                <!-- Step 5 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg process-step">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">5</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Expanded Service Options</h3>
-                    </div>
-                    <p class="text-gray-600 text-center">
-                        Expand your offerings by exploring additional services that strengthen your portfolio and address your clients' evolving needs.
-                    </p>
-                </div>
-
-                <!-- Step 6 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg process-step">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-primary">6</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Real-Time Reporting</h3>
-                    </div>
-                    <p class="text-gray-600 text-center">
-                        Get real-time insights with our Executive Report, showcasing the measurable impact of our white label digital marketing services.
-                    </p>
+                <!-- Enhanced Dots Indicator -->
+                <div class="flex justify-center mt-10 space-x-3" id="dotsContainer">
+                    <button class="w-4 h-4 rounded-full bg-gradient-to-r from-primary to-secondary shadow-lg transition-all duration-300 hover:scale-110" onclick="goToSlide(0)"></button>
+                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(1)"></button>
+                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(2)"></button>
+                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(3)"></button>
+                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(4)"></button>
+                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(5)"></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Value Proposition -->
-    <section class="py-16 lg:py-20 bg-white">
+    <!-- Value Proposition - Interactive Dropdown Section -->
+    <section class="py-12 lg:py-16 bg-gray-50">
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-5xl font-bold text-dark mb-6">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl lg:text-4xl font-bold text-dark mb-4">
                     The Value of <span class="gradient-text">Partnering with Us</span>
                 </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    From bridging talent gaps to managing budget constraints, there are countless reasons agencies rely on Clixio. Here are just a few.
+                <p class="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                    From bridging talent gaps to managing budget constraints, there are countless reasons agencies rely on Clixio.
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Seamless & Confidential -->
-                <div class="bg-light-gray rounded-2xl p-8 value-card">
-                    <div class="flex items-start mb-6">
-                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fas fa-shield-alt text-primary"></i>
+            <div class="grid lg:grid-cols-2 gap-8 items-start">
+                <!-- Left Side - Interactive Dropdown Menu -->
+                <div class="space-y-3">
+                    <!-- Dropdown Item 1 -->
+                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300">
+                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown1')">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-shield-alt text-primary text-sm"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-dark">Seamless & Confidential</h3>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon1"></i>
+                        </button>
+                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown1">
+                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-primary/20">
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Your clients will never know we're in the background. All work is handled under your brand name with complete confidentiality. From email communication to reporting, everything stays white-labeled.
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-dark mb-2">Seamless & Confidential</h3>
-                            <p class="text-gray-600">
-                                Your clients will never know we're in the background. All work is handled under your brand name with complete confidentiality. From email communication to reporting, everything stays white-labeled.
-                            </p>
+                    </div>
+
+                    <!-- Dropdown Item 2 -->
+                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-secondary/20 transition-all duration-300">
+                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown2')">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-cogs text-secondary text-sm"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-dark">Comprehensive Account Management</h3>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon2"></i>
+                        </button>
+                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown2">
+                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-secondary/20">
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    We manage every detail — from campaign setup and optimization to patient-lead tracking and performance monitoring. You stay focused on client relationships while we handle the execution.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Item 3 -->
+                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-green-400/20 transition-all duration-300">
+                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown3')">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-chart-bar text-green-600 text-sm"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-dark">Detailed Reporting & Strategy Calls</h3>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon3"></i>
+                        </button>
+                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown3">
+                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-green-400/20">
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Receive fully branded reports with your logo and name. We also provide scheduled strategy calls to guide you with insights, performance breakdowns, and growth opportunities- helping you sound like the expert in front of your clients.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Item 4 -->
+                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-purple-400/20 transition-all duration-300">
+                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown4')">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-headset text-purple-600 text-sm"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-dark">Client Interaction Support</h3>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon4"></i>
+                        </button>
+                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown4">
+                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-purple-400/20">
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Need us to support you on client calls? We've got your back. Whether as silent experts behind the scenes or direct representatives under your brand, we help strengthen client confidence without revealing the white-label setup.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Item 5 -->
+                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-orange-400/20 transition-all duration-300">
+                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown5')">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-percentage text-orange-600 text-sm"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-dark">Special White-Label Partner Discounts</h3>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon5"></i>
+                        </button>
+                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown5">
+                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-orange-400/20">
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Our partners enjoy exclusive discounted pricing, allowing you to maintain strong profit margins while offering premium dental marketing services to your clients.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Comprehensive Account Management -->
-                <div class="bg-light-gray rounded-2xl p-8 value-card">
-                    <div class="flex items-start mb-6">
-                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fas fa-cogs text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-dark mb-2">Comprehensive Account Management</h3>
-                            <p class="text-gray-600">
-                                We manage every detail — from campaign setup and optimization to patient-lead tracking and performance monitoring. You stay focused on client relationships while we handle the execution.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Detailed Reporting & Strategy Calls -->
-                <div class="bg-light-gray rounded-2xl p-8 value-card">
-                    <div class="flex items-start mb-6">
-                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fas fa-chart-bar text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-dark mb-2">Detailed Reporting & Strategy Calls</h3>
-                            <p class="text-gray-600">
-                                Receive fully branded reports with your logo and name. We also provide scheduled strategy calls to guide you with insights, performance breakdowns, and growth opportunities- helping you sound like the expert in front of your clients.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Client Interaction Support -->
-                <div class="bg-light-gray rounded-2xl p-8 value-card">
-                    <div class="flex items-start mb-6">
-                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fas fa-headset text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-dark mb-2">Client Interaction Support</h3>
-                            <p class="text-gray-600">
-                                Need us to support you on client calls? We've got your back. Whether as silent experts behind the scenes or direct representatives under your brand, we help strengthen client confidence without revealing the white-label setup.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Special White-Label Partner Discounts -->
-                <div class="bg-light-gray rounded-2xl p-8 value-card lg:col-span-2">
-                    <div class="flex items-start mb-6">
-                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fas fa-percentage text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-dark mb-2">Special White-Label Partner Discounts</h3>
-                            <p class="text-gray-600">
-                                Our partners enjoy exclusive discounted pricing, allowing you to maintain strong profit margins while offering premium dental marketing services to your clients.
-                            </p>
+                <!-- Right Side - Professional Image -->
+                <div class="relative">
+                    <div class="sticky top-6">
+                        <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-6 shadow-lg border border-gray-100">
+                            <img src="./images/dental-marketing-professional.jpg" alt="Professional Dental Marketing Partnership" class="w-full h-80 object-cover rounded-xl shadow-md">
+                            
+                            <!-- Professional Stats Overlay -->
+                            <div class="mt-4 grid grid-cols-2 gap-3">
+                                <div class="bg-white/80 backdrop-blur-sm rounded-lg p-3 text-center border border-gray-100">
+                                    <div class="text-lg font-bold text-primary">500+</div>
+                                    <div class="text-xs text-gray-600">Agency Partners</div>
+                                </div>
+                                <div class="bg-white/80 backdrop-blur-sm rounded-lg p-3 text-center border border-gray-100">
+                                    <div class="text-lg font-bold text-secondary">300%</div>
+                                    <div class="text-xs text-gray-600">Average ROI</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Status Badge -->
+                            <div class="mt-4 text-center">
+                                <div class="inline-flex items-center bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-100">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                                    <span class="text-xs font-medium text-gray-700">Premium Partnership Active</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
