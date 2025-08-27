@@ -221,15 +221,15 @@
 
             <!-- Horizontal Process Cards Slider -->
             <div class="relative max-w-6xl mx-auto">
-                <!-- Navigation Arrows - Fixed positioned on left and right sides -->
-                <button class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-primary border border-gray-200 hover:border-primary/30 z-20" id="prevBtn" onclick="slideProcess(-1)">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Navigation Arrows - Positioned on sides of cards -->
+                <button class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-primary border border-gray-200 hover:border-primary/30 z-20" id="prevBtn" onclick="slideProcess(-1)">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
                 
-                <button class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-primary border border-gray-200 hover:border-primary/30 z-20" id="nextBtn" onclick="slideProcess(1)">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-primary border border-gray-200 hover:border-primary/30 z-20" id="nextBtn" onclick="slideProcess(1)">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </button>
@@ -446,13 +446,13 @@
 
 
                 <!-- Enhanced Dots Indicator -->
-                <div class="flex justify-center mt-10 space-x-3" id="dotsContainer">
-                    <button class="w-4 h-4 rounded-full bg-gradient-to-r from-primary to-secondary shadow-lg transition-all duration-300 hover:scale-110" onclick="goToSlide(0)"></button>
-                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(1)"></button>
-                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(2)"></button>
-                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(3)"></button>
-                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(4)"></button>
-                    <button class="w-4 h-4 rounded-full bg-gray-300 hover:bg-gray-400 shadow-md transition-all duration-300 hover:scale-110" onclick="goToSlide(5)"></button>
+                <div class="flex justify-center mt-10 space-x-2" id="dotsContainer">
+                    <button class="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-secondary shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(0)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(1)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(2)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(3)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(4)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(5)"></button>
                 </div>
             </div>
         </div>
