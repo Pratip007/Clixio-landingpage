@@ -68,6 +68,20 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
+        
+        .dropdown-content {
+            transform: none !important;
+            writing-mode: initial !important;
+            text-orientation: initial !important;
+            direction: ltr !important;
+        }
+        
+        .dropdown-content p {
+            transform: none !important;
+            writing-mode: initial !important;
+            text-orientation: initial !important;
+            direction: ltr !important;
+        }
     </style>
 </head>
 <body class="font-inter text-dark">
@@ -190,6 +204,21 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <img src="./images/about-page/dso.webp" alt="Dental Marketing Team" class="rounded-2xl shadow-2xl floating-animation">
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-primary">300%</div>
+                                <div class="text-gray-600">Average ROI Increase</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="space-y-6">
                     <div class="flex items-start">
                         <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -218,21 +247,6 @@
                         <div>
                             <h3 class="text-xl font-semibold text-dark mb-2">Consulting Firms</h3>
                             <p class="text-gray-600">Offer comprehensive dental practice growth solutions with proven marketing strategies.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="relative">
-                    <img src="./images/dental-team.jpg" alt="Dental Marketing Team" class="rounded-2xl shadow-2xl floating-animation">
-                    <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl">
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-chart-line text-primary"></i>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-primary">300%</div>
-                                <div class="text-gray-600">Average ROI Increase</div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -492,149 +506,85 @@
     </section>
 
     <!-- Value Proposition - Interactive Dropdown Section -->
-    <section class="py-12 lg:py-16 bg-gray-50">
+    <section class="py-16 lg:py-20 bg-blue-50">
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl lg:text-4xl font-bold text-dark mb-4">
-                    The Value of Partnering with Us
-                </h2>
-                <p class="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
-                    From bridging talent gaps to managing budget constraints, there are countless reasons agencies rely on Clixio.
-                </p>
-            </div>
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <!-- Left Side - Headline and Description -->
+                <div>
+                    <h2 class="text-3xl lg:text-5xl font-bold text-gray-800 mb-6 leading-tight">
+                        The Value of Partnering with Us
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        From bridging talent gaps to managing budget constraints, there are countless reasons agencies rely on Clixio. We provide comprehensive white-label solutions that enhance your service offerings while maintaining your brand integrity.
+                    </p>
+                </div>
 
-            <div class="grid lg:grid-cols-2 gap-8 items-start">
-                <!-- Left Side - Interactive Dropdown Menu -->
-                <div class="space-y-3">
-                    <!-- Dropdown Item 1 -->
-                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300">
-                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown1')">
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-shield-alt text-primary text-sm"></i>
-                                </div>
-                                <h3 class="text-lg font-semibold text-dark">Seamless & Confidential</h3>
-                        </div>
-                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon1"></i>
+                <!-- Right Side - Expandable Items -->
+                <div class="space-y-4">
+                    <!-- Seamless & Confidential -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="dropdown-trigger w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleDropdown('ongoing')">
+                            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors">Seamless & Confidential</h3>
+                            <span class="text-gray-400 group-hover:text-primary transition-colors text-2xl font-light" id="icon-ongoing">+</span>
                         </button>
-                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown1">
-                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-primary/20">
-                                <p class="text-gray-600 text-sm leading-relaxed">
+                        <div class="dropdown-content hidden mt-4" id="ongoing">
+                            <p class="text-gray-600 leading-relaxed">
                                 Your clients will never know we're in the background. All work is handled under your brand name with complete confidentiality. From email communication to reporting, everything stays white-labeled.
                             </p>
                         </div>
                     </div>
-                </div>
 
-                    <!-- Dropdown Item 2 -->
-                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-secondary/20 transition-all duration-300">
-                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown2')">
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-cogs text-secondary text-sm"></i>
-                                </div>
-                                <h3 class="text-lg font-semibold text-dark">Comprehensive Account Management</h3>
-                        </div>
-                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon2"></i>
+                    <!-- Comprehensive Account Management -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="dropdown-trigger w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleDropdown('holistic')">
+                            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors">Comprehensive Account Management</h3>
+                            <span class="text-gray-400 group-hover:text-primary transition-colors text-2xl font-light" id="icon-holistic">+</span>
                         </button>
-                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown2">
-                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-secondary/20">
-                                <p class="text-gray-600 text-sm leading-relaxed">
+                        <div class="dropdown-content hidden mt-4" id="holistic">
+                            <p class="text-gray-600 leading-relaxed">
                                 We manage every detail — from campaign setup and optimization to patient-lead tracking and performance monitoring. You stay focused on client relationships while we handle the execution.
                             </p>
                         </div>
                     </div>
-                </div>
 
-                    <!-- Dropdown Item 3 -->
-                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-green-400/20 transition-all duration-300">
-                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown3')">
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-chart-bar text-green-600 text-sm"></i>
-                                </div>
-                                <h3 class="text-lg font-semibold text-dark">Detailed Reporting & Strategy Calls</h3>
-                        </div>
-                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon3"></i>
+                    <!-- Detailed Reporting & Strategy Calls -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="dropdown-trigger w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleDropdown('analytics')">
+                            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors">Detailed Reporting & Strategy Calls</h3>
+                            <span class="text-gray-400 group-hover:text-primary transition-colors text-2xl font-light" id="icon-analytics">+</span>
                         </button>
-                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown3">
-                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-green-400/20">
-                                <p class="text-gray-600 text-sm leading-relaxed">
+                        <div class="dropdown-content hidden mt-4" id="analytics">
+                            <p class="text-gray-600 leading-relaxed">
                                 Receive fully branded reports with your logo and name. We also provide scheduled strategy calls to guide you with insights, performance breakdowns, and growth opportunities- helping you sound like the expert in front of your clients.
                             </p>
                         </div>
                     </div>
-                </div>
 
-                    <!-- Dropdown Item 4 -->
-                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-purple-400/20 transition-all duration-300">
-                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown4')">
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-headset text-purple-600 text-sm"></i>
-                                </div>
-                                <h3 class="text-lg font-semibold text-dark">Client Interaction Support</h3>
-                        </div>
-                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon4"></i>
+                    <!-- Client Interaction Support -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="dropdown-trigger w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleDropdown('client-support')">
+                            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors">Client Interaction Support</h3>
+                            <span class="text-gray-400 group-hover:text-primary transition-colors text-2xl font-light" id="icon-client-support">+</span>
                         </button>
-                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown4">
-                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-purple-400/20">
-                                <p class="text-gray-600 text-sm leading-relaxed">
+                        <div class="dropdown-content hidden mt-4" id="client-support">
+                            <p class="text-gray-600 leading-relaxed">
                                 Need us to support you on client calls? We've got your back. Whether as silent experts behind the scenes or direct representatives under your brand, we help strengthen client confidence without revealing the white-label setup.
                             </p>
                         </div>
                     </div>
-                </div>
 
-                    <!-- Dropdown Item 5 -->
-                    <div class="dropdown-item bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-orange-400/20 transition-all duration-300">
-                        <button class="dropdown-trigger w-full flex items-center justify-between p-4 text-left focus:outline-none focus:ring-2 focus:ring-primary/10 rounded-xl" onclick="toggleDropdown('dropdown5')">
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-percentage text-orange-600 text-sm"></i>
-                                </div>
-                                <h3 class="text-lg font-semibold text-dark">Special White-Label Partner Discounts</h3>
-                        </div>
-                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-300 text-sm" id="icon5"></i>
+                    <!-- Special White-Label Partner Discounts -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="dropdown-trigger w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleDropdown('discounts')">
+                            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors">Special White-Label Partner Discounts</h3>
+                            <span class="text-gray-400 group-hover:text-primary transition-colors text-2xl font-light" id="icon-discounts">+</span>
                         </button>
-                        <div class="dropdown-content hidden px-4 pb-4" id="dropdown5">
-                            <div class="bg-gray-50/50 rounded-lg p-3 ml-13 border-l-3 border-orange-400/20">
-                                <p class="text-gray-600 text-sm leading-relaxed">
+                        <div class="dropdown-content hidden mt-4" id="discounts">
+                            <p class="text-gray-600 leading-relaxed">
                                 Our partners enjoy exclusive discounted pricing, allowing you to maintain strong profit margins while offering premium dental marketing services to your clients.
                             </p>
-                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Right Side - Professional Image -->
-                <div class="relative">
-                    <div class="sticky top-6">
-                        <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-6 shadow-lg border border-gray-100">
-                            <img src="./images/Our Services/Reputation Management.jpg" alt="Reputation Management and Customer Satisfaction" class="w-full h-80 object-cover rounded-xl shadow-md">
-                            
-                            <!-- Professional Stats Overlay -->
-                            <div class="mt-4 grid grid-cols-2 gap-3">
-                                <div class="bg-white/80 backdrop-blur-sm rounded-lg p-3 text-center border border-gray-100">
-                                    <div class="text-lg font-bold text-primary">500+</div>
-                                    <div class="text-xs text-gray-600">Agency Partners</div>
-                                </div>
-                                <div class="bg-white/80 backdrop-blur-sm rounded-lg p-3 text-center border border-gray-100">
-                                    <div class="text-lg font-bold text-secondary">300%</div>
-                                    <div class="text-xs text-gray-600">Average ROI</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Status Badge -->
-                            <div class="mt-4 text-center">
-                                <div class="inline-flex items-center bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-100">
-                                    <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                                    <span class="text-xs font-medium text-gray-700">Premium Partnership Active</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
