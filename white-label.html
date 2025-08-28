@@ -82,6 +82,42 @@
             text-orientation: initial !important;
             direction: ltr !important;
         }
+        
+        .dropdown-trigger {
+            background: transparent !important;
+            outline: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        .dropdown-trigger:focus {
+            background: transparent !important;
+            outline: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        .dropdown-trigger:active {
+            background: transparent !important;
+            outline: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+        
+        .dropdown-trigger:hover {
+            background: transparent !important;
+            outline: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        .dropdown-trigger:visited {
+            background: transparent !important;
+            outline: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
     </style>
 </head>
 <body class="font-inter text-dark">
@@ -244,251 +280,155 @@
     </section>
 
     <!-- White Label Process -->
-    <section class="py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50" id="process">
+    <section class="py-12 lg:py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50" id="process">
         <div class="container mx-auto px-4 lg:px-16 xl:px-24 2xl:px-32">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-5xl font-bold text-dark mb-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-4">
                     Behind the Scenes Our White Label Process
                 </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                <p class="text-base text-gray-600 max-w-2xl mx-auto">
                     A streamlined 6-step process designed to make white label partnerships seamless and profitable.
                 </p>
             </div>
 
-            <!-- Horizontal Process Cards Slider -->
-            <div class="relative max-w-7xl mx-auto">
-                <!-- Navigation Arrows - Positioned on sides of section -->
-                <button class="absolute -left-12 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-primary border border-gray-200 hover:border-primary/30 z-20" id="prevBtn" onclick="slideProcess(-1)">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                
-                <button class="absolute -right-12 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-primary border border-gray-200 hover:border-primary/30 z-20" id="nextBtn" onclick="slideProcess(1)">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-
-                <!-- Slider Container -->
-                <div class="overflow-hidden px-8">
-                    <div class="flex transition-transform duration-500 ease-in-out" id="processSlider">
-                <!-- Step 1 -->
-                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
-                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
-                                <!-- Gradient overlay on hover -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                
-                                <!-- Professional Orange Logo -->
-                                <div class="flex items-center mb-6">
-                                    <div class="w-6 h-6 bg-orange-500 rounded-md shadow-sm mr-3 relative overflow-hidden">
-                                        <div class="absolute inset-0 bg-white/20"></div>
-                                        <div class="absolute inset-0 flex items-center justify-center">
-                                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                            </svg>
-                                        </div>
+            <!-- Process Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1: Onboarding Call -->
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                    <!-- Professional Orange Logo -->
+                    <div class="flex items-center mb-4">
+                        <div class="w-5 h-5 bg-orange-500 rounded-md mr-3 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
                         </div>
-                                    <div class="w-8 h-0.5 bg-orange-500 rounded-full"></div>
+                        <div class="w-6 h-0.5 bg-orange-500 rounded-full"></div>
                     </div>
-                                
-                                <!-- Content -->
-                                <div class="relative z-10">
-                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
-                                        Onboarding Call
-                                    </h3>
-                                    <p class="text-gray-600 leading-relaxed text-sm">
-                        Begin with an onboarding call to explore our platform and white label dental marketing services—designed to strengthen online presence and deliver measurable ROI.
-                    </p>
-                                </div>
-                                
-                                <!-- Bottom accent line -->
-                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </div>
-                </div>
-
-                <!-- Step 2 -->
-                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
-                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
-                                <!-- Gradient overlay on hover -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                
-                                <!-- Professional Orange Logo -->
-                                <div class="flex items-center mb-6">
-                                    <div class="w-6 h-6 bg-orange-500 rounded-md shadow-sm mr-3 relative overflow-hidden">
-                                        <div class="absolute inset-0 bg-white/20"></div>
-                                        <div class="absolute inset-0 flex items-center justify-center">
-                                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                            </svg>
-                                        </div>
-                        </div>
-                                    <div class="w-8 h-0.5 bg-orange-500 rounded-full"></div>
-                    </div>
-                                
-                                <!-- Content -->
-                                <div class="relative z-10">
-                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
-                                        Discovery Phase
-                                    </h3>
-                                    <p class="text-gray-600 leading-relaxed text-sm">
-                        Effortlessly customize, implement, and manage white label dental marketing services, perfectly tailored to meet your client's unique needs and goals.
-                    </p>
-                                </div>
-                                
-                                <!-- Bottom accent line -->
-                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </div>
-                </div>
-
-                <!-- Step 3 -->
-                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
-                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
-                                <!-- Gradient overlay on hover -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                
-                                <!-- Professional Orange Logo -->
-                                <div class="flex items-center mb-6">
-                                    <div class="w-6 h-6 bg-orange-500 rounded-md shadow-sm mr-3 relative overflow-hidden">
-                                        <div class="absolute inset-0 bg-white/20"></div>
-                                        <div class="absolute inset-0 flex items-center justify-center">
-                                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                            </svg>
-                                        </div>
-                        </div>
-                                    <div class="w-8 h-0.5 bg-orange-500 rounded-full"></div>
-                    </div>
-                                
-                                <!-- Content -->
-                                <div class="relative z-10">
-                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
-                                        Setting Your Prices
-                                    </h3>
-                                    <p class="text-gray-600 leading-relaxed text-sm">
-                        Set your markup, and we'll handle the rest- turning your client's vision into reality with speed, precision, and your brand at the forefront.
-                    </p>
-                                </div>
-                                
-                                <!-- Bottom accent line -->
-                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </div>
-                </div>
-
-                <!-- Step 4 -->
-                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
-                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
-                                <!-- Gradient overlay on hover -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                
-                                <!-- Professional Orange Logo -->
-                                <div class="flex items-center mb-6">
-                                    <div class="w-6 h-6 bg-orange-500 rounded-md shadow-sm mr-3 relative overflow-hidden">
-                                        <div class="absolute inset-0 bg-white/20"></div>
-                                        <div class="absolute inset-0 flex items-center justify-center">
-                                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                            </svg>
-                                        </div>
-                        </div>
-                                    <div class="w-8 h-0.5 bg-orange-500 rounded-full"></div>
-                    </div>
-                                
-                                <!-- Content -->
-                                <div class="relative z-10">
-                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
-                                        Transparent Communication
-                                    </h3>
-                                    <p class="text-gray-600 leading-relaxed text-sm">
-                        Simplify your workflow- clients hear from us via white label emails, and we reach out to you only when necessary.
-                    </p>
-                                </div>
-                                
-                                <!-- Bottom accent line -->
-                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </div>
-                </div>
-
-                <!-- Step 5 -->
-                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
-                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
-                                <!-- Gradient overlay on hover -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                
-                                <!-- Professional Orange Logo -->
-                                <div class="flex items-center mb-6">
-                                    <div class="w-6 h-6 bg-orange-500 rounded-md shadow-sm mr-3 relative overflow-hidden">
-                                        <div class="absolute inset-0 bg-white/20"></div>
-                                        <div class="absolute inset-0 flex items-center justify-center">
-                                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                            </svg>
-                                        </div>
-                        </div>
-                                    <div class="w-8 h-0.5 bg-orange-500 rounded-full"></div>
-                    </div>
-                                
-                                <!-- Content -->
-                                <div class="relative z-10">
-                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
-                                        Expanded Service Options
-                                    </h3>
-                                    <p class="text-gray-600 leading-relaxed text-sm">
-                        Expand your offerings by exploring additional services that strengthen your portfolio and address your clients' evolving needs.
-                    </p>
-                                </div>
-                                
-                                <!-- Bottom accent line -->
-                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </div>
-                </div>
-
-                <!-- Step 6 -->
-                        <div class="min-w-full lg:min-w-[400px] lg:w-[400px] px-4">
-                            <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-64 border border-gray-100 hover:border-primary/20 group backdrop-blur-sm relative overflow-hidden">
-                                <!-- Gradient overlay on hover -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                
-                                <!-- Professional Orange Logo -->
-                                <div class="flex items-center mb-6">
-                                    <div class="w-6 h-6 bg-orange-500 rounded-md shadow-sm mr-3 relative overflow-hidden">
-                                        <div class="absolute inset-0 bg-white/20"></div>
-                                        <div class="absolute inset-0 flex items-center justify-center">
-                                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                            </svg>
-                                        </div>
-                        </div>
-                                    <div class="w-8 h-0.5 bg-orange-500 rounded-full"></div>
-                    </div>
-                                
-                                <!-- Content -->
-                                <div class="relative z-10">
-                                    <h3 class="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
-                                        Real-Time Reporting
-                                    </h3>
-                                    <p class="text-gray-600 leading-relaxed text-sm">
-                        Get real-time insights with our Executive Report, showcasing the measurable impact of our white label digital marketing services.
-                    </p>
-                                </div>
-                                
-                                <!-- Bottom accent line -->
-                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </div>
-                        </div>
+                    
+                    <!-- Content -->
+                    <div>
+                        <h3 class="text-xl font-bold text-dark mb-3">
+                            Onboarding Call
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Begin with an onboarding call to explore our platform and white label dental marketing services—designed to strengthen online presence and deliver measurable ROI.
+                        </p>
                     </div>
                 </div>
 
+                <!-- Card 2: Discovery Phase -->
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                    <!-- Professional Orange Logo -->
+                    <div class="flex items-center mb-4">
+                        <div class="w-5 h-5 bg-orange-500 rounded-md mr-3 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div class="w-6 h-0.5 bg-orange-500 rounded-full"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div>
+                        <h3 class="text-xl font-bold text-dark mb-3">
+                            Discovery Phase
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Effortlessly customize, implement, and manage white label dental marketing services, perfectly tailored to meet your client's unique needs and goals.
+                        </p>
+                    </div>
+                </div>
 
+                <!-- Card 3: Setting Your Prices -->
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                    <!-- Professional Orange Logo -->
+                    <div class="flex items-center mb-4">
+                        <div class="w-5 h-5 bg-orange-500 rounded-md mr-3 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div class="w-6 h-0.5 bg-orange-500 rounded-full"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div>
+                        <h3 class="text-xl font-bold text-dark mb-3">
+                            Setting Your Prices
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Set your markup, and we'll handle the rest- turning your client's vision into reality with speed, precision, and your brand at the forefront.
+                        </p>
+                    </div>
+                </div>
 
-                <!-- Enhanced Dots Indicator -->
-                <div class="flex justify-center mt-10 space-x-2" id="dotsContainer">
-                    <button class="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-secondary shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(0)"></button>
-                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(1)"></button>
-                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(2)"></button>
-                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(3)"></button>
-                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(4)"></button>
-                    <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm transition-all duration-300 hover:scale-125" onclick="goToSlide(5)"></button>
+                <!-- Card 4: Transparent Communication -->
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                    <!-- Professional Orange Logo -->
+                    <div class="flex items-center mb-4">
+                        <div class="w-5 h-5 bg-orange-500 rounded-md mr-3 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div class="w-6 h-0.5 bg-orange-500 rounded-full"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div>
+                        <h3 class="text-xl font-bold text-dark mb-3">
+                            Transparent Communication
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Simplify your workflow- clients hear from us via white label emails, and we reach out to you only when necessary.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Expanded Service Options -->
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                    <!-- Professional Orange Logo -->
+                    <div class="flex items-center mb-4">
+                        <div class="w-5 h-5 bg-orange-500 rounded-md mr-3 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div class="w-6 h-0.5 bg-orange-500 rounded-full"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div>
+                        <h3 class="text-xl font-bold text-dark mb-3">
+                            Expanded Service Options
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Expand your offerings by exploring additional services that strengthen your portfolio and address your clients' evolving needs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 6: Real-Time Reporting -->
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                    <!-- Professional Orange Logo -->
+                    <div class="flex items-center mb-4">
+                        <div class="w-5 h-5 bg-orange-500 rounded-md mr-3 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div class="w-6 h-0.5 bg-orange-500 rounded-full"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div>
+                        <h3 class="text-xl font-bold text-dark mb-3">
+                            Real-Time Reporting
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Get real-time insights with our Executive Report, showcasing the measurable impact of our white label digital marketing services.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
