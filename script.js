@@ -1241,12 +1241,31 @@ function initScrollNavigation() {
                 const href = link.getAttribute('href');
                 if (!href) return;
                 
+                console.log('Checking link:', href, 'against current page:', currentPage);
+                
                 // Check if this link matches the current page
-                if (href === currentPage || 
-                    (currentPage === 'index.html' && href === '#home') ||
-                    (currentPage === 'index.html' && href.startsWith('#')) ||
-                    (href.includes(currentPage.replace('.html', '')) && currentPage !== 'index.html')) {
-                    
+                let isActive = false;
+                
+                // Direct match
+                if (href === currentPage) {
+                    isActive = true;
+                }
+                // For index.html, check for home and section links
+                else if (currentPage === 'index.html' || currentPage === '') {
+                    if (href === '#home' || href.startsWith('#')) {
+                        isActive = true;
+                    }
+                }
+                // For other pages, check if href contains the page name
+                else {
+                    const pageName = currentPage.replace('.html', '');
+                    if (href.includes(pageName)) {
+                        isActive = true;
+                    }
+                }
+                
+                if (isActive) {
+                    console.log('Found active link:', href, 'for page:', currentPage);
                     if (link.closest('nav')) {
                         activeLink = link; // Desktop link
                     } else if (link.closest('#mobile-menu')) {
@@ -1349,6 +1368,57 @@ function initScrollNavigation() {
         }
         
     }, 100); // Small delay to ensure DOM is ready
+}
+
+// Test function to verify navigation highlighting
+function testNavigationHighlighting() {
+    console.log('Testing navigation highlighting...');
+    
+    // Test About page highlighting
+    const aboutLink = document.querySelector('a[href="about.html"]');
+    if (aboutLink) {
+        console.log('Testing About link highlighting...');
+        aboutLink.classList.remove('text-dark', 'hover:text-primary');
+        aboutLink.classList.add('nav-link-active');
+        
+        // Check if underline is visible
+        setTimeout(() => {
+            const computedStyle = window.getComputedStyle(aboutLink, '::after');
+            console.log('About link underline test completed');
+            
+            // Remove the test class after 3 seconds
+            setTimeout(() => {
+                aboutLink.classList.remove('nav-link-active');
+                aboutLink.classList.add('text-dark', 'hover:text-primary');
+            }, 3000);
+        }, 100);
+    }
+    
+    // Test Pricing page highlighting
+    const pricingLink = document.querySelector('a[href="pricing.html"]');
+    if (pricingLink) {
+        console.log('Testing Pricing link highlighting...');
+        pricingLink.classList.remove('text-dark', 'hover:text-primary');
+        pricingLink.classList.add('nav-link-active');
+        
+        setTimeout(() => {
+            pricingLink.classList.remove('nav-link-active');
+            pricingLink.classList.add('text-dark', 'hover:text-primary');
+        }, 3000);
+    }
+    
+    // Test White Label page highlighting
+    const whiteLabelLink = document.querySelector('a[href="white-label.html"]');
+    if (whiteLabelLink) {
+        console.log('Testing White Label link highlighting...');
+        whiteLabelLink.classList.remove('text-dark', 'hover:text-primary');
+        whiteLabelLink.classList.add('nav-link-active');
+        
+        setTimeout(() => {
+            whiteLabelLink.classList.remove('nav-link-active');
+            whiteLabelLink.classList.add('text-dark', 'hover:text-primary');
+        }, 3000);
+    }
 }
 
 

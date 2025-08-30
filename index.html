@@ -215,6 +215,12 @@
             height: 2px;
             background-color: #FF6B35;
             border-radius: 1px;
+            z-index: 10;
+        }
+        
+        /* Ensure underline is visible */
+        nav a.nav-link-active {
+            color: #FF6B35 !important;
         }
         
         /* Mobile active navigation styles */
@@ -246,6 +252,7 @@
                     <li><a href="#results" class="text-dark hover:text-primary font-medium transition-colors">Results</a></li>
                     <li><a href="#testimonials" class="text-dark hover:text-primary font-medium transition-colors">Reviews</a></li>
                     <li><a href="calendly.html" class="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-dark transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-md">Get Started</a></li>
+                    <li><button onclick="testNavigationHighlighting()" class="bg-blue-500 text-white px-4 py-2 rounded text-sm">Test Nav</button></li>
                 </ul>
 
                 <!-- Mobile Menu Button -->
