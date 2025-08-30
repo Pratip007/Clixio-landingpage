@@ -1200,112 +1200,153 @@ document.addEventListener('DOMContentLoaded', function() {
 
 console.log('Enhanced Clixio features loaded with Tailwind CSS!');
 
-// Scroll-based Navigation Highlighting
+// Navigation Highlighting for All Pages
 function initScrollNavigation() {
-    console.log('Initializing scroll navigation...');
+    console.log('Initializing navigation highlighting...');
     
     // Wait a bit for DOM to be fully ready
     setTimeout(() => {
-        const sections = ['home', 'services', 'results', 'testimonials'];
+        // Get current page path
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.split('/').pop() || 'index.html';
         
-        // Get all navigation links
-        const desktopNavLinks = document.querySelectorAll('nav a[href^="#"]');
-        const mobileNavLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+        console.log('Current page:', currentPage);
+        
+        // Get all navigation links (both desktop and mobile)
+        const allNavLinks = document.querySelectorAll('nav a, #mobile-menu a');
+        const desktopNavLinks = document.querySelectorAll('nav a');
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
         
         console.log('Found desktop nav links:', desktopNavLinks.length);
         console.log('Found mobile nav links:', mobileNavLinks.length);
         
-        // Create a map of href to elements
-        const navLinksMap = {};
-        const mobileNavLinksMap = {};
-        
-        desktopNavLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && href !== '#') {
-                navLinksMap[href] = link;
-            }
-        });
-        
-        mobileNavLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && href !== '#') {
-                mobileNavLinksMap[href] = link;
-            }
-        });
-        
-        console.log('Desktop nav links map:', navLinksMap);
-        console.log('Mobile nav links map:', mobileNavLinksMap);
-        
-        // Function to update active navigation
-        function updateActiveNav() {
-            const scrollPosition = window.scrollY + 150; // Offset for header
+        // Function to set active navigation based on current page
+        function setActiveNavigation() {
+            // Remove active classes from all links first
+            allNavLinks.forEach(link => {
+                link.classList.remove('nav-link-active', 'mobile-nav-link-active');
+                link.classList.add('text-dark', 'hover:text-primary');
+            });
             
-            let activeSection = null;
+            // Add hover classes back to mobile links
+            mobileNavLinks.forEach(link => {
+                link.classList.add('hover:bg-gray-50');
+            });
             
-            // Check each section
-            sections.forEach(section => {
-                const element = document.getElementById(section);
-                if (!element) {
-                    console.log(`Section ${section} not found`);
-                    return;
-                }
+            // Determine which link should be active
+            let activeLink = null;
+            let activeMobileLink = null;
+            
+            allNavLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (!href) return;
                 
-                const sectionTop = element.offsetTop;
-                const sectionHeight = element.offsetHeight;
-                const sectionBottom = sectionTop + sectionHeight;
-                
-                console.log(`Section ${section}: top=${sectionTop}, bottom=${sectionBottom}, scroll=${scrollPosition}`);
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    activeSection = section;
+                // Check if this link matches the current page
+                if (href === currentPage || 
+                    (currentPage === 'index.html' && href === '#home') ||
+                    (currentPage === 'index.html' && href.startsWith('#')) ||
+                    (href.includes(currentPage.replace('.html', '')) && currentPage !== 'index.html')) {
+                    
+                    if (link.closest('nav')) {
+                        activeLink = link; // Desktop link
+                    } else if (link.closest('#mobile-menu')) {
+                        activeMobileLink = link; // Mobile link
+                    }
                 }
             });
             
-            if (activeSection) {
-                console.log(`Activating section: ${activeSection}`);
-                
-                // Remove active class from all desktop links
-                Object.values(navLinksMap).forEach(link => {
-                    link.classList.remove('nav-link-active');
-                    link.classList.add('text-dark', 'hover:text-primary');
-                });
-                
-                // Remove active class from all mobile links
-                Object.values(mobileNavLinksMap).forEach(link => {
-                    link.classList.remove('mobile-nav-link-active');
-                    link.classList.add('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
-                });
-                
-                // Add active class to current section
-                const desktopLink = navLinksMap[`#${activeSection}`];
-                const mobileLink = mobileNavLinksMap[`#${activeSection}`];
-                
-                if (desktopLink) {
-                    desktopLink.classList.remove('text-dark', 'hover:text-primary');
-                    desktopLink.classList.add('nav-link-active');
-                    console.log(`Desktop link activated for ${activeSection}`);
-                }
-                if (mobileLink) {
-                    mobileLink.classList.remove('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
-                    mobileLink.classList.add('mobile-nav-link-active');
-                    console.log(`Mobile link activated for ${activeSection}`);
-                }
+            // Apply active classes
+            if (activeLink) {
+                activeLink.classList.remove('text-dark', 'hover:text-primary');
+                activeLink.classList.add('nav-link-active');
+                console.log('Desktop link activated:', activeLink.textContent);
+            }
+            
+            if (activeMobileLink) {
+                activeMobileLink.classList.remove('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
+                activeMobileLink.classList.add('mobile-nav-link-active');
+                console.log('Mobile link activated:', activeMobileLink.textContent);
             }
         }
         
-        // Add scroll event listener with throttling
-        let ticking = false;
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(updateActiveNav);
-                ticking = true;
+        // Set initial active navigation
+        setActiveNavigation();
+        
+        // For index.html, also handle scroll-based navigation
+        if (currentPage === 'index.html' || currentPage === '') {
+            console.log('Setting up scroll navigation for index.html');
+            
+            const sections = ['home', 'services', 'results', 'testimonials'];
+            
+            // Function to update active navigation based on scroll
+            function updateActiveNav() {
+                const scrollPosition = window.scrollY + 150; // Offset for header
+                
+                let activeSection = null;
+                
+                // Check each section
+                sections.forEach(section => {
+                    const element = document.getElementById(section);
+                    if (!element) {
+                        console.log(`Section ${section} not found`);
+                        return;
+                    }
+                    
+                    const sectionTop = element.offsetTop;
+                    const sectionHeight = element.offsetHeight;
+                    const sectionBottom = sectionTop + sectionHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        activeSection = section;
+                    }
+                });
+                
+                if (activeSection) {
+                    console.log(`Activating section: ${activeSection}`);
+                    
+                    // Remove active class from all desktop links
+                    desktopNavLinks.forEach(link => {
+                        link.classList.remove('nav-link-active');
+                        link.classList.add('text-dark', 'hover:text-primary');
+                    });
+                    
+                    // Remove active class from all mobile links
+                    mobileNavLinks.forEach(link => {
+                        link.classList.remove('mobile-nav-link-active');
+                        link.classList.add('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
+                    });
+                    
+                    // Add active class to current section
+                    const desktopLink = document.querySelector(`nav a[href="#${activeSection}"]`);
+                    const mobileLink = document.querySelector(`#mobile-menu a[href="#${activeSection}"]`);
+                    
+                    if (desktopLink) {
+                        desktopLink.classList.remove('text-dark', 'hover:text-primary');
+                        desktopLink.classList.add('nav-link-active');
+                        console.log(`Desktop link activated for ${activeSection}`);
+                    }
+                    if (mobileLink) {
+                        mobileLink.classList.remove('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
+                        mobileLink.classList.add('mobile-nav-link-active');
+                        console.log(`Mobile link activated for ${activeSection}`);
+                    }
+                }
             }
+            
+            // Add scroll event listener with throttling
+            let ticking = false;
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateActiveNav);
+                    ticking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', requestTick);
+            
+            // Initial call to set correct state
+            updateActiveNav();
         }
-        
-        window.addEventListener('scroll', requestTick);
-        
-        // Initial call to set correct state
-        updateActiveNav();
         
     }, 100); // Small delay to ensure DOM is ready
 }
