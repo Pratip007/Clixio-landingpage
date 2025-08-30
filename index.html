@@ -203,24 +203,36 @@
         /* Active Navigation Link Styles */
         .nav-link-active {
             color: #FF6B35 !important;
-            position: relative;
+            position: relative !important;
         }
         
         .nav-link-active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #FF6B35;
-            border-radius: 1px;
-            z-index: 10;
+            content: '' !important;
+            position: absolute !important;
+            bottom: -4px !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: #FF6B35 !important;
+            border-radius: 1px !important;
+            box-shadow: 0 1px 2px rgba(255, 107, 53, 0.2) !important;
+            display: block !important;
+            z-index: 10 !important;
         }
         
-        /* Ensure underline is visible */
-        nav a.nav-link-active {
-            color: #FF6B35 !important;
+        /* More specific selector to override Tailwind */
+        nav ul li a.nav-link-active::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -4px !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: #FF6B35 !important;
+            border-radius: 1px !important;
+            box-shadow: 0 1px 2px rgba(255, 107, 53, 0.2) !important;
+            display: block !important;
+            z-index: 10 !important;
         }
         
         /* Mobile active navigation styles */
@@ -244,7 +256,7 @@
 
                 <!-- Desktop Navigation -->
                 <ul class="hidden lg:flex items-center space-x-4">
-                    <li><a href="#home" class="text-dark hover:text-primary font-medium transition-colors">Home</a></li>
+                    <li><a href="#home" class="nav-link-active text-primary font-medium transition-colors">Home</a></li>
                     <li><a href="about.html" class="text-dark hover:text-primary font-medium transition-colors">About</a></li>
                     <li><a href="pricing.html" class="text-dark hover:text-primary font-medium transition-colors">Pricing</a></li>
                     <li><a href="white-label.html" class="text-dark hover:text-primary font-medium transition-colors">White Label</a></li>
@@ -252,7 +264,6 @@
                     <li><a href="#results" class="text-dark hover:text-primary font-medium transition-colors">Results</a></li>
                     <li><a href="#testimonials" class="text-dark hover:text-primary font-medium transition-colors">Reviews</a></li>
                     <li><a href="calendly.html" class="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-dark transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-md">Get Started</a></li>
-                    <li><button onclick="testNavigationHighlighting()" class="bg-blue-500 text-white px-4 py-2 rounded text-sm">Test Nav</button></li>
                 </ul>
 
                 <!-- Mobile Menu Button -->
@@ -268,7 +279,7 @@
             <!-- Mobile Navigation -->
             <div class="lg:hidden hidden bg-white border-t border-gray-200 shadow-xl" id="mobile-menu">
                 <div class="py-4 space-y-2">
-                    <a href="#home" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">Home</a>
+                    <a href="#home" class="mobile-nav-link-active block px-4 py-3 text-primary bg-orange-50 font-medium transition-all rounded-lg">Home</a>
                     <a href="about.html" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">About</a>
                     <a href="pricing.html" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">Pricing</a>
                     <a href="white-label.html" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">White Label</a>

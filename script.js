@@ -1200,6 +1200,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 console.log('Enhanced Clixio features loaded with Tailwind CSS!');
 
+// Manual test function for Reviews button activation (for debugging)
+function testReviewsButtonActivation() {
+    console.log('🧪 Testing Reviews button activation...');
+    
+    // Simulate scrolling to testimonials section
+    const testimonialsSection = document.getElementById('testimonials');
+    if (testimonialsSection) {
+        testimonialsSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // Check activation after scroll
+        setTimeout(() => {
+            const reviewsDesktopLink = document.querySelector('nav a[href="#testimonials"]');
+            const reviewsMobileLink = document.querySelector('#mobile-menu a[href="#testimonials"]');
+            
+            if (reviewsDesktopLink && reviewsDesktopLink.classList.contains('nav-link-active')) {
+                console.log('✅ Reviews desktop button is active!');
+            } else {
+                console.log('❌ Reviews desktop button is not active');
+            }
+            
+            if (reviewsMobileLink && reviewsMobileLink.classList.contains('mobile-nav-link-active')) {
+                console.log('✅ Reviews mobile button is active!');
+            } else {
+                console.log('❌ Reviews mobile button is not active');
+            }
+        }, 1000);
+    } else {
+        console.log('❌ Testimonials section not found');
+    }
+}
+
+// Uncomment the line below to test Reviews button activation
+// testReviewsButtonActivation();
+
 // Navigation Highlighting for All Pages
 function initScrollNavigation() {
     console.log('Initializing navigation highlighting...');
@@ -1222,6 +1256,12 @@ function initScrollNavigation() {
         
         // Function to set active navigation based on current page
         function setActiveNavigation() {
+            // For main navigation pages, preserve the static active states
+            if (currentPage === 'about.html' || currentPage === 'pricing.html' || currentPage === 'white-label.html') {
+                console.log(`Preserving static active state for ${currentPage}`);
+                return; // Don't override static active states for main pages
+            }
+            
             // Remove active classes from all links first
             allNavLinks.forEach(link => {
                 link.classList.remove('nav-link-active', 'mobile-nav-link-active');
@@ -1241,31 +1281,12 @@ function initScrollNavigation() {
                 const href = link.getAttribute('href');
                 if (!href) return;
                 
-                console.log('Checking link:', href, 'against current page:', currentPage);
-                
                 // Check if this link matches the current page
-                let isActive = false;
-                
-                // Direct match
-                if (href === currentPage) {
-                    isActive = true;
-                }
-                // For index.html, check for home and section links
-                else if (currentPage === 'index.html' || currentPage === '') {
-                    if (href === '#home' || href.startsWith('#')) {
-                        isActive = true;
-                    }
-                }
-                // For other pages, check if href contains the page name
-                else {
-                    const pageName = currentPage.replace('.html', '');
-                    if (href.includes(pageName)) {
-                        isActive = true;
-                    }
-                }
-                
-                if (isActive) {
-                    console.log('Found active link:', href, 'for page:', currentPage);
+                if (href === currentPage || 
+                    (currentPage === 'index.html' && href === '#home') ||
+                    (currentPage === 'index.html' && href.startsWith('#')) ||
+                    (href.includes(currentPage.replace('.html', '')) && currentPage !== 'index.html')) {
+                    
                     if (link.closest('nav')) {
                         activeLink = link; // Desktop link
                     } else if (link.closest('#mobile-menu')) {
@@ -1291,11 +1312,75 @@ function initScrollNavigation() {
         // Set initial active navigation
         setActiveNavigation();
         
+        // Ensure active states are preserved for main navigation pages
+        if (currentPage === 'about.html' || currentPage === 'pricing.html' || currentPage === 'white-label.html') {
+            console.log(`Ensuring active state for ${currentPage}`);
+            
+            // Force preserve the active states after a short delay
+            setTimeout(() => {
+                const desktopLink = document.querySelector(`nav a[href="${currentPage}"]`);
+                const mobileLink = document.querySelector(`#mobile-menu a[href="${currentPage}"]`);
+                
+                if (desktopLink) {
+                    desktopLink.classList.remove('text-dark', 'hover:text-primary');
+                    desktopLink.classList.add('nav-link-active');
+                    console.log(`✅ Desktop link preserved: ${desktopLink.textContent}`);
+                }
+                
+                if (mobileLink) {
+                    mobileLink.classList.remove('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
+                    mobileLink.classList.add('mobile-nav-link-active');
+                    console.log(`✅ Mobile link preserved: ${mobileLink.textContent}`);
+                }
+            }, 100);
+        }
+        
         // For index.html, also handle scroll-based navigation
         if (currentPage === 'index.html' || currentPage === '') {
             console.log('Setting up scroll navigation for index.html');
             
             const sections = ['home', 'services', 'results', 'testimonials'];
+            
+            // Function to activate navigation based on section
+            function activateSection(sectionName) {
+                console.log(`Activating section: ${sectionName}`);
+                
+                // Remove active class from all desktop links EXCEPT Home
+                desktopNavLinks.forEach(link => {
+                    if (link.getAttribute('href') !== '#home') {
+                        link.classList.remove('nav-link-active');
+                        link.classList.add('text-dark', 'hover:text-primary');
+                    }
+                });
+                
+                // Remove active class from all mobile links EXCEPT Home
+                mobileNavLinks.forEach(link => {
+                    if (link.getAttribute('href') !== '#home') {
+                        link.classList.remove('mobile-nav-link-active');
+                        link.classList.add('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
+                    }
+                });
+                
+                // Add active class to current section
+                const desktopLink = document.querySelector(`nav a[href="#${sectionName}"]`);
+                const mobileLink = document.querySelector(`#mobile-menu a[href="#${sectionName}"]`);
+                
+                if (desktopLink) {
+                    desktopLink.classList.remove('text-dark', 'hover:text-primary');
+                    desktopLink.classList.add('nav-link-active');
+                    console.log(`✅ Desktop link activated for ${sectionName}: ${desktopLink.textContent}`);
+                } else {
+                    console.log(`❌ Desktop link not found for section: ${sectionName}`);
+                }
+                
+                if (mobileLink) {
+                    mobileLink.classList.remove('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
+                    mobileLink.classList.add('mobile-nav-link-active');
+                    console.log(`✅ Mobile link activated for ${sectionName}: ${mobileLink.textContent}`);
+                } else {
+                    console.log(`❌ Mobile link not found for section: ${sectionName}`);
+                }
+            }
             
             // Function to update active navigation based on scroll
             function updateActiveNav() {
@@ -1321,34 +1406,7 @@ function initScrollNavigation() {
                 });
                 
                 if (activeSection) {
-                    console.log(`Activating section: ${activeSection}`);
-                    
-                    // Remove active class from all desktop links
-                    desktopNavLinks.forEach(link => {
-                        link.classList.remove('nav-link-active');
-                        link.classList.add('text-dark', 'hover:text-primary');
-                    });
-                    
-                    // Remove active class from all mobile links
-                    mobileNavLinks.forEach(link => {
-                        link.classList.remove('mobile-nav-link-active');
-                        link.classList.add('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
-                    });
-                    
-                    // Add active class to current section
-                    const desktopLink = document.querySelector(`nav a[href="#${activeSection}"]`);
-                    const mobileLink = document.querySelector(`#mobile-menu a[href="#${activeSection}"]`);
-                    
-                    if (desktopLink) {
-                        desktopLink.classList.remove('text-dark', 'hover:text-primary');
-                        desktopLink.classList.add('nav-link-active');
-                        console.log(`Desktop link activated for ${activeSection}`);
-                    }
-                    if (mobileLink) {
-                        mobileLink.classList.remove('text-dark', 'hover:text-primary', 'hover:bg-gray-50');
-                        mobileLink.classList.add('mobile-nav-link-active');
-                        console.log(`Mobile link activated for ${activeSection}`);
-                    }
+                    activateSection(activeSection);
                 }
             }
             
@@ -1363,62 +1421,51 @@ function initScrollNavigation() {
             
             window.addEventListener('scroll', requestTick);
             
+            // Check URL hash on page load and activate correct section
+            function checkUrlHash() {
+                const hash = window.location.hash.replace('#', '');
+                if (hash && sections.includes(hash)) {
+                    console.log(`URL hash detected: ${hash}`);
+                    activateSection(hash);
+                } else {
+                    // No hash or invalid hash, use scroll position
+                    updateActiveNav();
+                }
+            }
+            
             // Initial call to set correct state
-            updateActiveNav();
+            checkUrlHash();
+            
+            // Listen for hash changes
+            window.addEventListener('hashchange', checkUrlHash);
+            
+            // Test Reviews button activation specifically
+            setTimeout(() => {
+                const testimonialsSection = document.getElementById('testimonials');
+                const reviewsDesktopLink = document.querySelector('nav a[href="#testimonials"]');
+                const reviewsMobileLink = document.querySelector('#mobile-menu a[href="#testimonials"]');
+                
+                if (testimonialsSection) {
+                    console.log('✅ Testimonials section found');
+                } else {
+                    console.log('❌ Testimonials section not found');
+                }
+                
+                if (reviewsDesktopLink) {
+                    console.log('✅ Reviews desktop link found:', reviewsDesktopLink.textContent);
+                } else {
+                    console.log('❌ Reviews desktop link not found');
+                }
+                
+                if (reviewsMobileLink) {
+                    console.log('✅ Reviews mobile link found:', reviewsMobileLink.textContent);
+                } else {
+                    console.log('❌ Reviews mobile link not found');
+                }
+            }, 500);
         }
         
     }, 100); // Small delay to ensure DOM is ready
-}
-
-// Test function to verify navigation highlighting
-function testNavigationHighlighting() {
-    console.log('Testing navigation highlighting...');
-    
-    // Test About page highlighting
-    const aboutLink = document.querySelector('a[href="about.html"]');
-    if (aboutLink) {
-        console.log('Testing About link highlighting...');
-        aboutLink.classList.remove('text-dark', 'hover:text-primary');
-        aboutLink.classList.add('nav-link-active');
-        
-        // Check if underline is visible
-        setTimeout(() => {
-            const computedStyle = window.getComputedStyle(aboutLink, '::after');
-            console.log('About link underline test completed');
-            
-            // Remove the test class after 3 seconds
-            setTimeout(() => {
-                aboutLink.classList.remove('nav-link-active');
-                aboutLink.classList.add('text-dark', 'hover:text-primary');
-            }, 3000);
-        }, 100);
-    }
-    
-    // Test Pricing page highlighting
-    const pricingLink = document.querySelector('a[href="pricing.html"]');
-    if (pricingLink) {
-        console.log('Testing Pricing link highlighting...');
-        pricingLink.classList.remove('text-dark', 'hover:text-primary');
-        pricingLink.classList.add('nav-link-active');
-        
-        setTimeout(() => {
-            pricingLink.classList.remove('nav-link-active');
-            pricingLink.classList.add('text-dark', 'hover:text-primary');
-        }, 3000);
-    }
-    
-    // Test White Label page highlighting
-    const whiteLabelLink = document.querySelector('a[href="white-label.html"]');
-    if (whiteLabelLink) {
-        console.log('Testing White Label link highlighting...');
-        whiteLabelLink.classList.remove('text-dark', 'hover:text-primary');
-        whiteLabelLink.classList.add('nav-link-active');
-        
-        setTimeout(() => {
-            whiteLabelLink.classList.remove('nav-link-active');
-            whiteLabelLink.classList.add('text-dark', 'hover:text-primary');
-        }, 3000);
-    }
 }
 
 
