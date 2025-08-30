@@ -113,6 +113,29 @@
                 height: 320px;
             }
         }
+        
+        /* Active Navigation Link Styles */
+        .nav-link-active {
+            color: #FF6B35 !important;
+            position: relative;
+        }
+        
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #FF6B35;
+            border-radius: 1px;
+        }
+        
+        /* Mobile active navigation styles */
+        .mobile-nav-link-active {
+            color: #FF6B35 !important;
+            background-color: #FFF5F2 !important;
+        }
     </style>
 </head>
 <body class="font-inter text-dark">
@@ -128,7 +151,7 @@
                 <!-- Desktop Navigation -->
                 <ul class="hidden lg:flex items-center space-x-4">
                     <li><a href="index.html" class="text-dark hover:text-primary font-medium transition-colors">Home</a></li>
-                    <li><a href="about.html" class="text-primary font-medium">About</a></li>
+                    <li><a href="about.html" class="nav-link-active font-medium transition-colors">About</a></li>
                     <li><a href="pricing.html" class="text-dark hover:text-primary font-medium transition-colors">Pricing</a></li>
                     <li><a href="white-label.html" class="text-dark hover:text-primary font-medium transition-colors">White Label</a></li>
                     <li><a href="index.html#services" class="text-dark hover:text-primary font-medium transition-colors">Services</a></li>
@@ -151,7 +174,7 @@
             <div class="lg:hidden hidden bg-white border-t border-gray-200 shadow-xl" id="mobile-menu">
                 <div class="py-4 space-y-2">
                     <a href="index.html" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">Home</a>
-                    <a href="about.html" class="block px-4 py-3 text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">About</a>
+                    <a href="about.html" class="mobile-nav-link-active block px-4 py-3 font-medium transition-all rounded-lg">About</a>
                     <a href="pricing.html" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">Pricing</a>
                     <a href="white-label.html" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">White Label</a>
                     <a href="index.html#services" class="block px-4 py-3 text-dark hover:text-primary hover:bg-gray-50 font-medium transition-all rounded-lg">Services</a>
